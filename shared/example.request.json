@@ -1,0 +1,11 @@
+{
+  "company": {
+    "name": "Intuitive Surgical, Inc.",
+    "ticker": "ISRG",
+    "cik": "0001035267"
+  },
+  "fiscal_year": 2026,
+  "period": "Q2",
+  "as_of": "2026-10-23",
+  "evidence_backend": "sec"
+}
