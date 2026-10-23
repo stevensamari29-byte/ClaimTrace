@@ -1,5 +1,6 @@
--- REVIEWABLE CANDIDATE ONLY. NOT EXECUTED. Use recorded scoped owner approval.
--- Scope approved 2026-10-23; a real owner-approved SEC contact is still required.
+-- APPROVED TEMPLATE: executed once on the owner's existing cloud instance.
+-- See work/live-data.json for verified creation and real financial query evidence.
+-- DO NOT rerun CREATE statements against existing objects. Contact remains private.
 -- Official syntax: https://raw.githubusercontent.com/zetaris/getting-started/main/open_data/rest_apis/sql/rate_limited/01_edgar_company_facts_create.sql
 -- Scope: one isolated Lightning DB, one SchemaStore container, three REST
 -- registrations, one view. No overwrites/grants/cache/pipeline/AWS resources.
