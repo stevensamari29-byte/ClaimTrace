@@ -6,7 +6,7 @@ Foundation: React/Vite → FastAPI → attributed financial evidence, with a det
 Use the existing private repository: `https://github.com/stevensamari29-byte/ClaimTrace.git`. Python 3.11+ and Node 22.12+ are sufficient; the verified workstation uses Python 3.14 and Node 24. No Docker, new cloud services or model credentials are required to run this slice.
 
 ```powershell
-git clone https://github.com/stevensamari29-byte/ClaimTrace.git
+git clone --branch codex/mvp-foundation https://github.com/stevensamari29-byte/ClaimTrace.git
 cd ClaimTrace
 python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r backend/requirements.txt
