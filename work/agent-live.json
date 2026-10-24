@@ -1,0 +1,1061 @@
+{
+  "observed_at": "2026-10-24T17:39:22.752995+00:00",
+  "cases": [
+    {
+      "label": "A/C live ISRG Q2 Zetaris",
+      "request": {
+        "request": {
+          "company": {
+            "name": "ISRG",
+            "ticker": "ISRG",
+            "cik": "0001035267"
+          },
+          "fiscal_year": 2026,
+          "period": "Q2",
+          "as_of": "2026-10-24",
+          "evidence_backend": "zetaris"
+        },
+        "claim_inputs": [
+          {
+            "id": "revenue",
+            "text": "Human assertion for independent live acceptance: quarterly revenue 2892300000 USD.",
+            "metric": "revenue",
+            "expected_value_decimal": "2892300000",
+            "unit": "USD",
+            "accounting_basis": "GAAP",
+            "period_start": "2026-04-01",
+            "period_end": "2026-06-30"
+          }
+        ]
+      },
+      "execution_mode": "incomplete_no_live_model",
+      "model_inference_performed": false,
+      "status": "partial",
+      "findings": [
+        {
+          "claim_id": "revenue",
+          "classification": "supported",
+          "evidence_ids": [
+            "ISRG-revenue-2026-04-01-2026-06-30"
+          ],
+          "explanation": "Comparable GAAP evidence agrees within the declared tolerance.",
+          "supporting_findings": [
+            "Comparable evidence and declared tolerance agree."
+          ],
+          "challenging_findings": [
+            "Legacy float boundary limits precision; source rounding is not independently established.",
+            "Source content hash is unavailable for at least one citation."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD",
+          "value": 2892300000.0,
+          "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_zetaris",
+          "source_sha256": null
+        },
+        {
+          "id": "ISRG-eps-2026-04-01-2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD/shares",
+          "value": 2.29,
+          "concept": "EarningsPerShareDiluted",
+          "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_zetaris",
+          "source_sha256": null
+        },
+        {
+          "id": "ISRG-netincome-2026-04-01-2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD",
+          "value": 818100000.0,
+          "concept": "NetIncomeLoss",
+          "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_zetaris",
+          "source_sha256": null
+        }
+      ],
+      "citations": [
+        {
+          "evidence_id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "published_at": "2026-07-21",
+          "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_zetaris",
+          "source_sha256": null
+        },
+        {
+          "evidence_id": "ISRG-eps-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "published_at": "2026-07-21",
+          "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_zetaris",
+          "source_sha256": null
+        },
+        {
+          "evidence_id": "ISRG-netincome-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "published_at": "2026-07-21",
+          "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_zetaris",
+          "source_sha256": null
+        }
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "state": "validate",
+          "elapsed_ms": 0,
+          "decision": "Typed human assertions accepted; model extraction unavailable."
+        },
+        {
+          "step": 2,
+          "state": "retrieve",
+          "elapsed_ms": 3996,
+          "tool": "retrieve_financial_evidence",
+          "backend": "zetaris",
+          "ok": true,
+          "eligible_count": 3,
+          "rejected_count": 0
+        },
+        {
+          "step": 3,
+          "state": "verify",
+          "elapsed_ms": 3996,
+          "tool": "financial_verification_batch",
+          "classifications": [
+            "supported"
+          ]
+        },
+        {
+          "step": 4,
+          "state": "challenge",
+          "elapsed_ms": 3996,
+          "decision": "Comparable values agree; retain precision qualifications.",
+          "findings": [
+            {
+              "claim_id": "revenue",
+              "checks": [
+                "Legacy float boundary limits precision; source rounding is not independently established.",
+                "Source content hash is unavailable for at least one citation."
+              ],
+              "quality_checks": {
+                "accounting_basis_is_gaap": true,
+                "exact_period_matches": true,
+                "publication_cutoff_met": true,
+                "citations_resolve": true,
+                "comparable_value_check": "supported",
+                "source_precision_established": false
+              },
+              "additional_evidence_needed": false
+            }
+          ]
+        },
+        {
+          "step": 5,
+          "state": "conclude",
+          "elapsed_ms": 3996,
+          "decision": "Return source-backed deterministic findings for required human review; model capability remains incomplete."
+        }
+      ],
+      "tool_calls": 2,
+      "limitations": [
+        "Incomplete agent implementation: no live model extraction, reasoning or generation.",
+        "Typed human assertions and deterministic rules choose tools and conclusions.",
+        "Financial inputs cross the existing float boundary; Decimal operations do not recover original source precision.",
+        "Fiscal-year/quarter identity is validated by the existing source readers; the legacy Evidence object carries dates, not a second independent fiscal-calendar mapping.",
+        "Only GAAP revenue, diluted EPS, net income and net margin are supported; no reconciliation or causal reasoning.",
+        "GAAP classification is restricted to the allowlisted us-gaap concepts returned by existing scoped SEC/Zetaris readers; no non-GAAP reconciliation is inferred.",
+        "A Zetaris challenge may request the existing SEC reader for additional concepts; no independent issuer release or arbitrary document is fetched."
+      ],
+      "human_review_status": "required"
+    },
+    {
+      "label": "B contradictory assertion requests recheck",
+      "request": {
+        "request": {
+          "company": {
+            "name": "ISRG",
+            "ticker": "ISRG",
+            "cik": "0001035267"
+          },
+          "fiscal_year": 2026,
+          "period": "Q2",
+          "as_of": "2026-10-24",
+          "evidence_backend": "zetaris"
+        },
+        "claim_inputs": [
+          {
+            "id": "revenue",
+            "text": "Human assertion for independent live acceptance: quarterly revenue 1 USD.",
+            "metric": "revenue",
+            "expected_value_decimal": "1",
+            "unit": "USD",
+            "accounting_basis": "GAAP",
+            "period_start": "2026-04-01",
+            "period_end": "2026-06-30"
+          }
+        ]
+      },
+      "execution_mode": "incomplete_no_live_model",
+      "model_inference_performed": false,
+      "status": "partial",
+      "findings": [
+        {
+          "claim_id": "revenue",
+          "classification": "contradicted",
+          "evidence_ids": [
+            "ISRG-revenue-2026-04-01-2026-06-30",
+            "RevenueFromContractWithCustomerExcludingAssessedTax-2026-04-01-2026-06-30"
+          ],
+          "explanation": "Comparable GAAP evidence disagrees beyond the declared tolerance.",
+          "supporting_findings": [],
+          "challenging_findings": [
+            "Legacy float boundary limits precision; source rounding is not independently established.",
+            "Comparable GAAP evidence disagrees beyond the declared tolerance.",
+            "Source content hash is unavailable for at least one citation."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD",
+          "value": 2892300000.0,
+          "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_zetaris",
+          "source_sha256": null
+        },
+        {
+          "id": "ISRG-eps-2026-04-01-2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD/shares",
+          "value": 2.29,
+          "concept": "EarningsPerShareDiluted",
+          "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_zetaris",
+          "source_sha256": null
+        },
+        {
+          "id": "ISRG-netincome-2026-04-01-2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD",
+          "value": 818100000.0,
+          "concept": "NetIncomeLoss",
+          "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_zetaris",
+          "source_sha256": null
+        },
+        {
+          "id": "RevenueFromContractWithCustomerExcludingAssessedTax-2026-04-01-2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD",
+          "value": 2892300000.0,
+          "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "locator": "Companyfacts us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax/USD; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953"
+        },
+        {
+          "id": "NetIncomeLoss-2026-04-01-2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD",
+          "value": 818100000.0,
+          "concept": "NetIncomeLoss",
+          "locator": "Companyfacts us-gaap/NetIncomeLoss/USD; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953"
+        },
+        {
+          "id": "EarningsPerShareDiluted-2026-04-01-2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD/shares",
+          "value": 2.29,
+          "concept": "EarningsPerShareDiluted",
+          "locator": "Companyfacts us-gaap/EarningsPerShareDiluted/USD/shares; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953"
+        },
+        {
+          "id": "OperatingIncomeLoss-2026-04-01-2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD",
+          "value": 971900000.0,
+          "concept": "OperatingIncomeLoss",
+          "locator": "Companyfacts us-gaap/OperatingIncomeLoss/USD; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953"
+        },
+        {
+          "id": "GrossProfit-2026-04-01-2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD",
+          "value": 1960400000.0,
+          "concept": "GrossProfit",
+          "locator": "Companyfacts us-gaap/GrossProfit/USD; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953"
+        }
+      ],
+      "citations": [
+        {
+          "evidence_id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "published_at": "2026-07-21",
+          "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_zetaris",
+          "source_sha256": null
+        },
+        {
+          "evidence_id": "ISRG-eps-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "published_at": "2026-07-21",
+          "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_zetaris",
+          "source_sha256": null
+        },
+        {
+          "evidence_id": "ISRG-netincome-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "published_at": "2026-07-21",
+          "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_zetaris",
+          "source_sha256": null
+        },
+        {
+          "evidence_id": "RevenueFromContractWithCustomerExcludingAssessedTax-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "published_at": "2026-07-21",
+          "locator": "Companyfacts us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax/USD; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953"
+        },
+        {
+          "evidence_id": "NetIncomeLoss-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "published_at": "2026-07-21",
+          "locator": "Companyfacts us-gaap/NetIncomeLoss/USD; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953"
+        },
+        {
+          "evidence_id": "EarningsPerShareDiluted-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "published_at": "2026-07-21",
+          "locator": "Companyfacts us-gaap/EarningsPerShareDiluted/USD/shares; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953"
+        },
+        {
+          "evidence_id": "OperatingIncomeLoss-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "published_at": "2026-07-21",
+          "locator": "Companyfacts us-gaap/OperatingIncomeLoss/USD; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953"
+        },
+        {
+          "evidence_id": "GrossProfit-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "published_at": "2026-07-21",
+          "locator": "Companyfacts us-gaap/GrossProfit/USD; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953"
+        }
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "state": "validate",
+          "elapsed_ms": 0,
+          "decision": "Typed human assertions accepted; model extraction unavailable."
+        },
+        {
+          "step": 2,
+          "state": "retrieve",
+          "elapsed_ms": 2904,
+          "tool": "retrieve_financial_evidence",
+          "backend": "zetaris",
+          "ok": true,
+          "eligible_count": 3,
+          "rejected_count": 0
+        },
+        {
+          "step": 3,
+          "state": "verify",
+          "elapsed_ms": 2904,
+          "tool": "financial_verification_batch",
+          "classifications": [
+            "contradicted"
+          ]
+        },
+        {
+          "step": 4,
+          "state": "challenge",
+          "elapsed_ms": 2904,
+          "decision": "Request one fresh read for missing or contrary evidence.",
+          "findings": [
+            {
+              "claim_id": "revenue",
+              "checks": [
+                "Legacy float boundary limits precision; source rounding is not independently established.",
+                "Comparable GAAP evidence disagrees beyond the declared tolerance.",
+                "Source content hash is unavailable for at least one citation."
+              ],
+              "quality_checks": {
+                "accounting_basis_is_gaap": true,
+                "exact_period_matches": true,
+                "publication_cutoff_met": true,
+                "citations_resolve": true,
+                "comparable_value_check": "contradicted",
+                "source_precision_established": false
+              },
+              "additional_evidence_needed": true
+            }
+          ]
+        },
+        {
+          "step": 5,
+          "state": "recheck",
+          "elapsed_ms": 4974,
+          "tool": "retrieve_financial_evidence",
+          "backend": "sec",
+          "reason": "Explicit challenger found missing, conflicting, unsupported or contrary evidence; request additional SEC concepts when starting from Zetaris.",
+          "ok": true,
+          "eligible_count": 8,
+          "rejected_count": 0
+        },
+        {
+          "step": 6,
+          "state": "reverify",
+          "elapsed_ms": 4974,
+          "tool": "financial_verification_batch",
+          "classifications": [
+            "contradicted"
+          ]
+        },
+        {
+          "step": 7,
+          "state": "conclude",
+          "elapsed_ms": 4974,
+          "decision": "Return source-backed deterministic findings for required human review; model capability remains incomplete."
+        }
+      ],
+      "tool_calls": 4,
+      "limitations": [
+        "Incomplete agent implementation: no live model extraction, reasoning or generation.",
+        "Typed human assertions and deterministic rules choose tools and conclusions.",
+        "Financial inputs cross the existing float boundary; Decimal operations do not recover original source precision.",
+        "Fiscal-year/quarter identity is validated by the existing source readers; the legacy Evidence object carries dates, not a second independent fiscal-calendar mapping.",
+        "Only GAAP revenue, diluted EPS, net income and net margin are supported; no reconciliation or causal reasoning.",
+        "GAAP classification is restricted to the allowlisted us-gaap concepts returned by existing scoped SEC/Zetaris readers; no non-GAAP reconciliation is inferred.",
+        "A Zetaris challenge may request the existing SEC reader for additional concepts; no independent issuer release or arbitrary document is fetched."
+      ],
+      "human_review_status": "required"
+    },
+    {
+      "label": "D prepublication no eligible evidence",
+      "request": {
+        "request": {
+          "company": {
+            "name": "ISRG",
+            "ticker": "ISRG",
+            "cik": "0001035267"
+          },
+          "fiscal_year": 2026,
+          "period": "Q2",
+          "as_of": "2026-07-20",
+          "evidence_backend": "zetaris"
+        },
+        "claim_inputs": [
+          {
+            "id": "revenue",
+            "text": "Human assertion for independent live acceptance: quarterly revenue 2892300000 USD.",
+            "metric": "revenue",
+            "expected_value_decimal": "2892300000",
+            "unit": "USD",
+            "accounting_basis": "GAAP",
+            "period_start": "2026-04-01",
+            "period_end": "2026-06-30"
+          }
+        ]
+      },
+      "execution_mode": "incomplete_no_live_model",
+      "model_inference_performed": false,
+      "status": "blocked",
+      "findings": [
+        {
+          "claim_id": "revenue",
+          "classification": "incomplete",
+          "evidence_ids": [],
+          "explanation": "No eligible evidence matches the metric, exact period and unit; YTD is never substituted for a quarter.",
+          "supporting_findings": [],
+          "challenging_findings": [
+            "Legacy float boundary limits precision; source rounding is not independently established.",
+            "No eligible evidence matches the metric, exact period and unit; YTD is never substituted for a quarter."
+          ]
+        }
+      ],
+      "evidence": [],
+      "citations": [],
+      "trace": [
+        {
+          "step": 1,
+          "state": "validate",
+          "elapsed_ms": 0,
+          "decision": "Typed human assertions accepted; model extraction unavailable."
+        },
+        {
+          "step": 2,
+          "state": "retrieve",
+          "elapsed_ms": 3251,
+          "tool": "retrieve_financial_evidence",
+          "backend": "zetaris",
+          "ok": true,
+          "eligible_count": 0,
+          "rejected_count": 0
+        },
+        {
+          "step": 3,
+          "state": "verify",
+          "elapsed_ms": 3251,
+          "tool": "financial_verification_batch",
+          "classifications": [
+            "incomplete"
+          ]
+        },
+        {
+          "step": 4,
+          "state": "challenge",
+          "elapsed_ms": 3251,
+          "decision": "Request one fresh read for missing or contrary evidence.",
+          "findings": [
+            {
+              "claim_id": "revenue",
+              "checks": [
+                "Legacy float boundary limits precision; source rounding is not independently established.",
+                "No eligible evidence matches the metric, exact period and unit; YTD is never substituted for a quarter."
+              ],
+              "quality_checks": {
+                "accounting_basis_is_gaap": true,
+                "exact_period_matches": false,
+                "publication_cutoff_met": false,
+                "citations_resolve": false,
+                "comparable_value_check": "incomplete",
+                "source_precision_established": false
+              },
+              "additional_evidence_needed": true
+            }
+          ]
+        },
+        {
+          "step": 5,
+          "state": "recheck",
+          "elapsed_ms": 4970,
+          "tool": "retrieve_financial_evidence",
+          "backend": "sec",
+          "reason": "Explicit challenger found missing, conflicting, unsupported or contrary evidence; request additional SEC concepts when starting from Zetaris.",
+          "ok": true,
+          "eligible_count": 0,
+          "rejected_count": 0
+        },
+        {
+          "step": 6,
+          "state": "reverify",
+          "elapsed_ms": 4970,
+          "tool": "financial_verification_batch",
+          "classifications": [
+            "incomplete"
+          ]
+        },
+        {
+          "step": 7,
+          "state": "conclude",
+          "elapsed_ms": 4970,
+          "decision": "Return source-backed deterministic findings for required human review; model capability remains incomplete."
+        }
+      ],
+      "tool_calls": 4,
+      "limitations": [
+        "Incomplete agent implementation: no live model extraction, reasoning or generation.",
+        "Typed human assertions and deterministic rules choose tools and conclusions.",
+        "Financial inputs cross the existing float boundary; Decimal operations do not recover original source precision.",
+        "Fiscal-year/quarter identity is validated by the existing source readers; the legacy Evidence object carries dates, not a second independent fiscal-calendar mapping.",
+        "Only GAAP revenue, diluted EPS, net income and net margin are supported; no reconciliation or causal reasoning.",
+        "GAAP classification is restricted to the allowlisted us-gaap concepts returned by existing scoped SEC/Zetaris readers; no non-GAAP reconciliation is inferred.",
+        "A Zetaris challenge may request the existing SEC reader for additional concepts; no independent issuer release or arbitrary document is fetched."
+      ],
+      "human_review_status": "required"
+    },
+    {
+      "label": "F second issuer same controller live SEC",
+      "request": {
+        "request": {
+          "company": {
+            "name": "MSFT",
+            "ticker": "MSFT",
+            "cik": "0000789019"
+          },
+          "fiscal_year": 2026,
+          "period": "Q3",
+          "as_of": "2026-10-24",
+          "evidence_backend": "sec"
+        },
+        "claim_inputs": [
+          {
+            "id": "revenue",
+            "text": "Human assertion for independent live acceptance: quarterly revenue 1 USD.",
+            "metric": "revenue",
+            "expected_value_decimal": "1",
+            "unit": "USD",
+            "accounting_basis": "GAAP",
+            "period_start": "2026-01-01",
+            "period_end": "2026-03-31"
+          }
+        ]
+      },
+      "execution_mode": "incomplete_no_live_model",
+      "model_inference_performed": false,
+      "status": "partial",
+      "findings": [
+        {
+          "claim_id": "revenue",
+          "classification": "contradicted",
+          "evidence_ids": [
+            "RevenueFromContractWithCustomerExcludingAssessedTax-2026-01-01-2026-03-31"
+          ],
+          "explanation": "Comparable GAAP evidence disagrees beyond the declared tolerance.",
+          "supporting_findings": [],
+          "challenging_findings": [
+            "Legacy float boundary limits precision; source rounding is not independently established.",
+            "Comparable GAAP evidence disagrees beyond the declared tolerance."
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "RevenueFromContractWithCustomerExcludingAssessedTax-2026-01-01-2026-03-31",
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html",
+          "published_at": "2026-04-29",
+          "period_start": "2026-01-01",
+          "period_end": "2026-03-31",
+          "unit": "USD",
+          "value": 82886000000.0,
+          "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "locator": "Companyfacts us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax/USD; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+        },
+        {
+          "id": "NetIncomeLoss-2026-01-01-2026-03-31",
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html",
+          "published_at": "2026-04-29",
+          "period_start": "2026-01-01",
+          "period_end": "2026-03-31",
+          "unit": "USD",
+          "value": 31778000000.0,
+          "concept": "NetIncomeLoss",
+          "locator": "Companyfacts us-gaap/NetIncomeLoss/USD; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+        },
+        {
+          "id": "EarningsPerShareDiluted-2026-01-01-2026-03-31",
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html",
+          "published_at": "2026-04-29",
+          "period_start": "2026-01-01",
+          "period_end": "2026-03-31",
+          "unit": "USD/shares",
+          "value": 4.27,
+          "concept": "EarningsPerShareDiluted",
+          "locator": "Companyfacts us-gaap/EarningsPerShareDiluted/USD/shares; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+        },
+        {
+          "id": "OperatingIncomeLoss-2026-01-01-2026-03-31",
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html",
+          "published_at": "2026-04-29",
+          "period_start": "2026-01-01",
+          "period_end": "2026-03-31",
+          "unit": "USD",
+          "value": 38398000000.0,
+          "concept": "OperatingIncomeLoss",
+          "locator": "Companyfacts us-gaap/OperatingIncomeLoss/USD; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+        },
+        {
+          "id": "GrossProfit-2026-01-01-2026-03-31",
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html",
+          "published_at": "2026-04-29",
+          "period_start": "2026-01-01",
+          "period_end": "2026-03-31",
+          "unit": "USD",
+          "value": 56058000000.0,
+          "concept": "GrossProfit",
+          "locator": "Companyfacts us-gaap/GrossProfit/USD; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+        }
+      ],
+      "citations": [
+        {
+          "evidence_id": "RevenueFromContractWithCustomerExcludingAssessedTax-2026-01-01-2026-03-31",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html",
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "published_at": "2026-04-29",
+          "locator": "Companyfacts us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax/USD; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+        },
+        {
+          "evidence_id": "NetIncomeLoss-2026-01-01-2026-03-31",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html",
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "published_at": "2026-04-29",
+          "locator": "Companyfacts us-gaap/NetIncomeLoss/USD; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+        },
+        {
+          "evidence_id": "EarningsPerShareDiluted-2026-01-01-2026-03-31",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html",
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "published_at": "2026-04-29",
+          "locator": "Companyfacts us-gaap/EarningsPerShareDiluted/USD/shares; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+        },
+        {
+          "evidence_id": "OperatingIncomeLoss-2026-01-01-2026-03-31",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html",
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "published_at": "2026-04-29",
+          "locator": "Companyfacts us-gaap/OperatingIncomeLoss/USD; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+        },
+        {
+          "evidence_id": "GrossProfit-2026-01-01-2026-03-31",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html",
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "published_at": "2026-04-29",
+          "locator": "Companyfacts us-gaap/GrossProfit/USD; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd"
+        }
+      ],
+      "trace": [
+        {
+          "step": 1,
+          "state": "validate",
+          "elapsed_ms": 0,
+          "decision": "Typed human assertions accepted; model extraction unavailable."
+        },
+        {
+          "step": 2,
+          "state": "retrieve",
+          "elapsed_ms": 1921,
+          "tool": "retrieve_financial_evidence",
+          "backend": "sec",
+          "ok": true,
+          "eligible_count": 5,
+          "rejected_count": 0
+        },
+        {
+          "step": 3,
+          "state": "verify",
+          "elapsed_ms": 1921,
+          "tool": "financial_verification_batch",
+          "classifications": [
+            "contradicted"
+          ]
+        },
+        {
+          "step": 4,
+          "state": "challenge",
+          "elapsed_ms": 1921,
+          "decision": "Request one fresh read for missing or contrary evidence.",
+          "findings": [
+            {
+              "claim_id": "revenue",
+              "checks": [
+                "Legacy float boundary limits precision; source rounding is not independently established.",
+                "Comparable GAAP evidence disagrees beyond the declared tolerance."
+              ],
+              "quality_checks": {
+                "accounting_basis_is_gaap": true,
+                "exact_period_matches": true,
+                "publication_cutoff_met": true,
+                "citations_resolve": true,
+                "comparable_value_check": "contradicted",
+                "source_precision_established": false
+              },
+              "additional_evidence_needed": true
+            }
+          ]
+        },
+        {
+          "step": 5,
+          "state": "recheck",
+          "elapsed_ms": 3612,
+          "tool": "retrieve_financial_evidence",
+          "backend": "sec",
+          "reason": "Explicit challenger found missing, conflicting, unsupported or contrary evidence; request additional SEC concepts when starting from Zetaris.",
+          "ok": true,
+          "eligible_count": 5,
+          "rejected_count": 0
+        },
+        {
+          "step": 6,
+          "state": "reverify",
+          "elapsed_ms": 3612,
+          "tool": "financial_verification_batch",
+          "classifications": [
+            "contradicted"
+          ]
+        },
+        {
+          "step": 7,
+          "state": "conclude",
+          "elapsed_ms": 3612,
+          "decision": "Return source-backed deterministic findings for required human review; model capability remains incomplete."
+        }
+      ],
+      "tool_calls": 4,
+      "limitations": [
+        "Incomplete agent implementation: no live model extraction, reasoning or generation.",
+        "Typed human assertions and deterministic rules choose tools and conclusions.",
+        "Financial inputs cross the existing float boundary; Decimal operations do not recover original source precision.",
+        "Fiscal-year/quarter identity is validated by the existing source readers; the legacy Evidence object carries dates, not a second independent fiscal-calendar mapping.",
+        "Only GAAP revenue, diluted EPS, net income and net margin are supported; no reconciliation or causal reasoning.",
+        "GAAP classification is restricted to the allowlisted us-gaap concepts returned by existing scoped SEC/Zetaris readers; no non-GAAP reconciliation is inferred.",
+        "A Zetaris challenge may request the existing SEC reader for additional concepts; no independent issuer release or arbitrary document is fetched."
+      ],
+      "human_review_status": "required"
+    }
+  ],
+  "hmem_actual_engine_with_live_source_receipt": {
+    "financial_rows": "previously retrieved live Zetaris rows; controller injection is a replay, not another live financial call",
+    "denied": {
+      "status": "rejected",
+      "digest": "fd1421f9fee700b300766488c2ba03917b83c0b693df202db1a596e31ec9ef79"
+    },
+    "approved": {
+      "status": "approved",
+      "memory_id": "mem-1",
+      "digest": "fd1421f9fee700b300766488c2ba03917b83c0b693df202db1a596e31ec9ef79"
+    },
+    "restart_recall": [
+      {
+        "memory_id": "mem-1",
+        "text": "Use the quarterly GAAP context; these facts are not year-to-date.",
+        "sources": [
+          {
+            "id": "ISRG-eps-2026-04-01-2026-06-30",
+            "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+            "published_at": "2026-07-21",
+            "fingerprint": "ce496cb4c58170abf00ee27040d9fa0bfe74efb1b733c7d4b03b1088d18a1586",
+            "fingerprint_kind": "evidence_snapshot_sha256"
+          },
+          {
+            "id": "ISRG-netincome-2026-04-01-2026-06-30",
+            "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+            "published_at": "2026-07-21",
+            "fingerprint": "1d3cb000170bcb22a950eb3208a723d238bb753dadd75147b69cf53f696572a2",
+            "fingerprint_kind": "evidence_snapshot_sha256"
+          },
+          {
+            "id": "ISRG-revenue-2026-04-01-2026-06-30",
+            "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+            "published_at": "2026-07-21",
+            "fingerprint": "0248181a9fa331ba3153e9a92ba356ead0b1380eb0b59a931947e2501d32621b",
+            "fingerprint_kind": "evidence_snapshot_sha256"
+          }
+        ],
+        "reviewer": "independent-local-reviewer",
+        "digest": "fd1421f9fee700b300766488c2ba03917b83c0b693df202db1a596e31ec9ef79",
+        "reviewed_at": "2026-10-24T17:40:01.082Z",
+        "supersedes": null,
+        "retrieval": "hmem_reference_deterministic_hash_embeddings",
+        "role": "reviewed_context_only_not_financial_fact"
+      }
+    ],
+    "corrected": {
+      "status": "approved",
+      "memory_id": "mem-2",
+      "digest": "a7e50950d06c7c1a5411cf05dfa270baea946c345789315f1b9e4fbb654dc8aa"
+    },
+    "active_recall": [
+      {
+        "memory_id": "mem-2",
+        "text": "Reviewed correction: revenue and net income are GAAP quarterly facts; no non-GAAP reconciliation is supplied.",
+        "sources": [
+          {
+            "id": "ISRG-eps-2026-04-01-2026-06-30",
+            "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+            "published_at": "2026-07-21",
+            "fingerprint": "ce496cb4c58170abf00ee27040d9fa0bfe74efb1b733c7d4b03b1088d18a1586",
+            "fingerprint_kind": "evidence_snapshot_sha256"
+          },
+          {
+            "id": "ISRG-netincome-2026-04-01-2026-06-30",
+            "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+            "published_at": "2026-07-21",
+            "fingerprint": "1d3cb000170bcb22a950eb3208a723d238bb753dadd75147b69cf53f696572a2",
+            "fingerprint_kind": "evidence_snapshot_sha256"
+          },
+          {
+            "id": "ISRG-revenue-2026-04-01-2026-06-30",
+            "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+            "published_at": "2026-07-21",
+            "fingerprint": "0248181a9fa331ba3153e9a92ba356ead0b1380eb0b59a931947e2501d32621b",
+            "fingerprint_kind": "evidence_snapshot_sha256"
+          }
+        ],
+        "reviewer": "independent-local-reviewer",
+        "digest": "a7e50950d06c7c1a5411cf05dfa270baea946c345789315f1b9e4fbb654dc8aa",
+        "reviewed_at": "2026-10-24T17:40:01.484Z",
+        "supersedes": "mem-1",
+        "retrieval": "hmem_reference_deterministic_hash_embeddings",
+        "role": "reviewed_context_only_not_financial_fact"
+      }
+    ],
+    "controller_recalled_count": 1,
+    "controller_trace": [
+      {
+        "step": 1,
+        "state": "validate",
+        "elapsed_ms": 0,
+        "decision": "Typed human assertions accepted; model extraction unavailable."
+      },
+      {
+        "step": 2,
+        "state": "retrieve",
+        "elapsed_ms": 0,
+        "tool": "retrieve_financial_evidence",
+        "backend": "zetaris",
+        "ok": true,
+        "eligible_count": 3,
+        "rejected_count": 0
+      },
+      {
+        "step": 3,
+        "state": "recall",
+        "elapsed_ms": 229,
+        "tool": "hmem_recall",
+        "ok": true,
+        "count": 1
+      },
+      {
+        "step": 4,
+        "state": "verify",
+        "elapsed_ms": 229,
+        "tool": "financial_verification_batch",
+        "classifications": [
+          "supported"
+        ]
+      },
+      {
+        "step": 5,
+        "state": "challenge",
+        "elapsed_ms": 229,
+        "decision": "Comparable values agree; retain precision qualifications.",
+        "findings": [
+          {
+            "claim_id": "revenue",
+            "checks": [
+              "Legacy float boundary limits precision; source rounding is not independently established.",
+              "Source content hash is unavailable for at least one citation."
+            ],
+            "quality_checks": {
+              "accounting_basis_is_gaap": true,
+              "exact_period_matches": true,
+              "publication_cutoff_met": true,
+              "citations_resolve": true,
+              "comparable_value_check": "supported",
+              "source_precision_established": false
+            },
+            "additional_evidence_needed": false
+          }
+        ]
+      },
+      {
+        "step": 6,
+        "state": "conclude",
+        "elapsed_ms": 229,
+        "decision": "Return source-backed deterministic findings for required human review; model capability remains incomplete."
+      }
+    ],
+    "embeddings": "reference deterministic hash mocks, not semantic inference",
+    "authentication": "explicit trusted local actor, not shared-user identity"
+  }
+}

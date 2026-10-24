@@ -1,0 +1,29 @@
+{
+  "upstream_path": "engines/hmem/reference/src",
+  "repository": "https://github.com/Meterless/Meterless",
+  "modifications": "None to vendored source; adapter uses atomic state writes externally",
+  "files": [
+    {
+      "path": "embeddings.ts",
+      "sha256": "89433327ee1075a8049bc8518cdf5cabf51ad67802e192266841cdee727b6d10"
+    },
+    {
+      "path": "memoryRetrieval.ts",
+      "sha256": "4fe120b1b64fe7225b9b28fda59514c114de9e885d22c5bf0aa035788b6d629d"
+    },
+    {
+      "path": "memoryStore.ts",
+      "sha256": "a1eac8de8c0fde0e503e1212f3cb98295a661c2a8bad93ad82e51985885e6fd0"
+    },
+    {
+      "path": "trustLedger.ts",
+      "sha256": "263253dd3342c488ce773d7e728d77aec983c1833873602b59ce1a6c7999e20e"
+    },
+    {
+      "path": "types.ts",
+      "sha256": "becb504870a67646a20a421ffe04d8732db63418393423d2186c074b182f54c7"
+    }
+  ],
+  "commit": "1742dec56a66e58eef9dda2d2b865823758ca8cd",
+  "license": "Apache-2.0"
+}

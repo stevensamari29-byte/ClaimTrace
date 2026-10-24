@@ -1,6 +1,6 @@
 # ClaimTrace investigation handoff
 
-Planning only; no controller, memory integration, model call or new infrastructure is implemented by this document. Four human roles remain **unassigned**; availability and individual account access are unknown. Director integrates and records decisions in the existing task record. Use the accepted live-data foundation, not a replacement orchestration team.
+The original plan below remains the design history. Agent-first implementation now lives in `backend/investigation/`; use [the implemented controller contract](investigation-controller.md) and [real H-MEM adapter](hmem-integration.md) for current behavior. It accepts structured human assertions, runs deterministic checks/challenge/recheck and reviewed memory, and explicitly remains incomplete without model inference. It does not implement all proposed features below (notably automatic/exact-quote extraction, original Decimal source ingestion, a new HTTP run route and shared-user review authentication). Four human roles remain **unassigned**; availability and individual account access are unknown. Preserve the accepted API and minimal frontend.
 
 ## Existing contract: implemented
 
