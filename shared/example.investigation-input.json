@@ -1,0 +1,22 @@
+{
+  "request": {
+    "company": {"name": "Intuitive Surgical", "ticker": "ISRG", "cik": "0001035267"},
+    "fiscal_year": 2026,
+    "period": "Q2",
+    "as_of": "2026-10-24",
+    "evidence_backend": "sec"
+  },
+  "claim_inputs": [
+    {
+      "id": "human-eps-assertion",
+      "text": "Human test assertion: quarterly diluted EPS was 2.29 USD per share.",
+      "metric": "diluted_eps",
+      "expected_value_decimal": "2.29",
+      "unit": "USD/shares",
+      "accounting_basis": "GAAP",
+      "period_start": "2026-04-01",
+      "period_end": "2026-06-30",
+      "input_kind": "human_assertion"
+    }
+  ]
+}

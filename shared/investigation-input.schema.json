@@ -1,0 +1,197 @@
+{
+  "$defs": {
+    "ClaimInput": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "metric": {
+          "enum": [
+            "revenue",
+            "diluted_eps",
+            "net_income",
+            "net_margin",
+            "unsupported"
+          ],
+          "title": "Metric",
+          "type": "string"
+        },
+        "expected_value_decimal": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Expected Value Decimal"
+        },
+        "unit": {
+          "default": "USD",
+          "maxLength": 40,
+          "title": "Unit",
+          "type": "string"
+        },
+        "accounting_basis": {
+          "default": "GAAP",
+          "enum": [
+            "GAAP",
+            "non-GAAP",
+            "unknown"
+          ],
+          "title": "Accounting Basis",
+          "type": "string"
+        },
+        "period_start": {
+          "format": "date",
+          "title": "Period Start",
+          "type": "string"
+        },
+        "period_end": {
+          "format": "date",
+          "title": "Period End",
+          "type": "string"
+        },
+        "input_kind": {
+          "const": "human_assertion",
+          "default": "human_assertion",
+          "title": "Input Kind",
+          "type": "string"
+        },
+        "tolerance_decimal": {
+          "anyOf": [
+            {
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Tolerance Decimal"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "metric",
+        "period_start",
+        "period_end"
+      ],
+      "title": "ClaimInput",
+      "type": "object"
+    },
+    "Company": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "ticker": {
+          "pattern": "^[A-Za-z0-9.\\-]{1,12}$",
+          "title": "Ticker",
+          "type": "string"
+        },
+        "cik": {
+          "pattern": "^\\d{1,10}$",
+          "title": "Cik",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "ticker",
+        "cik"
+      ],
+      "title": "Company",
+      "type": "object"
+    },
+    "InvestigationRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "company": {
+          "$ref": "#/$defs/Company"
+        },
+        "fiscal_year": {
+          "maximum": 2100,
+          "minimum": 1990,
+          "title": "Fiscal Year",
+          "type": "integer"
+        },
+        "period": {
+          "enum": [
+            "Q1",
+            "Q2",
+            "Q3",
+            "Q4",
+            "FY"
+          ],
+          "title": "Period",
+          "type": "string"
+        },
+        "as_of": {
+          "format": "date",
+          "title": "As Of",
+          "type": "string"
+        },
+        "evidence_backend": {
+          "default": "sec",
+          "enum": [
+            "sec",
+            "zetaris"
+          ],
+          "title": "Evidence Backend",
+          "type": "string"
+        }
+      },
+      "required": [
+        "company",
+        "fiscal_year",
+        "period",
+        "as_of"
+      ],
+      "title": "InvestigationRequest",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "request": {
+      "$ref": "#/$defs/InvestigationRequest"
+    },
+    "claim_inputs": {
+      "items": {
+        "$ref": "#/$defs/ClaimInput"
+      },
+      "maxItems": 3,
+      "minItems": 1,
+      "title": "Claim Inputs",
+      "type": "array"
+    }
+  },
+  "required": [
+    "request",
+    "claim_inputs"
+  ],
+  "title": "InvestigationInput",
+  "type": "object"
+}
