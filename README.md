@@ -5,8 +5,10 @@ Foundation: React/Vite → FastAPI → attributed financial evidence, with a det
 
 Use the existing private repository: `https://github.com/stevensamari29-byte/ClaimTrace.git`. Python 3.11+ and Node 22.12+ are sufficient; the verified workstation uses Python 3.14 and Node 24. No Docker, new cloud services or model credentials are required to run this slice.
 
+After the foundation PR is merged, teammates can clone `main` using the commands below. **Until then, use `--branch codex/mvp-foundation` instead of `--branch main`: main currently contains only the initial README.** Existing collaborators need private-repository access; this handoff does not invite people or share credentials.
+
 ```powershell
-git clone --branch codex/mvp-foundation https://github.com/stevensamari29-byte/ClaimTrace.git
+git clone --branch main https://github.com/stevensamari29-byte/ClaimTrace.git
 cd ClaimTrace
 python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r backend/requirements.txt
@@ -41,6 +43,19 @@ Configuration names are documented in [.env.example](.env.example). Set environm
 Live acceptance on October 23 succeeded after the owner privately configured the SEC contact. The existing Zetaris instance now has the approved CLAIMTRACE database, claimtrace container, three SEC REST registrations, and `claimtrace.sec_financial_evidence` view. The view contains five authentic facts: three current-quarter values and two prior-year comparisons. Actual backend SQL retrieves current-quarter revenue, diluted EPS and net income, labeled `live_zetaris`, and computes the margin; a cutoff before the filing excludes them. Live SEC retrieval independently returns five metrics, labeled `live_sec`. Evidence and independent checks are in [work/live-data.json](work/live-data.json) and [work/live-qa.md](work/live-qa.md).
 
 For an authorized existing instance, set `CLAIMTRACE_ZETARIS_TABLE=claimtrace.sec_financial_evidence` alongside the external `ZETARIS_CONFIG_PATH` before starting the backend; select **Zetaris** in the interface. Set `CLAIMTRACE_SEC_MODE=live` to use actual SEC requests instead of the development snapshot. The owner's running demo has both configured. A fresh clone still defaults to the explicitly labeled authentic snapshot and has no private access. The SQL template records the approved setup; do not rerun its CREATE statements against existing objects.
+
+Minimum live startup configuration, in the backend terminal before the existing uvicorn command:
+
+```powershell
+# Point to your already-authorized secure config, outside this checkout.
+$env:ZETARIS_CONFIG_PATH = 'C:\path\to\your\existing-zetaris.env'
+$env:CLAIMTRACE_ZETARIS_TABLE = 'claimtrace.sec_financial_evidence'
+$env:CLAIMTRACE_SEC_MODE = 'live'
+```
+
+Privately create ignored `.env.local` with `SEC_CONTACT_EMAIL=` followed by your real approved monitored address. The loader reads that field only; other example variables need the backend process environment. Live Zetaris requires authorized access to the existing instance; a clone alone does not grant it. SEC-only live mode needs the contact but no Zetaris key. To use the development snapshot, omit `CLAIMTRACE_SEC_MODE=live`; its label stays `cached_sec`. For a read-only API check, submit [shared/example.request.json](shared/example.request.json) to `POST /api/investigations`, selecting `evidence_backend: "zetaris"` for the cloud path. Expect three `live_zetaris` records, one margin calculation and required human review; cutoff `2026-07-20` gives zero evidence. Do not recreate the verified cloud objects.
+
+The four-role interface agreement and smallest next agent plan are in [docs/agent-handoff.md](docs/agent-handoff.md). It separates existing contracts from proposed agent extensions and identifies deterministic work that can proceed before Nightshift is available. No remaining role is assigned yet.
 
 Sponsor integration status:
 
