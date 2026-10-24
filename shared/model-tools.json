@@ -1,0 +1,427 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "propose_extracted_claims",
+      "description": "Propose at most three exact-quote claims from host-registered disclosure text; no factual verdict or human approval.",
+      "strict": true,
+      "parameters": {
+        "$defs": {
+          "ExtractedClaim": {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "pattern": "^[A-Za-z0-9_-]{1,80}$",
+                "title": "Id",
+                "type": "string"
+              },
+              "text": {
+                "maxLength": 4000,
+                "minLength": 1,
+                "title": "Text",
+                "type": "string"
+              },
+              "metric": {
+                "enum": [
+                  "revenue",
+                  "diluted_eps",
+                  "net_income",
+                  "net_margin",
+                  "unsupported"
+                ],
+                "title": "Metric",
+                "type": "string"
+              },
+              "expected_value_decimal": {
+                "anyOf": [
+                  {
+                    "maxLength": 80,
+                    "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:[eE][+-]?\\d+)?$",
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Expected Value Decimal"
+              },
+              "unit": {
+                "enum": [
+                  "USD",
+                  "USD millions",
+                  "USD billions",
+                  "USD/shares",
+                  "USD/share",
+                  "%",
+                  "unknown"
+                ],
+                "title": "Unit",
+                "type": "string"
+              },
+              "accounting_basis": {
+                "enum": [
+                  "GAAP",
+                  "non-GAAP",
+                  "unknown"
+                ],
+                "title": "Accounting Basis",
+                "type": "string"
+              },
+              "period_start": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                "title": "Period Start",
+                "type": "string"
+              },
+              "period_end": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                "title": "Period End",
+                "type": "string"
+              },
+              "input_kind": {
+                "const": "model_extracted_proposal",
+                "title": "Input Kind",
+                "type": "string"
+              },
+              "quote_ref": {
+                "$ref": "#/$defs/QuoteReference"
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "metric",
+              "expected_value_decimal",
+              "unit",
+              "accounting_basis",
+              "period_start",
+              "period_end",
+              "input_kind",
+              "quote_ref"
+            ],
+            "title": "ExtractedClaim",
+            "type": "object"
+          },
+          "QuoteReference": {
+            "additionalProperties": false,
+            "properties": {
+              "disclosure_id": {
+                "pattern": "^[A-Za-z0-9_-]{1,80}$",
+                "title": "Disclosure Id",
+                "type": "string"
+              },
+              "text_sha256": {
+                "pattern": "^[a-f0-9]{64}$",
+                "title": "Text Sha256",
+                "type": "string"
+              },
+              "normalization": {
+                "const": "unicode-codepoints-exact-v1",
+                "title": "Normalization",
+                "type": "string"
+              },
+              "start": {
+                "maximum": 12000,
+                "minimum": 0,
+                "title": "Start",
+                "type": "integer"
+              },
+              "end": {
+                "exclusiveMinimum": 0,
+                "maximum": 12000,
+                "title": "End",
+                "type": "integer"
+              },
+              "quote": {
+                "maxLength": 4000,
+                "minLength": 1,
+                "title": "Quote",
+                "type": "string"
+              }
+            },
+            "required": [
+              "disclosure_id",
+              "text_sha256",
+              "normalization",
+              "start",
+              "end",
+              "quote"
+            ],
+            "title": "QuoteReference",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "claims": {
+            "items": {
+              "$ref": "#/$defs/ExtractedClaim"
+            },
+            "maxItems": 3,
+            "minItems": 1,
+            "title": "Claims",
+            "type": "array"
+          }
+        },
+        "required": [
+          "claims"
+        ],
+        "title": "ExtractClaims",
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "select_evidence_checks",
+      "description": "Select permitted checks for known claims. Selection does not establish that a check ran.",
+      "strict": true,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "claim_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9_-]{1,80}$",
+              "type": "string"
+            },
+            "maxItems": 3,
+            "minItems": 1,
+            "title": "Claim Ids",
+            "type": "array"
+          },
+          "checks": {
+            "items": {
+              "enum": [
+                "source_dates",
+                "exact_period",
+                "units",
+                "accounting_basis",
+                "conflicting_values",
+                "missing_context"
+              ],
+              "type": "string"
+            },
+            "maxItems": 6,
+            "minItems": 1,
+            "title": "Checks",
+            "type": "array"
+          }
+        },
+        "required": [
+          "claim_ids",
+          "checks"
+        ],
+        "title": "SelectChecks",
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "query_financial_evidence",
+      "description": "Request approved financial metrics through the host Zetaris reader in the immutable company/period/as-of scope. No SQL or scope overrides.",
+      "strict": true,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "metrics": {
+            "items": {
+              "enum": [
+                "revenue",
+                "diluted_eps",
+                "net_income"
+              ],
+              "type": "string"
+            },
+            "maxItems": 3,
+            "minItems": 1,
+            "title": "Metrics",
+            "type": "array"
+          }
+        },
+        "required": [
+          "metrics"
+        ],
+        "title": "QueryEvidence",
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calculate_financial_claim",
+      "description": "Request deterministic comparison or GAAP margin against known eligible facts. Host computes the verdict.",
+      "strict": true,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "claim_id": {
+            "pattern": "^[A-Za-z0-9_-]{1,80}$",
+            "title": "Claim Id",
+            "type": "string"
+          },
+          "operation": {
+            "enum": [
+              "compare_value",
+              "gaap_net_margin"
+            ],
+            "title": "Operation",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9_.:-]{1,200}$",
+              "type": "string"
+            },
+            "maxItems": 25,
+            "title": "Evidence Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "claim_id",
+          "operation",
+          "evidence_ids"
+        ],
+        "title": "CalculateClaim",
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "request_additional_investigation",
+      "description": "Request the one permitted bounded recheck for a recorded non-supported finding; host selects approved reader.",
+      "strict": true,
+      "parameters": {
+        "additionalProperties": false,
+        "properties": {
+          "claim_id": {
+            "pattern": "^[A-Za-z0-9_-]{1,80}$",
+            "title": "Claim Id",
+            "type": "string"
+          },
+          "reason": {
+            "enum": [
+              "conflicting_values",
+              "missing_evidence",
+              "contradicted_value",
+              "missing_context"
+            ],
+            "title": "Reason",
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "pattern": "^[A-Za-z0-9_.:-]{1,200}$",
+              "type": "string"
+            },
+            "maxItems": 25,
+            "title": "Evidence Ids",
+            "type": "array"
+          }
+        },
+        "required": [
+          "claim_id",
+          "reason",
+          "evidence_ids"
+        ],
+        "title": "AdditionalInvestigation",
+        "type": "object"
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "submit_investigation_conclusion",
+      "description": "Propose a briefing with classifications and citations identical to host verification, after a host-recorded challenge. Human review remains required.",
+      "strict": true,
+      "parameters": {
+        "$defs": {
+          "ConclusionFinding": {
+            "additionalProperties": false,
+            "properties": {
+              "claim_id": {
+                "pattern": "^[A-Za-z0-9_-]{1,80}$",
+                "title": "Claim Id",
+                "type": "string"
+              },
+              "classification": {
+                "enum": [
+                  "supported",
+                  "contradicted",
+                  "incomplete",
+                  "unresolved"
+                ],
+                "title": "Classification",
+                "type": "string"
+              },
+              "evidence_ids": {
+                "items": {
+                  "pattern": "^[A-Za-z0-9_.:-]{1,200}$",
+                  "type": "string"
+                },
+                "maxItems": 25,
+                "title": "Evidence Ids",
+                "type": "array"
+              }
+            },
+            "required": [
+              "claim_id",
+              "classification",
+              "evidence_ids"
+            ],
+            "title": "ConclusionFinding",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "schema_version": {
+            "const": "claimtrace.model-tools.v1",
+            "title": "Schema Version",
+            "type": "string"
+          },
+          "findings": {
+            "items": {
+              "$ref": "#/$defs/ConclusionFinding"
+            },
+            "maxItems": 3,
+            "minItems": 1,
+            "title": "Findings",
+            "type": "array"
+          },
+          "briefing_proposal": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "title": "Briefing Proposal",
+            "type": "string"
+          },
+          "human_review_status": {
+            "const": "required",
+            "title": "Human Review Status",
+            "type": "string"
+          },
+          "semantic_mapping_status": {
+            "const": "unverified",
+            "title": "Semantic Mapping Status",
+            "type": "string"
+          }
+        },
+        "required": [
+          "schema_version",
+          "findings",
+          "briefing_proposal",
+          "human_review_status",
+          "semantic_mapping_status"
+        ],
+        "title": "ModelConclusion",
+        "type": "object"
+      }
+    }
+  }
+]

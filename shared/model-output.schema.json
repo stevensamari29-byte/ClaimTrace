@@ -1,0 +1,82 @@
+{
+  "$defs": {
+    "ConclusionFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "claim_id": {
+          "pattern": "^[A-Za-z0-9_-]{1,80}$",
+          "title": "Claim Id",
+          "type": "string"
+        },
+        "classification": {
+          "enum": [
+            "supported",
+            "contradicted",
+            "incomplete",
+            "unresolved"
+          ],
+          "title": "Classification",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "pattern": "^[A-Za-z0-9_.:-]{1,200}$",
+            "type": "string"
+          },
+          "maxItems": 25,
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "claim_id",
+        "classification",
+        "evidence_ids"
+      ],
+      "title": "ConclusionFinding",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "claimtrace.model-tools.v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/ConclusionFinding"
+      },
+      "maxItems": 3,
+      "minItems": 1,
+      "title": "Findings",
+      "type": "array"
+    },
+    "briefing_proposal": {
+      "maxLength": 4000,
+      "minLength": 1,
+      "title": "Briefing Proposal",
+      "type": "string"
+    },
+    "human_review_status": {
+      "const": "required",
+      "title": "Human Review Status",
+      "type": "string"
+    },
+    "semantic_mapping_status": {
+      "const": "unverified",
+      "title": "Semantic Mapping Status",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "findings",
+    "briefing_proposal",
+    "human_review_status",
+    "semantic_mapping_status"
+  ],
+  "title": "ModelConclusion",
+  "type": "object"
+}
