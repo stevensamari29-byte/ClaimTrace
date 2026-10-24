@@ -1,0 +1,78 @@
+{
+  "$defs": {
+    "Company": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Name",
+          "type": "string"
+        },
+        "ticker": {
+          "pattern": "^[A-Za-z0-9.\\-]{1,12}$",
+          "title": "Ticker",
+          "type": "string"
+        },
+        "cik": {
+          "pattern": "^\\d{1,10}$",
+          "title": "Cik",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "ticker",
+        "cik"
+      ],
+      "title": "Company",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "company": {
+      "$ref": "#/$defs/Company"
+    },
+    "fiscal_year": {
+      "maximum": 2100,
+      "minimum": 1990,
+      "title": "Fiscal Year",
+      "type": "integer"
+    },
+    "period": {
+      "enum": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "FY"
+      ],
+      "title": "Period",
+      "type": "string"
+    },
+    "as_of": {
+      "format": "date",
+      "title": "As Of",
+      "type": "string"
+    },
+    "evidence_backend": {
+      "default": "sec",
+      "enum": [
+        "sec",
+        "zetaris"
+      ],
+      "title": "Evidence Backend",
+      "type": "string"
+    }
+  },
+  "required": [
+    "company",
+    "fiscal_year",
+    "period",
+    "as_of"
+  ],
+  "title": "InvestigationRequest",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,371 @@
+{
+  "recorded_at": "2026-10-23T23:35:55.447057+00:00",
+  "live_sec": {
+    "status": "retrieved",
+    "count": 5,
+    "source_mode": "live_sec",
+    "metrics": {
+      "revenue": 2892300000,
+      "eps_diluted": 2.29,
+      "net_income": 818100000,
+      "operating_income": 971900000,
+      "gross_profit": 1960400000
+    },
+    "command": "CLAIMTRACE_SEC_MODE=live; .venv/Scripts/python - (backend.sources.sec_evidence with shared/example.request.json)",
+    "exit_code": 0
+  },
+  "operations": [
+    {
+      "operation": "initial_database_inventory",
+      "status": "clear",
+      "database_count": 2,
+      "claimtrace_exists": false
+    },
+    {
+      "operation": "create0",
+      "object": "CLAIMTRACE",
+      "status": "http200_requires_postcondition",
+      "http_status": 200,
+      "shape": "tabular"
+    },
+    {
+      "operation": "database_postcondition",
+      "status": "verified"
+    },
+    {
+      "operation": "create1",
+      "object": "claimtrace",
+      "status": "http200_requires_postcondition",
+      "http_status": 200,
+      "shape": "tabular"
+    },
+    {
+      "operation": "create2",
+      "object": "CLAIMTRACE.isrg_revenue_facts",
+      "status": "http200_requires_postcondition",
+      "http_status": 200,
+      "shape": "tabular"
+    },
+    {
+      "operation": "approved_table_inventory",
+      "status": "retrieved",
+      "count": 1,
+      "approved_names_present": [
+        "isrg_revenue_facts"
+      ]
+    },
+    {
+      "operation": "create3",
+      "object": "CLAIMTRACE.isrg_eps_facts",
+      "status": "http200_requires_postcondition",
+      "http_status": 200,
+      "shape": "tabular"
+    },
+    {
+      "operation": "create4",
+      "object": "CLAIMTRACE.isrg_netincome_facts",
+      "status": "http200_requires_postcondition",
+      "http_status": 200,
+      "shape": "tabular"
+    },
+    {
+      "operation": "approved_table_inventory",
+      "status": "retrieved",
+      "count": 3,
+      "approved_names_present": [
+        "isrg_revenue_facts",
+        "isrg_eps_facts",
+        "isrg_netincome_facts"
+      ]
+    },
+    {
+      "operation": "create5",
+      "object": "claimtrace.sec_financial_evidence",
+      "status": "http200_requires_postcondition",
+      "http_status": 200,
+      "shape": "tabular"
+    },
+    {
+      "operation": "normalized_view_read",
+      "status": "retrieved",
+      "count": 5,
+      "rows": [
+        {
+          "evidence_id": "ISRG-revenue-2025-04-01-2025-06-30",
+          "cik": "0001035267",
+          "company_name": "Intuitive Surgical, Inc.",
+          "ticker": "ISRG",
+          "fiscal_year": "2025",
+          "fiscal_period": "Q2",
+          "reporting_period_end": "2025-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "published_at": "2026-07-21",
+          "period_start": "2025-04-01",
+          "period_end": "2025-06-30",
+          "unit": "USD",
+          "value": "2440000000.00000000",
+          "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2025-04-01; end=2025-06-30",
+          "source_sha256": null
+        },
+        {
+          "evidence_id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "cik": "0001035267",
+          "company_name": "Intuitive Surgical, Inc.",
+          "ticker": "ISRG",
+          "fiscal_year": "2026",
+          "fiscal_period": "Q2",
+          "reporting_period_end": "2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD",
+          "value": "2892300000.00000000",
+          "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+          "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_sha256": null
+        },
+        {
+          "evidence_id": "ISRG-eps-2025-04-01-2025-06-30",
+          "cik": "0001035267",
+          "company_name": "Intuitive Surgical, Inc.",
+          "ticker": "ISRG",
+          "fiscal_year": "2025",
+          "fiscal_period": "Q2",
+          "reporting_period_end": "2025-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "published_at": "2026-07-21",
+          "period_start": "2025-04-01",
+          "period_end": "2025-06-30",
+          "unit": "USD/shares",
+          "value": "1.81000000",
+          "concept": "EarningsPerShareDiluted",
+          "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2025-04-01; end=2025-06-30",
+          "source_sha256": null
+        },
+        {
+          "evidence_id": "ISRG-eps-2026-04-01-2026-06-30",
+          "cik": "0001035267",
+          "company_name": "Intuitive Surgical, Inc.",
+          "ticker": "ISRG",
+          "fiscal_year": "2026",
+          "fiscal_period": "Q2",
+          "reporting_period_end": "2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD/shares",
+          "value": "2.29000000",
+          "concept": "EarningsPerShareDiluted",
+          "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_sha256": null
+        },
+        {
+          "evidence_id": "ISRG-netincome-2026-04-01-2026-06-30",
+          "cik": "0001035267",
+          "company_name": "Intuitive Surgical, Inc.",
+          "ticker": "ISRG",
+          "fiscal_year": "2026",
+          "fiscal_period": "Q2",
+          "reporting_period_end": "2026-06-30",
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+          "published_at": "2026-07-21",
+          "period_start": "2026-04-01",
+          "period_end": "2026-06-30",
+          "unit": "USD",
+          "value": "818100000.00000000",
+          "concept": "NetIncomeLoss",
+          "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "source_sha256": null
+        }
+      ]
+    },
+    {
+      "operation": "actual_product_zetaris_api",
+      "status": "verified",
+      "http_status": 200,
+      "count": 3,
+      "source_modes": [
+        "live_zetaris"
+      ],
+      "metric_values": {
+        "RevenueFromContractWithCustomerExcludingAssessedTax": 2892300000.0,
+        "EarningsPerShareDiluted": 2.29,
+        "NetIncomeLoss": 818100000.0
+      },
+      "calculation_count": 1
+    },
+    {
+      "operation": "actual_product_prefiling_cutoff",
+      "status": "verified",
+      "http_status": 200,
+      "count": 0,
+      "application_status": "blocked"
+    }
+  ],
+  "objects_created": [
+    "CLAIMTRACE",
+    "claimtrace",
+    "CLAIMTRACE.isrg_revenue_facts",
+    "CLAIMTRACE.isrg_eps_facts",
+    "CLAIMTRACE.isrg_netincome_facts",
+    "claimtrace.sec_financial_evidence"
+  ],
+  "product_response": {
+    "company": {
+      "name": "Intuitive Surgical, Inc.",
+      "ticker": "ISRG",
+      "cik": "0001035267"
+    },
+    "fiscal_year": 2026,
+    "period": "Q2",
+    "as_of": "2026-10-23",
+    "evidence_backend": "zetaris",
+    "status": "partial",
+    "evidence": [
+      {
+        "id": "ISRG-revenue-2026-04-01-2026-06-30",
+        "document": "SEC 10-Q 0001035267-26-000058",
+        "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+        "published_at": "2026-07-21",
+        "period_start": "2026-04-01",
+        "period_end": "2026-06-30",
+        "unit": "USD",
+        "value": 2892300000.0,
+        "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+        "source_mode": "live_zetaris",
+        "source_sha256": null
+      },
+      {
+        "id": "ISRG-eps-2026-04-01-2026-06-30",
+        "document": "SEC 10-Q 0001035267-26-000058",
+        "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+        "published_at": "2026-07-21",
+        "period_start": "2026-04-01",
+        "period_end": "2026-06-30",
+        "unit": "USD/shares",
+        "value": 2.29,
+        "concept": "EarningsPerShareDiluted",
+        "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+        "source_mode": "live_zetaris",
+        "source_sha256": null
+      },
+      {
+        "id": "ISRG-netincome-2026-04-01-2026-06-30",
+        "document": "SEC 10-Q 0001035267-26-000058",
+        "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+        "published_at": "2026-07-21",
+        "period_start": "2026-04-01",
+        "period_end": "2026-06-30",
+        "unit": "USD",
+        "value": 818100000.0,
+        "concept": "NetIncomeLoss",
+        "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+        "source_mode": "live_zetaris",
+        "source_sha256": null
+      }
+    ],
+    "claims": [],
+    "calculations": [
+      {
+        "id": "gaap-net-margin",
+        "label": "GAAP net margin",
+        "formula": "NetIncomeLoss / Revenue \u00d7 100",
+        "value": 28.285448,
+        "unit": "percent",
+        "evidence_ids": [
+          "ISRG-netincome-2026-04-01-2026-06-30",
+          "ISRG-revenue-2026-04-01-2026-06-30"
+        ]
+      }
+    ],
+    "findings": [],
+    "limitations": [
+      "Deterministic evidence foundation; no model inference or autonomous investigation has run.",
+      "Source publication dates are day-level. Human review is required.",
+      "Live SEC selection verifies report dates against recent submissions; older unindexed filings may be unavailable.",
+      "No non-GAAP normalization, guidance analysis, or independent issuer corroboration is implemented."
+    ],
+    "unresolved_questions": [
+      "Review the primary documents and identify the earnings claims to investigate."
+    ],
+    "human_review_status": "required",
+    "integration_status": {
+      "sec": "not_requested",
+      "zetaris": "live_queries",
+      "nightshift": "not_connected",
+      "hmem": "interface_only"
+    }
+  },
+  "execution_commands": [
+    {
+      "command": ".venv/Scripts/python .local/live_data.py inventory",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python .local/live_data.py create0",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python .local/live_data.py dbverify",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python .local/live_data.py create1",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python .local/live_data.py create2",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python .local/live_data.py tables",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python .local/live_data.py create3",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python .local/live_data.py create4",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python .local/live_data.py tables",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python .local/live_data.py create5",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python .local/live_data.py verifyview",
+      "exit_code": 0
+    },
+    {
+      "command": ".venv/Scripts/python .local/live_data.py verifyapp",
+      "exit_code": 0
+    }
+  ],
+  "approval_scope": "Exactly one CLAIMTRACE Lightning database, one claimtrace container, three SEC REST registrations, one normalized financial view; read-only bounded verification.",
+  "creation_postconditions": {
+    "database": "SHOW LIGHTNING DATABASES verified CLAIMTRACE",
+    "registrations": "SHOW LIGHTNING TABLES CLAIMTRACE verified exactly three approved registration names",
+    "container_and_view": "Read normalized claimtrace.sec_financial_evidence with all three REST-backed source branches; five exact facts returned"
+  },
+  "repair_cycles_used": 0,
+  "limitations": [
+    "Initial normalized dataset is scoped to authentic ISRG Q2 2026 and paired Q2 2025 comparison facts. Generic API/core retains reusable issuer/year/period inputs.",
+    "Live Zetaris records retain primary SEC URLs, accession/concept/start/end locators and filing dates; raw response SHA256 is not supplied by the REST-backed SQL view.",
+    "No Nightshift/Nemotron inference or H-MEM controller integration was executed.",
+    "No API credentials, SEC contact, organization ID or private endpoint are contained in this record."
+  ]
+}

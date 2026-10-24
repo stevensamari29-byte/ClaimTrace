@@ -1,0 +1,116 @@
+{
+  "company": {
+    "name": "Intuitive Surgical, Inc.",
+    "ticker": "ISRG",
+    "cik": "0001035267"
+  },
+  "fiscal_year": 2026,
+  "period": "Q2",
+  "as_of": "2026-10-23",
+  "evidence_backend": "sec",
+  "status": "partial",
+  "evidence": [
+    {
+      "id": "ISRG-revenue-2026-04-01-2026-06-30",
+      "document": "SEC 10-Q 0001035267-26-000058",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-112",
+      "published_at": "2026-07-21",
+      "period_start": "2026-04-01",
+      "period_end": "2026-06-30",
+      "unit": "USD",
+      "value": 2892300000.0,
+      "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"-5\", \"display_value\": \"2,892.3\", \"ix_id\": \"f-112\", \"scale\": 6}",
+      "source_mode": "cached_sec",
+      "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c"
+    },
+    {
+      "id": "ISRG-net_income_gaap-2026-04-01-2026-06-30",
+      "document": "SEC 10-Q 0001035267-26-000058",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-168",
+      "published_at": "2026-07-21",
+      "period_start": "2026-04-01",
+      "period_end": "2026-06-30",
+      "unit": "USD",
+      "value": 818100000.0,
+      "concept": "NetIncomeLoss",
+      "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"-5\", \"display_value\": \"818.1\", \"ix_id\": \"f-168\", \"scale\": 6}",
+      "source_mode": "cached_sec",
+      "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c"
+    },
+    {
+      "id": "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30",
+      "document": "SEC 10-Q 0001035267-26-000058",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-176",
+      "published_at": "2026-07-21",
+      "period_start": "2026-04-01",
+      "period_end": "2026-06-30",
+      "unit": "USD/shares",
+      "value": 2.29,
+      "concept": "EarningsPerShareDiluted",
+      "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"2\", \"display_value\": \"2.29\", \"ix_id\": \"f-176\", \"scale\": 0}",
+      "source_mode": "cached_sec",
+      "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c"
+    },
+    {
+      "id": "ISRG-operating_income_gaap-2026-04-01-2026-06-30",
+      "document": "SEC 10-Q 0001035267-26-000058",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-144",
+      "published_at": "2026-07-21",
+      "period_start": "2026-04-01",
+      "period_end": "2026-06-30",
+      "unit": "USD",
+      "value": 971900000.0,
+      "concept": "OperatingIncomeLoss",
+      "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"-5\", \"display_value\": \"971.9\", \"ix_id\": \"f-144\", \"scale\": 6}",
+      "source_mode": "cached_sec",
+      "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c"
+    },
+    {
+      "id": "ISRG-gross_profit_gaap-2026-04-01-2026-06-30",
+      "document": "SEC 10-Q 0001035267-26-000058",
+      "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-128",
+      "published_at": "2026-07-21",
+      "period_start": "2026-04-01",
+      "period_end": "2026-06-30",
+      "unit": "USD",
+      "value": 1960400000.0,
+      "concept": "GrossProfit",
+      "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"-5\", \"display_value\": \"1,960.4\", \"ix_id\": \"f-128\", \"scale\": 6}",
+      "source_mode": "cached_sec",
+      "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c"
+    }
+  ],
+  "claims": [],
+  "calculations": [
+    {
+      "id": "gaap-net-margin",
+      "label": "GAAP net margin",
+      "formula": "NetIncomeLoss / Revenue \u00d7 100",
+      "value": 28.285448,
+      "unit": "percent",
+      "evidence_ids": [
+        "ISRG-net_income_gaap-2026-04-01-2026-06-30",
+        "ISRG-revenue-2026-04-01-2026-06-30"
+      ]
+    }
+  ],
+  "findings": [],
+  "limitations": [
+    "Deterministic evidence foundation; no model inference or autonomous investigation has run.",
+    "Source publication dates are day-level. Human review is required.",
+    "Live SEC selection verifies report dates against recent submissions; older unindexed filings may be unavailable.",
+    "No non-GAAP normalization, guidance analysis, or independent issuer corroboration is implemented.",
+    "Authentic checked-in SEC snapshot, retrieved 2026-10-23; this response did not make a live SEC or Zetaris request."
+  ],
+  "unresolved_questions": [
+    "Review the primary documents and identify the earnings claims to investigate."
+  ],
+  "human_review_status": "required",
+  "integration_status": {
+    "sec": "cached_sec",
+    "zetaris": "not_requested",
+    "nightshift": "not_connected",
+    "hmem": "interface_only"
+  }
+}
