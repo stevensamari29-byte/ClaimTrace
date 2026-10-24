@@ -1,0 +1,33 @@
+{
+  "tested_main_commit": "8248983d2b31cb65a344696679ec1891943184ea",
+  "source": "git archive main; no new Git repository",
+  "private_config_copied": false,
+  "external_requests": false,
+  "backend_smoke": {
+    "health": {
+      "http": 200,
+      "inference_enabled": false
+    },
+    "default_investigation": {
+      "http": 200,
+      "evidence_count": 5,
+      "source_mode": "cached_sec",
+      "calculation_count": 1,
+      "human_review_status": "required"
+    },
+    "publication_cutoff": {
+      "http": 200,
+      "status": "blocked",
+      "evidence_count": 0
+    },
+    "invalid_input": {
+      "http": 422
+    }
+  },
+  "dependency_mode": "existing project virtualenv; no install",
+  "frontend_build": {
+    "command": "npm --prefix .local/main-smoke-8248983/frontend run build",
+    "exit_code": 0,
+    "dependencies": "existing frontend node_modules linked locally; no install"
+  }
+}

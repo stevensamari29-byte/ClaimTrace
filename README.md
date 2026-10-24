@@ -5,7 +5,7 @@ Foundation: React/Vite → FastAPI → attributed financial evidence, with a det
 
 Use the existing private repository: `https://github.com/stevensamari29-byte/ClaimTrace.git`. Python 3.11+ and Node 22.12+ are sufficient; the verified workstation uses Python 3.14 and Node 24. No Docker, new cloud services or model credentials are required to run this slice.
 
-After the foundation PR is merged, teammates can clone `main` using the commands below. **Until then, use `--branch codex/mvp-foundation` instead of `--branch main`: main currently contains only the initial README.** Existing collaborators need private-repository access; this handoff does not invite people or share credentials.
+The verified foundation is merged into `main` through [PR #5](https://github.com/stevensamari29-byte/ClaimTrace/pull/5). Teammates with access to this private repository can clone and run it using the commands below. Live sponsor access requires separate authorized private configuration; credentials are not bundled in the clone.
 
 ```powershell
 git clone --branch main https://github.com/stevensamari29-byte/ClaimTrace.git
