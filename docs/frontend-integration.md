@@ -1,38 +1,33 @@
-# Minimal frontend integration
+# Controller run and review integration
 
-Status: proposed HTTP boundary, awaiting Alex and Danny agreement in [existing issue #1](https://github.com/stevensamari29-byte/ClaimTrace/issues/1#issuecomment-6393032438). This is not an implemented API contract.
+Implemented on `codex/run-review-integration`, stacked after PR #9; no automatic merge. The October 25 expanded directive authorized this bounded takeover after current branches and Issue #1 showed no published implementation. Controller, readers, dispatcher, contracts, provider client and H-MEM logic are reused unchanged.
 
-Preserve the existing one-page design and `/api/investigations` evidence-only route. Role 3 owns frontend display, not backend or agent implementation. The current route cannot demonstrate a controller run, activity trace or persisted review.
+## Actual local HTTP interface
 
-## Smallest proposed server boundary
-
-- `POST /api/investigation-runs`: accept the existing `InvestigationInput` (`request` and explicit `human_assertion` claim inputs). Call the accepted bounded controller. Return `{run_id, report_digest, report, review}`. A synchronous response is sufficient; display returned events after completion without pretending they streamed live.
-- `GET /api/investigation-runs/{run_id}`: retrieve the persisted, immutable report and current review.
-- `POST /api/investigation-runs/{run_id}/review`: accept `{report_digest, decision: approved|rejected, comment}`. The server derives the trusted local reviewer, verifies the report digest/version, persists the decision and rejects stale review. A following GET must confirm it. Local labels are not multiuser authentication; do not expose this development service publicly.
-
-Alex confirms route/storage ownership; Danny confirms controller/report mapping and review semantics; Amari confirms the interface. Keep local state ignored; no new service or account. Report review must not automatically approve an H-MEM correction. Keep required human review and no-live-inference labels explicit. Scope/date/provenance/budgets remain enforced by the controller, never trusted from browser output.
-
-Before implementing, owners should share their existing branches and file reservations. No unpublished teammate work is assumed absent. Do not edit their files just because this proposal exists.
-
-## Acceptance after agreement
-
-Real browser request must invoke the controller against the approved reader, return actual trace, original human claims, findings, calculations, publication dates and citations. Verify cutoff/unresolved failures and that later form edits cannot relabel an earlier result. Approve/reject a specific report, reload and restart the server, and verify the stored decision remains; stale digest fails. Independent QA must distinguish fixtures from live services.
-
-Until those routes exist, the functional browser demonstration is financial evidence retrieval only. The standalone controller/H-MEM can be demonstrated separately. Nightshift/Nemotron remains blocked and no genuine model-directed reasoning is claimed.
-
-## Owner handoff clarification — October 25
-
-The existing Issue #1 comments already request this boundary; do not post duplicate requests. No owner agreement or implementation branch was visible at the latest check. These details remain proposals, not invented production endpoints.
-
-| Operation | Proposed minimum fields and behavior |
+| Endpoint | Behavior |
 | --- | --- |
-| Create | Existing `InvestigationInput`: `request.company`, `fiscal_year`, `period`, `as_of`, `evidence_backend: sec|zetaris`; one to three existing typed `claim_inputs`. Keep Decimal inputs as strings, explicit period start/end, units, accounting basis and `input_kind: human_assertion`. Do not accept browser configuration paths, credentials, SQL or fetch URLs. |
-| Run response/readback | Versioned envelope with `run_id`, immutable `report_digest`, `report`, and `review`. Use the existing `report.schema_version` to discriminate controller versus dispatcher. Retrieval must return the original saved scope and report, not recompute or relabel it. |
-| Review | `{report_digest, expected_review_version, decision: approved|rejected, comment}`. Initial review version is zero. Server checks report identity/digest AND review version atomically, appends the decision with server-derived reviewer and timestamp, increments review version, and returns the persisted record. A stale version/digest or different report fails with a conflict; no silent overwrite. Owners must define safe repeat-request semantics. |
-| Errors | Distinguish invalid input (422), absent run (404), stale review (409), unavailable reader/provider and exhausted deadline. Preserve blocked/incomplete report state and known evidence instead of fabricating success. Exact error envelope requires owner agreement. |
+| `POST /api/investigation-runs` | Accept existing `InvestigationInput` (`request` and one to three typed `claim_inputs`), run the controller with real H-MEM recall, save the immutable report and return its envelope. |
+| `GET /api/investigation-runs/{run_id}` | Read that report and persisted review without another investigation or changing its cutoff. |
+| `POST /api/investigation-runs/{run_id}/review` | Accept `{report_digest, expected_review_version, decision: approved|rejected, comment}`. Atomically check identity, digest and review version, append history and increment version. Initial version is zero. Stale, replayed or cross-report requests fail with 409. Reload before any deliberate subsequent review. |
 
-Controller `claimtrace.investigation.v1` already has `request`, `original_claims`, `findings`, `reviewed_memory`, `trace` and an ephemeral `run_id`. Dispatcher `claimtrace.dispatcher.v1` uses `scope`, `conclusion.findings` and `diagnostic_findings`; it does not expose original claims, memory recall or a run ID in its report. Alex's stored envelope needs stable identity; Danny must provide the truthful report mapping and supported input shape. Never display blocked dispatcher diagnostics as completed conclusions.
+Envelope: `{schema_version: "claimtrace.run.v1", run_id, report_digest, report, review: {status, version, history}}`. The report is the actual `claimtrace.investigation.v1` output. Original claims, findings, calculations, trace, challenges, citations, rejected evidence, limitations and reviewed memory are preserved. The digest covers the immutable report including its run ID. Review history is separate and does not change that digest. Readback detects changed report content.
 
-PR #9 currently accepts the controller report shape, not raw dispatcher reports or the proposed nested envelope. Once owners agree, Role 3 will explicitly unwrap and validate that version, add supported human claim inputs, send the actual run request, and connect review/readback using the server's digest and review version. No automatic claim extraction will be implied by manually entered assertions.
+History entries have a version, decision, comment, server-derived `local-human` label and UTC timestamp. This is trusted local development, not authenticated shared-user identity. Report approval does not certify the original claim, financial accuracy, model inference or an H-MEM correction.
 
-Isaiah's end-to-end gate after those routes exist: actual create/read, supported and contradicted assertions, unresolved/missing evidence, cutoff rejection, source dates/links, real returned challenge/recheck events, approve/reject followed by reload and server restart, cross-report and stale-review rejection, unavailable provider and no fallback fabrication. Fixture render tests do not satisfy this gate.
+Input retains company/CIK, fiscal period, cutoff, source enum, assertion, metric, Decimal strings, units, basis, period dates and tolerance. Browser input cannot supply SQL, credentials, configuration paths, arbitrary fetch URLs, reviewer identity or controller limits. Checks apply to structured financial inputs; automatic text extraction and semantic mapping remain unavailable.
+
+Errors: sanitized invalid input 422, absent run 404, conflicting review 409, non-JSON 415, oversized body 413, unexpected execution/storage failure 503. Genuine blocked/incomplete controller outcomes remain saved reports with actual limitations. Duplicate keys, invalid numeric constants and deeply nested JSON are rejected. Host/Origin/peer checks restrict the local interface; bind the server to `127.0.0.1`. No public deployment or multiuser authentication is provided.
+
+## Persistence and reuse
+
+SQLite state is ignored `.local/investigations.sqlite3`, surviving process restart without a new service or cloud dataset. Analyst text and reports remain private local state, excluded from Git and fresh clones. Existing startup commands and the legacy evidence endpoint remain compatible.
+
+H-MEM uses the existing store and `local-cli` scope. Recall is bound to fresh evidence fingerprints, company, fiscal period and cutoff. A successful empty recall shows zero memories. Report review never calls memory proposal/approval methods; correction review remains a separate explicit workflow.
+
+The dispatcher still has a different report shape (`scope`, `conclusion.findings`, `diagnostic_findings`). It is not exposed as a live provider. Danny can later supply a reviewed adapter; blocked diagnostics must not become final conclusions.
+
+## Browser and acceptance
+
+The page accepts an editable analyst assertion, runs the real controller, displays returned activity after completion, and saves `?run=` for reopening. Scope changes clear prior assertion inputs. Canonical issuer names are displayed while submitted scope stays recorded. Review sends the exact digest/version and performs GET confirmation. Ambiguous failures never become assumed approval; 409 refreshes without resubmitting.
+
+See [independent QA](../work/run-review-qa.md), [financial evaluation](../work/financial-evaluation.json) and [demo readiness](demo-readiness.md). The actual browser test retrieved live Zetaris evidence, showed controller/H-MEM events, saved an explicitly labelled QA rejection, and restored it after a backend restart. That test decision is not human financial sign-off. Isaiah should independently rehearse the complete browser/restart/stale-review flow before final recording.
