@@ -184,6 +184,59 @@ class ModelProposalGate:
         """Defensive copy; the model cannot change retrieval scope."""
         return json.loads(self._request_json)
 
+    def host_snapshot(self):
+        """Defensive host context, never an instruction or a model write API."""
+        return {'claims': [json.loads(v) for v in self._claims.values()],
+                'evidence': [json.loads(v) for v in self._facts.values()],
+                'verified': json.loads(json.dumps(self._verified)),
+                'selected_checks': {k: list(v) for k, v in self._selected.items()}}
+
+    def register_host_evidence(self, rows):
+        """Atomic scoped ingestion by the dispatcher; counters/deadline survive.
+
+        Preserve conflicting versions, then invalidate all earlier verdicts.
+        Fiscal-calendar identity remains the responsibility of scoped readers.
+        """
+        rows = list(rows)
+        if len(rows) > 25:
+            raise ValueError('Evidence batch exceeds 25 facts')
+        updated = dict(self._facts)
+        period = self.scope['period']
+        for raw in rows:
+            fact = Evidence.model_validate(raw.model_dump() if isinstance(raw, Evidence) else raw)
+            self._eligible(fact)
+            days = (fact.period_end - fact.period_start).days + 1
+            if (not (330 <= days <= 380 if period == 'FY' else 70 <= days <= 105) or not fact.document.strip() or
+                    not fact.id or len(fact.id) > 200 or
+                    (fact.source_sha256 is not None and (len(fact.source_sha256) != 64 or any(c not in '0123456789abcdef' for c in fact.source_sha256)))):
+                raise ValueError('Evidence duration or document is invalid')
+            serialized = fact.model_dump_json()
+            if fact.id in updated and updated[fact.id] != serialized:
+                digest = hashlib.sha256(serialized.encode()).hexdigest()[:16]
+                fact = fact.model_copy(update={'id': fact.id[:170] + '-version-' + digest})
+                serialized = fact.model_dump_json()
+                if fact.id in updated and updated[fact.id] != serialized:
+                    raise ValueError('Ambiguous evidence version')
+            updated[fact.id] = serialized
+        if len(updated) > 100:
+            raise ValueError('Investigation evidence exceeds 100 facts')
+        self._facts = updated
+        self._verified = {}
+        self._challenge_completed = False
+
+    def refresh_host_verifications(self):
+        """Recompute every registered claim after a host evidence update."""
+        facts = [Evidence.model_validate_json(v) for v in self._facts.values()]
+        results, calculations = {}, []
+        for raw in self._claims.values():
+            claim = ExtractedClaim.model_validate_json(raw)
+            finding, computed = verify(claim.verification_input(), facts)
+            results[claim.id] = finding
+            calculations.extend(computed)
+        self._verified = results
+        self._challenge_completed = False
+        return {'findings': list(results.values()), 'calculations': calculations}
+
     def record_completed_challenge(self):
         """Host-only hook AFTER independently running challenger checks."""
         if not self._verified or any(set(self._selected.get(c, ())) != set(ALL_CHECKS) for c in self._claims):

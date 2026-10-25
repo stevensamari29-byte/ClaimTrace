@@ -1,6 +1,6 @@
 # Model-directed milestone and role handoff
 
-Accepted controller commit `40042f0` is open as [PR #6](https://github.com/stevensamari29-byte/ClaimTrace/pull/6), from `codex/investigation-controller` into `main`. **Do not merge without explicit owner approval.** Existing main remains the accepted foundation. The next model-contract preparation is isolated on `codex/model-tool-contracts`, based on the accepted controller, rather than changing that PR.
+Accepted controller commit `40042f0` was merged through [PR #6](https://github.com/stevensamari29-byte/ClaimTrace/pull/6) after owner approval and unchanged-head/security verification. Main is `84cc576`; its118 tests plus58 subtests and frontend build passed. Contracts commit `aca07ec` is pushed and open separately as [PR #7](https://github.com/stevensamari29-byte/ClaimTrace/pull/7), awaiting review and approval. Restricted dispatcher work is isolated on `codex/model-dispatcher`; see [its current implementation and limitations](model-dispatcher.md). No model inference is operational.
 
 ## What is already complete
 

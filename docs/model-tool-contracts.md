@@ -1,5 +1,7 @@
 # Model tool contracts v1: preparation, no live inference
 
+Current implementation status: these schemas remain the contract. The separate [restricted dispatcher](model-dispatcher.md) now supplies host execution and evidence-update hooks on its own development branch. The original preparation description below distinguishes those later additions from contracts commit `aca07ec` in PR #7. Actual structured Nightshift transport and model inference remain unavailable.
+
 `backend/investigation/model_contracts.py` defines the versioned untrusted proposal boundary. `shared/model-tools.json` is generated from the actual Pydantic models in Chat Completions function-tool format (`type:function`, `function:{name,description,strict:true,parameters}`). `shared/model-output.schema.json` defines the proposed final output. This packaging prepares a future Meterless/Nightshift extension; the preserved adapter currently accepts text and returns text, and has **not** demonstrated tool calls, structured output, this schema dialect, or live inference. No controller, API, frontend, provider transport or cloud objects are changed by this preparation.
 
 | Model-facing function | Allowed proposal | Independent host responsibility |
