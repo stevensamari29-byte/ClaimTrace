@@ -6,6 +6,7 @@ import re
 import threading
 import time
 from datetime import date
+from decimal import Decimal
 from pathlib import Path
 
 import httpx
@@ -22,6 +23,22 @@ _last = 0.0
 
 class SourceError(RuntimeError):
     pass
+
+
+def exact_numeric_text(value):
+    """Retain received JSON numbers without attributing precision to a filing.
+
+    Binary floats supplied by legacy callers have already lost their token.
+    """
+    if isinstance(value, str) and re.fullmatch(r'[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:[eE][+-]?[0-9]+)?', value):
+        # SQL gateways commonly encode a numeric column as JSON text. Retain
+        # that received representation too; Evidence applies magnitude bounds.
+        return value
+    return str(value) if isinstance(value, (int, Decimal)) and not isinstance(value, bool) else None
+
+
+def invalid_json_constant(value):
+    raise ValueError('Nonfinite JSON number is not permitted')
 
 
 def sec_user_agent():
@@ -63,14 +80,14 @@ def get_json(url):
                     payload.extend(chunk)
                     if len(payload) > 15_000_000:
                         raise SourceError('SEC response exceeded the 15 MB bound.')
-            return json.loads(payload), hashlib.sha256(payload).hexdigest()
+            return json.loads(payload, parse_float=Decimal, parse_constant=invalid_json_constant), hashlib.sha256(payload).hexdigest()
         except (httpx.HTTPError, ValueError, RecursionError):
             raise SourceError('SEC unavailable or returned invalid data; no evidence was invented.') from None
 
 
 def cached_evidence(request):
     raw = DATA.read_bytes()
-    snapshot = json.loads(raw)
+    snapshot = json.loads(raw, parse_float=Decimal, parse_constant=invalid_json_constant)
     if request.company.cik.zfill(10) != snapshot['company']['cik'] or request.fiscal_year != 2026 or request.period != 'Q2':
         return None
     request.company.name = snapshot['company']['name']
@@ -85,7 +102,7 @@ def cached_evidence(request):
         source = sources[row['source_id']]
         result.append(Evidence(id=row['evidence_id'], document=f"SEC {source['form']} {source['accession']}",
             url=row['source_url'], published_at=row['filed_date'], period_start=row['period_start'], period_end=row['period_end'],
-            unit=row['unit'], value=row['value'], concept=row['concept'], locator=json.dumps(row['source_locator'], sort_keys=True),
+            unit=row['unit'], value=row['value'], value_decimal=exact_numeric_text(row['value']), concept=row['concept'], locator=json.dumps(row['source_locator'], sort_keys=True),
             source_mode='cached_sec', source_sha256=source['sha256']))
     # A filing can contain comparative facts: do not label older concept values as this period.
     if result:
@@ -134,7 +151,7 @@ def companyfacts_evidence(request, payload, digest, report_dates=None):
         url = f"https://www.sec.gov/Archives/edgar/data/{int(request.company.cik)}/{accession.replace('-', '')}/{accession}-index.html"
         try:
             result.append(Evidence(id=f"{concept}-{row['start']}-{row['end']}", document=f"SEC {row['form']} {accession}", url=url,
-                published_at=filed, period_start=row['start'], period_end=end, unit=unit, value=row['val'], concept=concept,
+                published_at=filed, period_start=row['start'], period_end=end, unit=unit, value=row['val'], value_decimal=exact_numeric_text(row['val']), concept=concept,
                 locator=f"Companyfacts us-gaap/{concept}/{unit}; accession={accession}; start={row['start']}; end={row['end']}",
                 source_mode='live_sec', source_sha256=digest))
         except (KeyError, TypeError, ValueError):

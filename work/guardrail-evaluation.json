@@ -1,0 +1,566 @@
+{
+  "evaluation_kind": "deliberately_selected_guardrail_diagnostic",
+  "baseline": "Deliberately weak value-only ablation; not an external model or industry baseline.",
+  "data": "Authentic cached SEC-derived ISRG Q2 2026 evidence; no live requests.",
+  "assumptions": [
+    "Assertions are evaluator-authored human test inputs, never issuer quotations.",
+    "Eight cases were deliberately selected to exercise existing deterministic safeguards.",
+    "Baseline uses the same original postpublication numeric facts while deliberately ignoring cutoff, period, unit and accounting basis.",
+    "No live AI inference, generalized accuracy, speed or impact claim follows from these results.",
+    "Cached received numeric precision does not establish original filing rounding precision."
+  ],
+  "case_count": 8,
+  "guarded_matches_declared_expectations": 8,
+  "baseline_matches_declared_expectations": 4,
+  "cases": [
+    {
+      "case": "correct_eps",
+      "claim": {
+        "id": "diagnostic-assertion",
+        "text": "Diagnostic human assertion, not an issuer quotation: diluted EPS was 2.29 USD/shares.",
+        "metric": "diluted_eps",
+        "expected_value_decimal": "2.29",
+        "unit": "USD/shares",
+        "accounting_basis": "GAAP",
+        "period_start": "2026-04-01",
+        "period_end": "2026-06-30",
+        "input_kind": "human_assertion",
+        "tolerance_decimal": "0"
+      },
+      "as_of": "2026-10-24",
+      "expected_classification": "supported",
+      "guarded_classification": "supported",
+      "baseline_classification": "supported",
+      "eligible_evidence_count": 5,
+      "finding": {
+        "claim_id": "diagnostic-assertion",
+        "classification": "supported",
+        "evidence_ids": [
+          "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30"
+        ],
+        "explanation": "Comparable GAAP evidence agrees within the declared tolerance.",
+        "supporting_findings": [],
+        "challenging_findings": []
+      },
+      "calculations": [
+        {
+          "tool": "compare_value",
+          "actual_decimal": "2.29",
+          "expected_decimal": "2.29",
+          "difference_decimal": "0.00",
+          "tolerance_decimal": "0",
+          "unit": "USD/shares",
+          "evidence_ids": [
+            "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30"
+          ],
+          "precision": "Decimal arithmetic on exact received numeric representations; original filing rounding precision and any upstream Zetaris DOUBLE loss are not established. Margin division is rounded to 34 significant digits."
+        }
+      ],
+      "citations": [
+        {
+          "id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-112",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-net_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-168",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-176",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-operating_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-144",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-gross_profit_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-128",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        }
+      ]
+    },
+    {
+      "case": "wrong_eps",
+      "claim": {
+        "id": "diagnostic-assertion",
+        "text": "Diagnostic assertion: EPS was 9 USD/shares.",
+        "metric": "diluted_eps",
+        "expected_value_decimal": "9",
+        "unit": "USD/shares",
+        "accounting_basis": "GAAP",
+        "period_start": "2026-04-01",
+        "period_end": "2026-06-30",
+        "input_kind": "human_assertion",
+        "tolerance_decimal": "0"
+      },
+      "as_of": "2026-10-24",
+      "expected_classification": "contradicted",
+      "guarded_classification": "contradicted",
+      "baseline_classification": "contradicted",
+      "eligible_evidence_count": 5,
+      "finding": {
+        "claim_id": "diagnostic-assertion",
+        "classification": "contradicted",
+        "evidence_ids": [
+          "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30"
+        ],
+        "explanation": "Comparable GAAP evidence disagrees beyond the declared tolerance.",
+        "supporting_findings": [],
+        "challenging_findings": []
+      },
+      "calculations": [
+        {
+          "tool": "compare_value",
+          "actual_decimal": "2.29",
+          "expected_decimal": "9",
+          "difference_decimal": "-6.71",
+          "tolerance_decimal": "0",
+          "unit": "USD/shares",
+          "evidence_ids": [
+            "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30"
+          ],
+          "precision": "Decimal arithmetic on exact received numeric representations; original filing rounding precision and any upstream Zetaris DOUBLE loss are not established. Margin division is rounded to 34 significant digits."
+        }
+      ],
+      "citations": [
+        {
+          "id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-112",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-net_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-168",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-176",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-operating_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-144",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-gross_profit_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-128",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        }
+      ]
+    },
+    {
+      "case": "non_gaap",
+      "claim": {
+        "id": "diagnostic-assertion",
+        "text": "Diagnostic assertion: non-GAAP EPS was 2.29 USD/shares.",
+        "metric": "diluted_eps",
+        "expected_value_decimal": "2.29",
+        "unit": "USD/shares",
+        "accounting_basis": "non-GAAP",
+        "period_start": "2026-04-01",
+        "period_end": "2026-06-30",
+        "input_kind": "human_assertion",
+        "tolerance_decimal": "0"
+      },
+      "as_of": "2026-10-24",
+      "expected_classification": "incomplete",
+      "guarded_classification": "incomplete",
+      "baseline_classification": "supported",
+      "eligible_evidence_count": 5,
+      "finding": {
+        "claim_id": "diagnostic-assertion",
+        "classification": "incomplete",
+        "evidence_ids": [],
+        "explanation": "GAAP evidence cannot verify a non-GAAP or unknown-basis assertion without a reconciliation.",
+        "supporting_findings": [],
+        "challenging_findings": []
+      },
+      "calculations": [],
+      "citations": [
+        {
+          "id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-112",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-net_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-168",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-176",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-operating_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-144",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-gross_profit_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-128",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        }
+      ]
+    },
+    {
+      "case": "wrong_period",
+      "claim": {
+        "id": "diagnostic-assertion",
+        "text": "Diagnostic assertion: Q1 EPS was 2.29 USD/shares.",
+        "metric": "diluted_eps",
+        "expected_value_decimal": "2.29",
+        "unit": "USD/shares",
+        "accounting_basis": "GAAP",
+        "period_start": "2026-01-01",
+        "period_end": "2026-03-31",
+        "input_kind": "human_assertion",
+        "tolerance_decimal": "0"
+      },
+      "as_of": "2026-10-24",
+      "expected_classification": "incomplete",
+      "guarded_classification": "incomplete",
+      "baseline_classification": "supported",
+      "eligible_evidence_count": 5,
+      "finding": {
+        "claim_id": "diagnostic-assertion",
+        "classification": "incomplete",
+        "evidence_ids": [],
+        "explanation": "No eligible evidence matches the metric, exact period and unit; YTD is never substituted for a quarter.",
+        "supporting_findings": [],
+        "challenging_findings": []
+      },
+      "calculations": [],
+      "citations": [
+        {
+          "id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-112",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-net_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-168",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-176",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-operating_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-144",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-gross_profit_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-128",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        }
+      ]
+    },
+    {
+      "case": "wrong_unit",
+      "claim": {
+        "id": "diagnostic-assertion",
+        "text": "Diagnostic assertion: EPS was 2.29 EUR/share.",
+        "metric": "diluted_eps",
+        "expected_value_decimal": "2.29",
+        "unit": "EUR/share",
+        "accounting_basis": "GAAP",
+        "period_start": "2026-04-01",
+        "period_end": "2026-06-30",
+        "input_kind": "human_assertion",
+        "tolerance_decimal": "0"
+      },
+      "as_of": "2026-10-24",
+      "expected_classification": "incomplete",
+      "guarded_classification": "incomplete",
+      "baseline_classification": "supported",
+      "eligible_evidence_count": 5,
+      "finding": {
+        "claim_id": "diagnostic-assertion",
+        "classification": "incomplete",
+        "evidence_ids": [],
+        "explanation": "Unit is unsupported; no implicit currency or per-share conversion is permitted.",
+        "supporting_findings": [],
+        "challenging_findings": []
+      },
+      "calculations": [],
+      "citations": [
+        {
+          "id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-112",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-net_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-168",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-176",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-operating_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-144",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-gross_profit_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-128",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        }
+      ]
+    },
+    {
+      "case": "unsupported_qualitative",
+      "claim": {
+        "id": "diagnostic-assertion",
+        "text": "Diagnostic assertion: management execution caused earnings growth.",
+        "metric": "unsupported",
+        "expected_value_decimal": null,
+        "unit": "USD/shares",
+        "accounting_basis": "GAAP",
+        "period_start": "2026-04-01",
+        "period_end": "2026-06-30",
+        "input_kind": "human_assertion",
+        "tolerance_decimal": "0"
+      },
+      "as_of": "2026-10-24",
+      "expected_classification": "unresolved",
+      "guarded_classification": "unresolved",
+      "baseline_classification": "unresolved",
+      "eligible_evidence_count": 5,
+      "finding": {
+        "claim_id": "diagnostic-assertion",
+        "classification": "unresolved",
+        "evidence_ids": [],
+        "explanation": "Unsupported qualitative/causal assertion; no model inference or suitable tool is available.",
+        "supporting_findings": [],
+        "challenging_findings": []
+      },
+      "calculations": [],
+      "citations": [
+        {
+          "id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-112",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-net_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-168",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-176",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-operating_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-144",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-gross_profit_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-128",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        }
+      ]
+    },
+    {
+      "case": "prepublication",
+      "claim": {
+        "id": "diagnostic-assertion",
+        "text": "Diagnostic human assertion, not an issuer quotation: diluted EPS was 2.29 USD/shares.",
+        "metric": "diluted_eps",
+        "expected_value_decimal": "2.29",
+        "unit": "USD/shares",
+        "accounting_basis": "GAAP",
+        "period_start": "2026-04-01",
+        "period_end": "2026-06-30",
+        "input_kind": "human_assertion",
+        "tolerance_decimal": "0"
+      },
+      "as_of": "2026-07-20",
+      "expected_classification": "incomplete",
+      "guarded_classification": "incomplete",
+      "baseline_classification": "supported",
+      "eligible_evidence_count": 0,
+      "finding": {
+        "claim_id": "diagnostic-assertion",
+        "classification": "incomplete",
+        "evidence_ids": [],
+        "explanation": "No eligible evidence matches the metric, exact period and unit; YTD is never substituted for a quarter.",
+        "supporting_findings": [],
+        "challenging_findings": []
+      },
+      "calculations": [],
+      "citations": []
+    },
+    {
+      "case": "wrong_margin",
+      "claim": {
+        "id": "diagnostic-assertion",
+        "text": "Diagnostic assertion: GAAP net margin was 99 percent.",
+        "metric": "net_margin",
+        "expected_value_decimal": "99",
+        "unit": "%",
+        "accounting_basis": "GAAP",
+        "period_start": "2026-04-01",
+        "period_end": "2026-06-30",
+        "input_kind": "human_assertion",
+        "tolerance_decimal": "0"
+      },
+      "as_of": "2026-10-24",
+      "expected_classification": "contradicted",
+      "guarded_classification": "contradicted",
+      "baseline_classification": "contradicted",
+      "eligible_evidence_count": 5,
+      "finding": {
+        "claim_id": "diagnostic-assertion",
+        "classification": "contradicted",
+        "evidence_ids": [
+          "ISRG-revenue-2026-04-01-2026-06-30",
+          "ISRG-net_income_gaap-2026-04-01-2026-06-30"
+        ],
+        "explanation": "Comparable GAAP evidence disagrees beyond the declared tolerance.",
+        "supporting_findings": [],
+        "challenging_findings": []
+      },
+      "calculations": [
+        {
+          "tool": "gaap_net_margin",
+          "formula": "net_income / revenue * 100",
+          "value_decimal": "28.28544756767970127580126542889742",
+          "unit": "%",
+          "evidence_ids": [
+            "ISRG-revenue-2026-04-01-2026-06-30",
+            "ISRG-net_income_gaap-2026-04-01-2026-06-30"
+          ]
+        },
+        {
+          "tool": "compare_value",
+          "actual_decimal": "28.28544756767970127580126542889742",
+          "expected_decimal": "99",
+          "difference_decimal": "-70.71455243232029872419873457110258",
+          "tolerance_decimal": "0",
+          "unit": "%",
+          "evidence_ids": [
+            "ISRG-revenue-2026-04-01-2026-06-30",
+            "ISRG-net_income_gaap-2026-04-01-2026-06-30"
+          ],
+          "precision": "Decimal arithmetic on exact received numeric representations; original filing rounding precision and any upstream Zetaris DOUBLE loss are not established. Margin division is rounded to 34 significant digits."
+        }
+      ],
+      "citations": [
+        {
+          "id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-112",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-net_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-168",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-176",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-operating_income_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-144",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        },
+        {
+          "id": "ISRG-gross_profit_gaap-2026-04-01-2026-06-30",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-128",
+          "published_at": "2026-07-21",
+          "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+          "source_mode": "cached_sec"
+        }
+      ]
+    }
+  ]
+}

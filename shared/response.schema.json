@@ -141,6 +141,21 @@
           "title": "Value",
           "type": "number"
         },
+        "value_decimal": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "pattern": "^[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Exact received numeric representation when retained; does not establish original filing rounding precision.",
+          "title": "Value Decimal"
+        },
         "concept": {
           "title": "Concept",
           "type": "string"

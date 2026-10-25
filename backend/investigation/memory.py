@@ -61,6 +61,8 @@ class HMemMemory:
             # Always bind the exact financial snapshot, even if the document hash
             # is unchanged. Null document hashes do not become invented hashes.
             stable = {k:e.get(k) for k in ("id", "url", "published_at", "period_start", "period_end", "unit", "value", "concept", "locator", "source_sha256")}
+            if e.get('value_decimal') is not None:
+                stable['value_decimal'] = e['value_decimal']
             sources.append({"id":e["id"], "url":url, "published_at":publication,
                             "fingerprint":_digest(stable), "fingerprint_kind":"evidence_snapshot_sha256"})
         if not sources:

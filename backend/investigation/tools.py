@@ -1,4 +1,4 @@
-"""Restricted deterministic calculations, preserving explicit float-boundary limits."""
+"""Restricted deterministic calculations with explicit received-value precision."""
 from decimal import Decimal, localcontext
 
 CONCEPTS = {
@@ -17,6 +17,19 @@ def comparable(claim, evidence):
 
 
 def verify(claim, evidence):
+    # Inputs have at most 34 digits and adjusted exponent +/-30. This context
+    # preserves exact scaling/subtraction across that range; division is bounded
+    # separately below and can still require rounding.
+    with localcontext() as ctx:
+        ctx.prec = 100
+        return _verify(claim, evidence)
+
+
+def evidence_number(evidence):
+    return Decimal(evidence.value_decimal) if evidence.value_decimal is not None else Decimal(str(evidence.value))
+
+
+def _verify(claim, evidence):
     finding = {'claim_id': claim.id, 'classification': 'incomplete', 'evidence_ids': [],
                'explanation': '', 'supporting_findings': [], 'challenging_findings': []}
     if claim.metric == 'unsupported':
@@ -38,10 +51,10 @@ def verify(claim, evidence):
         if not revenues or not incomes or unit != '%':
             finding['explanation'] = 'Net margin requires same-period GAAP net income and revenue in USD, with a percentage claim.'
             return finding, []
-        if len({Decimal(str(e.value)) for e in revenues}) != 1 or len({Decimal(str(e.value)) for e in incomes}) != 1:
+        if len({evidence_number(e) for e in revenues}) != 1 or len({evidence_number(e) for e in incomes}) != 1:
             finding.update(classification='unresolved', explanation='Conflicting eligible financial facts; no value was silently selected.', evidence_ids=[e.id for e in facts])
             return finding, []
-        revenue, income = Decimal(str(revenues[0].value)), Decimal(str(incomes[0].value))
+        revenue, income = evidence_number(revenues[0]), evidence_number(incomes[0])
         if revenue == 0:
             finding.update(classification='unresolved', explanation='Cannot calculate margin with a zero revenue denominator.', evidence_ids=[e.id for e in facts])
             return finding, []
@@ -55,7 +68,7 @@ def verify(claim, evidence):
         if not facts:
             finding['explanation'] = 'No eligible evidence matches the metric, exact period and unit; YTD is never substituted for a quarter.'
             return finding, []
-        actuals = {Decimal(str(e.value)) * SCALES[e.unit][1] for e in facts}
+        actuals = {evidence_number(e) * SCALES[e.unit][1] for e in facts}
         if len(actuals) != 1:
             finding.update(classification='unresolved', explanation='Conflicting eligible source values; human reconciliation is required.', evidence_ids=[e.id for e in facts])
             return finding, []
@@ -69,5 +82,7 @@ def verify(claim, evidence):
     calculations.append({'tool': 'compare_value', 'actual_decimal': str(actual), 'expected_decimal': str(expected),
                          'difference_decimal': str(difference), 'tolerance_decimal': str(tolerance),
                          'unit': unit, 'evidence_ids': finding['evidence_ids'],
-                         'precision': 'Decimal arithmetic on legacy float representations; original source precision is unavailable'})
+                         'precision': ('Decimal arithmetic on exact received numeric representations; original filing rounding precision and any upstream Zetaris DOUBLE loss are not established. Margin division is rounded to 34 significant digits.'
+                                       if all(e.value_decimal is not None for e in facts) else
+                                       'Decimal arithmetic includes legacy float representations; original source precision is unavailable')})
     return finding, calculations

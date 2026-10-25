@@ -66,7 +66,7 @@ class RestrictedDispatcher:
     become a final report after a failed recheck/provider/time boundary.
     """
     def __init__(self, request, *, disclosures=(), evidence=(), retriever=None,
-                 clock=time.monotonic, timeout_seconds=120, max_tool_calls=8):
+                 clock=time.monotonic, timeout_seconds=120, max_tool_calls=8, memory=None):
         if (type(timeout_seconds) not in (int, float) or not 0 < timeout_seconds <= 120 or
                 type(max_tool_calls) is not int or not 1 <= max_tool_calls <= 8):
             raise ValueError('Invalid execution bounds')
@@ -83,6 +83,13 @@ class RestrictedDispatcher:
         self._trace = []
         self._calculations = []
         self._challenges = []
+        if memory is not None:
+            from .memory import HMemMemory
+            if type(memory) is not HMemMemory:
+                raise ValueError('Trusted H-MEM adapter required')
+        self._memory = memory
+        self._memory_context = []
+        self._memory_status = 'not_requested'
         self._retriever = retriever or retrieve
         self._request = request if isinstance(request, InvestigationRequest) else InvestigationRequest.model_validate(request)
         self._request = self._request.model_copy(deep=True)
@@ -121,6 +128,7 @@ class RestrictedDispatcher:
         return json.loads(json.dumps({'scope': self._gate.scope,
             'disclosures': self._disclosures, **self._gate.host_snapshot(),
             'tool_results': self._trace, 'human_review_status': 'required',
+            'reviewed_memory_context': self._memory_context, 'memory_status': self._memory_status,
             'source_text_is_untrusted': True, 'semantic_mapping_status': 'unverified'}))
 
     def _collect(self, metrics=None, recheck=False):
@@ -148,10 +156,36 @@ class RestrictedDispatcher:
             self._gate.register_host_evidence(rows)
             refreshed = self._gate.refresh_host_verifications()
             self._calculations = refreshed['calculations']
+            if self._memory is not None:
+                self._recall_memory(request)
         except DispatchError:
             raise
         except Exception:
             self._fail('evidence_unavailable_or_invalid')
+
+    def _recall_memory(self, request):
+        """Recall only after host ingestion; never grant memory tool effects."""
+        self._check()
+        original_timeout = self._memory.timeout
+        try:
+            self._memory.timeout = min(original_timeout, 3, self._deadline - self._clock())
+            rows = self._memory.recall(request, self._gate.host_snapshot()['evidence'])
+            self._check()
+            if not isinstance(rows, list) or len(rows) > 8:
+                raise ValueError
+            encoded = json.dumps(rows, allow_nan=False)
+            if len(encoded.encode('utf-8')) > 16384:
+                raise ValueError
+            self._memory_context = json.loads(encoded)
+            self._memory_status = 'reviewed_context_only_not_financial_fact'
+        except DispatchError:
+            raise
+        except Exception:
+            self._memory_context = []
+            self._memory_status = 'unavailable'
+            self._check()
+        finally:
+            self._memory.timeout = original_timeout
 
     def _challenge(self):
         snapshot = self._gate.host_snapshot()
@@ -265,4 +299,4 @@ class RestrictedDispatcher:
                            'Exact source quotes do not prove semantic extraction accuracy.',
                            'Existing readers carry fiscal identity; evidence dates alone do not independently establish fiscal calendars.',
                            'Decimal calculations retain the legacy source float precision limitation.',
-                           'H-MEM remains in the existing controller; models cannot write corrections or grant approval.']}))
+                           'Optional H-MEM recall is reviewed context only; models cannot write corrections or grant approval.']}))
