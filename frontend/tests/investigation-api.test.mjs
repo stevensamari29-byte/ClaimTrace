@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildEvidenceRequest, normalizeInvestigationResponse, requestEvidence, safeSourceUrl } from '../src/investigation-api.js';
+import { buildEvidenceRequest, normalizeInvestigationResponse, requestEvidence, safeSourceUrl, EVIDENCE_REQUEST_TIMEOUT_MS } from '../src/investigation-api.js';
 
 const form = { name: 'Intuitive Surgical', ticker: 'ISRG', cik: '1035267', fiscal_year: '2026', period: 'Q2', as_of: '2026-10-23', evidence_backend: 'zetaris' };
 const request = buildEvidenceRequest(form);
@@ -56,4 +56,49 @@ test('returns explicit provider/network/validation errors without substituted re
   await assert.rejects(requestEvidence(form, async () => ({ ok: false, status: 422, json: async () => ({ detail: [] }) })), /did not pass validation/);
   await assert.rejects(requestEvidence(form, async () => ({ ok: false, status: 503, json: async () => ({ detail: 'Provider unavailable' }) })), /Provider unavailable/);
   await assert.rejects(requestEvidence(form, async () => ({ ok: true, json: async () => { throw new Error('not JSON'); } })), /unexpected response/);
+});
+
+test('bounds stalled transport even when it ignores abort', async () => {
+  let signal;
+  await assert.rejects(requestEvidence(form, (_, options) => { signal = options.signal; return new Promise(() => {}); }, { timeoutMs: 15 }), /browser wait expired.*server may still be processing/);
+  assert.equal(signal.aborted, true);
+});
+
+test('response body parsing shares the request deadline', async () => {
+  let signal;
+  await assert.rejects(requestEvidence(form, async (_, options) => {
+    signal = options.signal;
+    return { ok: true, json: () => new Promise(() => {}) };
+  }, { timeoutMs: 15 }), /browser wait expired/);
+  assert.equal(signal.aborted, true);
+});
+
+test('late results cannot turn an expired request into a successful result', async () => {
+  let finish;
+  let displayed = false;
+  const result = requestEvidence(form, () => new Promise(resolve => { finish = resolve; }), { timeoutMs: 15 });
+  const observer = result.then(() => { displayed = true; }, () => {});
+  await assert.rejects(result, /browser wait expired/);
+  finish({ ok: true, json: async () => evidenceResponse() });
+  await observer;
+  await new Promise(resolve => setTimeout(resolve, 5));
+  assert.equal(displayed, false);
+});
+
+test('successful responses clear the deadline without later abort', async () => {
+  let signal;
+  const result = await requestEvidence(form, async (_, options) => {
+    signal = options.signal;
+    return { ok: true, json: async () => evidenceResponse() };
+  }, { timeoutMs: 15 });
+  assert.equal(result.status, 'partial');
+  await new Promise(resolve => setTimeout(resolve, 25));
+  assert.equal(signal.aborted, false);
+});
+
+test('production deadline is fixed and invalid test bounds cannot extend it', async () => {
+  assert.equal(EVIDENCE_REQUEST_TIMEOUT_MS, 135000);
+  for (const timeoutMs of [0, -1, 135001, Infinity, NaN, 1.5, '15']) {
+    await assert.rejects(requestEvidence(form, () => assert.fail('No request with an invalid deadline'), { timeoutMs }), /timeout must be between/);
+  }
 });

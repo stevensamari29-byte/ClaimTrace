@@ -44,3 +44,28 @@ Executed the **actual new `requestEvidence` frontend helper**, with native fetch
 All three returned facts cover 2026-04-01 through 2026-06-30 and cite [the actual SEC 10-Q](https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm), publication 2026-07-21, accession `0001035267-26-000058` and concept/date locators. Margin references the actual revenue and net-income evidence IDs. Both responses normalized to `isControllerReport:false`, zero trace events and `human_review_status:required`; no inference, persisted review or dispatcher activity was substituted. The existing endpoint accurately reports no autonomous investigation, no model inference and its source/normalization limitations.
 
 Director separately reported actual browser verification of all three live Zetaris values, margin and publication/source links; editing the form name did not relabel the submitted result. Director retained a local ignored screenshot at `.local/frontend-live.png`. This browser observation is attributed to the Director; the independent reviewer's directly executed evidence is the helper/proxy/network request and actual-source render tests above.
+
+## October 25: bounded browser request acceptance
+
+Reviewer: native `/root/role3_integration_qa`, independent of `/root/frontend_build`. Read the actual new `requestEvidence` diff. Its default 135,000 ms wait covers both fetch and response-body parsing, passes one AbortController signal, races stalled/noncooperative transports, checks the monotonic deadline after awaits, makes no retry and clears its timer on every settled path. Timeout wording accurately states that the server may still be processing; browser abort is not proof of server cancellation. The optional test bound must be an integer from 1 through 135,000 ms and cannot extend production waiting. No API, agent, provider, H-MEM, shared schema, CSS or page JSX changed.
+
+Added nine independent cases in `frontend/tests/request-timeout-acceptance.test.mjs`. Tests replace timers and monotonic clock locally, advancing the exact production deadline without making a real 135-second wait. They prove noncooperative fetch/body stalls settle; fetch/body latency share one deadline; late completions fail even when a timer callback is delayed; cooperative abort does not mask the timeout reason; late success/failure cannot replace a rejected request; successful completion clears the timer without aborting; connection/HTTP/JSON/scope failures clean up without retry; invalid bounds fail before network effects. First-run timeout assertions used a different expected phrase; adjusting them to the actual honest “wait expired” message resolved six test-expectation failures. No application defect or repair cycle was required.
+
+Final current verification (not historical results):
+
+- `node --test tests/*.test.mjs` in `frontend`: exit 0, **29 passed** (15 accepted frontend cases, five implementation timeout cases and nine independent timeout cases).
+- `npm run build` in `frontend`: exit 0, **24 modules transformed**, 1.17 seconds.
+- `.venv/Scripts/python.exe -m pytest backend/tests -q`: exit 0, **235 passed plus 58 subtests passed**, 32.40 seconds; only the existing Starlette/httpx deprecation warning. The current full suite includes the existing index credential check; Director will stage and separately verify the final new index before committing.
+- `git diff --check`: exit 0. `git diff --name-only -- backend shared frontend/src/main.jsx frontend/src/styles.css`: no paths. No reviewer Git mutation was performed.
+
+Reused the already-running local API and Vite servers; no new service, configuration access/change, cloud write or model inference. The **actual updated frontend helper** made bounded native-fetch requests through Vite `/api` to the existing server. Observed sanitized live receipts:
+
+| Actual request | Observed result |
+| --- | --- |
+| ISRG fiscal 2026 Q2, Zetaris, cutoff 2026-10-25 | 3,317 ms; `partial`; three `live_zetaris` facts: revenue 2,892,300,000 USD, diluted EPS 2.29 USD/shares, net income 818,100,000 USD; publication 2026-07-21; GAAP net margin 28.285448 percent |
+| Same ISRG request, cutoff 2026-07-20 | 1,980 ms; `blocked`; zero evidence and zero calculations |
+| Microsoft fiscal 2026 Q3, SEC, cutoff 2026-10-25 | 1,191 ms; `partial`; five **`live_sec`**, not cached, facts for 2026-01-01 through 2026-03-31: revenue 82,886,000,000 USD, net income 31,778,000,000 USD, diluted EPS 4.27 USD/shares, operating income 38,398,000,000 USD and gross profit 56,058,000,000 USD; publication 2026-04-29 |
+
+Microsoft used the same helper and generic existing SEC reader, CIK `0000789019`, with no company-specific code change or new cloud dataset. Returned facts cite [the SEC filing index](https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html), accession `0001193125-26-191507`. All three requests returned zero activity events, `isControllerReport:false` and required human review, accurately reflecting the evidence-only HTTP interface. These receipts prove existing financial retrieval compatibility; they do not establish model-directed reasoning, dispatcher HTTP execution, persisted review or live Nightshift/Nemotron.
+
+No remaining blocking finding in this bounded frontend change. Full run/report mapping and persistent exact-version review remain the coordinated Alex/Danny/Amari interface task. Timeout tests use explicit transport fixtures; live receipts above use genuine services.

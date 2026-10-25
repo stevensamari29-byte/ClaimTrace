@@ -27,15 +27,36 @@ export function normalizeInvestigationResponse(data, request) {
   return { ...data, ...snapshot, submitted_request: snapshot, isControllerReport: data.schema_version === 'claimtrace.investigation.v1', ...Object.fromEntries(arrays.map(key => [key, data[key] ?? []])) };
 }
 
-export async function requestEvidence(form, fetchImpl = fetch) {
+export const EVIDENCE_REQUEST_TIMEOUT_MS = 135_000;
+
+export async function requestEvidence(form, fetchImpl = fetch, { timeoutMs = EVIDENCE_REQUEST_TIMEOUT_MS } = {}) {
+  if (!Number.isInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > EVIDENCE_REQUEST_TIMEOUT_MS) throw new Error('The browser request timeout must be between 1 and 135000 milliseconds.');
   const request = buildEvidenceRequest(form);
-  let response;
-  try { response = await fetchImpl('/api/investigations', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(request) }); }
-  catch { throw new Error('The backend is unavailable. Start the ClaimTrace API and try again.'); }
-  const data = await response.json().catch(() => null);
-  if (!response.ok) {
-    const detail = data?.error?.message ?? data?.detail?.message ?? (typeof data?.detail === 'string' ? data.detail : null);
-    throw new Error(typeof detail === 'string' ? detail : (response.status === 422 ? 'Check the company, period, and date. The request did not pass validation.' : `Evidence could not be retrieved (HTTP ${response.status}). Check the backend connection and try again.`));
+  const controller = new AbortController();
+  const deadline = performance.now() + timeoutMs;
+  const timeoutError = new Error('The browser wait expired before the evidence response completed. The server may still be processing; this does not confirm that it stopped. No result has been substituted.');
+  let timer;
+  function checkDeadline() {
+    if (performance.now() >= deadline) { controller.abort(); throw timeoutError; }
   }
-  return normalizeInvestigationResponse(data, request);
+  const timeout = new Promise((_, reject) => {
+    timer = setTimeout(() => { reject(timeoutError); controller.abort(); }, timeoutMs);
+  });
+  async function retrieve() {
+    let response;
+    try { response = await fetchImpl('/api/investigations', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(request), signal: controller.signal }); }
+    catch { checkDeadline(); throw new Error('The backend is unavailable. Start the ClaimTrace API and try again.'); }
+    checkDeadline();
+    const data = await response.json().catch(() => null);
+    checkDeadline();
+    if (!response.ok) {
+      const detail = data?.error?.message ?? data?.detail?.message ?? (typeof data?.detail === 'string' ? data.detail : null);
+      throw new Error(typeof detail === 'string' ? detail : (response.status === 422 ? 'Check the company, period, and date. The request did not pass validation.' : `Evidence could not be retrieved (HTTP ${response.status}). Check the backend connection and try again.`));
+    }
+    return normalizeInvestigationResponse(data, request);
+  }
+  // Racing the complete operation bounds browser waiting even if a transport
+  // ignores abort. Late completions cannot replace this promise's rejection.
+  try { return await Promise.race([timeout, retrieve()]); }
+  finally { clearTimeout(timer); }
 }
