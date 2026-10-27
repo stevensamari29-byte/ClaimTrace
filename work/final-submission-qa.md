@@ -101,3 +101,53 @@ All delivered artifacts match submission/artifact-manifest.json bytes/SHA256: vi
 No blocking production/test/security regression found in the inspected merged snapshot. Documentation consistency issue for Director: docs/pre-existing-components.md foundation row still says main is behind unmerged branches; replace this current-state claim. Historical top paragraphs in work/foundation.md and AGENTS.md retain old multi-human ownership/openPR status; annotate latest one-person human roster and merged-main checkpoint without deleting attribution/history. README and readiness opening already acknowledge merges.
 
 Mandatory Nightshift execution remains unverified; existing supported startup/host blocker persists pending root's bounded official-documentation check. Direct NVIDIA partials and real H-MEM do not substitute. Repository remains private; judge access, actual media hosting URLs, final registered roster, owner Cursor contribution evidence, full owner media/format review and authorized HackOS submission remain gates. PhaseB substantive work must wait for main hackathon submission secured and separate eligibility/deadline clarification. No new optional feature is justified by these checks.
+
+
+# Final V3 release evidence — independent verification
+
+Reviewer /root/final_main_qa, October27,2026. Read actual financial result/curated receipts and final V3 media. No modelcalls, secrets/envreads, code/Git/service changes or broadtests. Only this ignored record written. Director owns actual provider execution, portal observations, final asset copy/upload, ownerapproval and stagedrelease safety.
+
+## Actual financial outcome versus transport proof
+
+.local/nightshift-financial-result.json and work/nightshift-investigation.json parse identically. Actual5.66second bounded financialattempt has exactly1uncached observed providerreceipt. All fourmodel identities are exact nvidia/nemotron-3.5-lightning-30b-a3b; provider nvidia/from_cache false. Projection passes strict existing validate_nightshift_receipt. ActualresponseID chatcmpl-33f1cea6-4d9f-4a0f-9cf9-3f48d60ea647,receipt rcpt_req_6ma1r4ho,decision req_6ma1r4ho; usage4586prompt+313completion=4899total.
+
+The rawcanonicaldispatcher report remains BLOCKED/proposal_rejected,1hosttoolattempt,0rechecks. It has ZERO registeredoriginalclaims,financialevidence,calculations,citations,diagnosticfindings,challengefindings ortraceevents; conclusionNULL;requiredhumanreview. No native financial effects/completedbriefing were accepted. No exact rejectedtoolname orinvalidargumentcause is retained, so none is invented here. Report preserves conservative incomplete_no_verified_live_model/live_inference_verified:false/providerkindunverified flags; separate transportreceipt/observedmetadata must not silently promote those financialacceptance flags.
+
+work/nightshift-live.json accurately separates authenticateduncached READYsmoke from the rejectedfinancialattempt. Smoke has exact requested/provider/routed/response/winningmodel andnvidiaprovider/from_cachefalse; generatedresponseREADY andcomplete_financial_investigationfalse. Financialsummary states nativeproposalreceived/observedcall1/errorproposal_rejected/evidence0/acceptedcompletefalse/noautomaticretry andlinks actualreport. No cachedtest/CLIhealth is labelledinference and no complete modelbriefing claimed.
+
+Root reports no furthermodelretry. Thisreview performednone. Current genuineNightshiftinference is nowdemonstrated, but a completedmodel-directedfinancialworkflow remainsunmet. ExistingdeterministicZetaris/SEC/HMEM/reviewdemo remainsseparate.
+
+## Final receipt scene and slide inspection
+
+Visually viewed actual .local/final-submission-video/nightshift-receipt.png. Header explicitly saysSAVEDACTUALEXECUTIONRECEIPTS,NOTALIVERUNORCOMPLETEDFINANCIALBRIEFING. Visible fields showNightshift1.2.7authenticated,NVIDIAexactLightning,READYuncached,actualrcpt_req_6ma1r4ho,identitymatched/from_cachefalse,blocked/proposal_rejected,1attempt/0evidence,noacceptedconclusion,humanrequired. Footer saysmodel-directedfinancialevidenceretrieval/completedAIbriefNOTdemonstrated. No credentials/privatecontact information visible. This is a renderedsummary of savedactualreceipts, not a freshliveexecution.
+
+Read finalstage video text: it distinguishes READYsmoke from separate boundednativeproposal, hostrejectionbeforeclaimregistration/retrieval,zeroevidence/calculations/conclusion,requiredreview,andearlierdeterministicdemo. It does not inventexactargumentcause. Publicrepo/soloAmari/draftsaved/0submitted statements are Directorportal observations, not newlyindependentlyverified by thisreview. Newfinal scene sourceimage in actualreceipt is nightshift-receipt.png, not staleslide5.
+
+Viewed actualnewdeckslide5and6. Slide5 statesauthenticatedNVIDIAinference/nativeproposalverified,financialproposalrejected/noAIbriefing;Zetaris/HMEM/directNVIDIAqualifiers remain. Slide6 accurately labels completedvalidinvestigation asfuturework/noadditionalretries;PR7–13merged/publicmain0a6f6fb,judgeaccess/actualmedia/finalownerapproval. Current sourceasset text no longer saysruntimeunreachable/authenticationpending. Layout readable;noclipping/overlap in inspectedslides.
+
+## Actual V3 video container and timing
+
+.local/final-submission-video/claimtrace-review-demo.webm:
+
+-4,814,257bytes,matching browserreceipt.
+-SHA256 d7f29dad93bba2c6eea655d2b04c8985cc7d52c24c6dd69eb973b5c0b63c9967.
+-ValidEBML/WebM;VP8video1280x720,Opusaudio.
+-205clusters/4,323mediablocks;lastblock199.469seconds. SegmentInfo hasnoDurationfield.
+-NarrationWAV199.54938775510203seconds;manifest same;browserdecodedaudioreceipt199.549375seconds. Allagreewithin .00002seconds;mediaandnominalaudioabout3:19.55,within1–4minutes. Finalpacketduration/playerseekmetadata notindependentlycertified.
+-8editedactualcapture scenes,localcomputernarration,authenticated_nightshift_inference_verified:true,complete_ai_financial_investigation:false,live_ai_claim:false. The live_ai_claimfalse means videoisnotaliveAIstream;actualsavedsponsorexecutionproof is separatelyexplicit.
+-SevenearlierUIcaptures byteidenticaltoacceptedactualcaptures;none newlyinvented. Receiptfinalimage actuallyexistsandvisuallychecked. Offlinecontainercheck doesnotdecodeeveryrenderedframeorlisten/transcribefinalspeech.
+
+## Final deck package
+
+.local/final-submission-deck/claimtrace-slides.pptx:38,980bytes;SHA2564c79a0f1f823916e36111684e186516d191dcc2ec9fc01da9e3beb310fedda83. EveryPPTX/PDF/source/previewbytecount/hash inrevision-evidence.json matchesactualfiles. PPTXcontains6slides;expandedXMLhigh-confidencecredential/privatepathpatterncheck passes. Authorreportsall6render/reimport/layoutpassed;reviewerindependentlyviewedslides5and6. NativePowerPointandhumanall-slidepresentationplaythroughnotclaimed. PDFremainssixpageimagepreview.
+
+## Remaining release conditions
+
+No blocking financial/sponsor overclaim found in inspectedcuratedrecords/media. One genuine providercall+rejectedproposal is transport/nativeintegrationproof,notcompleteproductagentacceptance. Preservegenericproposal_rejectedwithoutinventedcause.
+
+DirectorstillmustcopyV3verifiedmedia/publishreviewedcodewithupdatedmanifest,runfinalstagedsecret/whitespacecheck,replaceportalV2assetswithactualV3undersuppliedapproval,andverifyactualsaveddestinationlinks. CurrentoldV2linksaredraftstate untilreplacement,notproofV3uploaded. Rootreportsdraftdescription1931chars,sponsorfield2965chars,soloAmari/publicrepo;thisreviewdidnotinspectauthenticatedformoreligibility/rosterfields anew. Finalownerfullaudiovisual/nativeviewerreview,judgeassetaccess,exactbackendformatacceptanceandexplicitfinalSubmitapprovalremain. No deployment/submissionguaranteeorfinalsubmittedstate inferred.
+
+Priorfocusedcodeacceptance136tests+66subtests+37adversarialcases remainsseparate. Rootreports24APIand47frontendtests afteradapter;productionbuildpendingatassignment. Thisreviewdidnotrerunorclaimthatpendingbuildpassed.
+
+
+Director compatibility check after the adapter change: default run API24tests passed/exit0/5.32seconds; frontend47tests passed and production build24modules passed/exit0/1.64seconds. No additional model calls or broad full-regression repetition.

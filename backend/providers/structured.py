@@ -8,7 +8,8 @@ import subprocess
 import sys
 import time
 
-from .meterless_client import MeterlessClient
+from .meterless_client import (MeterlessClient, valid_runtime_model,
+    NIGHTSHIFT_NVIDIA_MODEL, strict_json, validate_nightshift_receipt)
 
 
 class StructuredProviderError(RuntimeError):
@@ -25,13 +26,19 @@ class NightshiftStructuredProvider:
         # Reuse the existing secure normalization/auth checks without networking.
         try:
             client = MeterlessClient(base_url, token)
-            if (not isinstance(model, str) or not re.fullmatch(r'meterless/[A-Za-z0-9_.:/-]{1,160}', model)
+            if (not valid_runtime_model(model)
                     or type(max_tokens) is not int or not 1024 <= max_tokens <= 2048):
                 raise ValueError
         except Exception:
             raise StructuredProviderError('structured_provider_configuration_invalid') from None
         self.__configuration = {'base_url': client.base_url, 'token': token,
                                 'model': model, 'max_tokens': max_tokens}
+        self.__receipts = []
+
+    @property
+    def provider_receipts(self):
+        """Observed transport provenance only, never financial acceptance."""
+        return strict_json(json.dumps(self.__receipts, allow_nan=False))
 
     def propose(self, *, context, tools, deadline):
         process = None
@@ -45,13 +52,28 @@ class NightshiftStructuredProvider:
             from backend.investigation.model_contracts import tool_definitions
             if tools != tool_definitions():
                 raise ValueError
+            if self.__configuration['model'] == NIGHTSHIFT_NVIDIA_MODEL and len(self.__receipts) >= 8:
+                raise ValueError
             message = json.dumps({**self.__configuration, 'context': context,
-                                  'tools': tools, 'timeout': min(120, remaining)}, allow_nan=False).encode('utf-8')
+                                  'tools': tools, 'timeout': min(120, remaining),
+                                  'nightshift_receipt': self.__configuration['model'] == NIGHTSHIFT_NVIDIA_MODEL}, allow_nan=False).encode('utf-8')
             if len(message) > 262144:
                 raise ValueError
             output = run_structured_worker(message, deadline, max_output=65536)
             from backend.investigation.dispatcher import decode_proposal
             text = output.decode('utf-8')
+            if self.__configuration['model'] == NIGHTSHIFT_NVIDIA_MODEL:
+                envelope = strict_json(text)
+                if (not isinstance(envelope, dict) or set(envelope) - {'proposal', 'receipt', 'error_code'}
+                        or len(self.__receipts) >= 8):
+                    raise ValueError
+                receipt = validate_nightshift_receipt(envelope.get('receipt'))
+                if self.__configuration['token'] in json.dumps(receipt, allow_nan=False):
+                    raise ValueError
+                self.__receipts.append(receipt)
+                if 'error_code' in envelope or not isinstance(envelope.get('proposal'), str):
+                    raise ValueError
+                text = envelope['proposal']
             decode_proposal(text)
             return text
         except Exception:

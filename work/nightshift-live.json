@@ -1,0 +1,74 @@
+{
+  "runtime_version": "1.2.7",
+  "official_cli": {
+    "status": {
+      "exit_code": 0,
+      "ok": true,
+      "engine_reachable": true,
+      "engine_ready": "unknown"
+    },
+    "discover": {
+      "exit_code": 0,
+      "ok": true
+    }
+  },
+  "startup_blocker_resolved": true,
+  "historical_configuration_preflight": {
+    "application_network_request_performed": false,
+    "runtime_token_present": false,
+    "result": "private_runtime_configuration_invalid",
+    "required_owner_action": "Privately configure separate Nightshift Runtime API key in ignored local file."
+  },
+  "authenticated_hosted_smoke": {
+    "recorded_at": "2026-10-27T14:22:53.143762+00:00",
+    "provider_transport": "existing Nightshift /v1/chat/completions",
+    "inference_attempts": 1,
+    "authenticated_models_ok": true,
+    "model_count": 86,
+    "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "response_id": "chatcmpl-692ced38-8101-4ec0-9b09-33aa9887fb20",
+    "response_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "finish_reason": "stop",
+    "ready_response_received": true,
+    "meterless": {
+      "schema": "meterless.compute_receipt.v1",
+      "receipt_id": "rcpt_req_6g8i5yzn",
+      "decision_id": "req_6g8i5yzn",
+      "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "provider_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "requires_review": false,
+      "from_cache": false,
+      "winning_route": {
+        "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "provider": "nvidia"
+      }
+    },
+    "usage": {
+      "prompt_tokens": 46,
+      "completion_tokens": 3,
+      "total_tokens": 49
+    },
+    "elapsed_seconds": 0.67,
+    "complete_financial_investigation": false,
+    "raw_reasoning_retained": false,
+    "generated_response": "READY"
+  },
+  "financial_investigation": {
+    "status": "blocked",
+    "error_code": "proposal_rejected",
+    "observed_uncached_provider_calls": 1,
+    "native_proposal_received": true,
+    "host_tool_attempts": 1,
+    "financial_evidence_count": 0,
+    "accepted_complete_financial_investigation": false,
+    "no_automatic_retry": true,
+    "receipt_path": "work/nightshift-investigation.json"
+  },
+  "credentials_retained": false,
+  "notes": [
+    "The real Runtime key was copied privately into the correct ignored local file; no credential is in this receipt.",
+    "Nightshift requested/routed/provider/response identities match Lightning; from_cache is false.",
+    "A successful READY text completion does not prove native financial investigation acceptance."
+  ]
+}

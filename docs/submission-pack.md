@@ -1,68 +1,188 @@
-# ClaimTrace submission materials for human review
+# ClaimTrace — HackOS submission content for owner review
 
-Prepared October 25, 2026. This is editable slide/script/metadata content, not a submitted entry, recorded video or rendered slide deck. Main remains separate from the reviewed feature branches until the lead approves merges. Do not describe the product as a functioning model-directed AI agent while inference is unavailable.
+## Final verified outcome — October 27
 
-## Short description
+Nightshift1.2.7 authenticated hosted NVIDIA Nemotron Lightning inference is verified: an uncached READY completion and one genuine native proposal, with matched requested/served/routed identities. The ONE financial dispatcher attempt stopped with `proposal_rejected` before registering a claim or retrieving financial evidence: zero evidence/calculations/conclusion, required human review. This is a failed model-directed financial attempt, not a successful AI briefing; no retries or weakened validation followed. Actual receipts: [Nightshift live proof](../work/nightshift-live.json), [financial attempt](../work/nightshift-investigation.json).
 
-ClaimTrace checks quarterly earnings assertions against attributed SEC financial evidence, challenges incomplete checks, and keeps an immutable report with a persistent human review decision. Its restricted model interface is implemented and tested independently of the website; authorized Nightshift/Nemotron execution remains outstanding.
+Owner authorized solo participation; HackOS roster was corrected and reloaded to one member, Amari Stevens. Existing Blackellence Track02 draft has description, GitHub URL and approved video/deck uploads saved; portal still shows zero submitted. GitHub independently verified public without owner cookies. Corrected final media show actual saved receipt evidence and distinguish deterministic browser execution from the failed AI financial attempt. Final reviewed release merge and final Submit still need owner approval. Earlier preparation statements below are historical when inconsistent with this checkpoint.
 
-Intended users are analysts preparing earnings briefs. A wrong quarter, accounting basis or cutoff can make a plausible number misleading. The demonstrated value is visible evidence, reproducible checks and review history. User adoption, time saved and general accuracy have not been measured.
 
-## Three-minute demonstration script
+Updated October 27, 2026. **Draft only: no HackOS project, upload, publication, deployment or submission is performed by this document.** Copy the fields below only after the owner confirms the actual form labels, registered roster, access and declarations. The existing portal draft is Track 02 under registered team Blackellence; no new portal project or team is created here.
 
-| Time | Show | Say |
-| --- | --- | --- |
-| 0:00–0:25 | Existing one-page company/quarter/assertion form | “We check an earnings assertion before it goes into a brief. This build uses real evidence and deterministic investigation rules; live model reasoning remains unavailable.” |
-| 0:25–1:15 | ISRG fiscal 2026 Q2, April 1–June 30, as-of October 25, GAAP diluted EPS assertion 9.99 USD/shares; select configured Zetaris | “This is a deliberately false analyst test assertion, not an issuer quote. The existing remote financial view supplies SEC-attributed evidence. The controller challenges the mismatch and requests an additional SEC check.” |
-| 1:15–1:50 | Actual returned trace, EPS 2.29, difference -7.70, SEC document link and July 21 filing date | “These are actual tool results. The source date, exact quarter and units are checked. A second read of the same issuer is not independent corroboration.” |
-| 1:50–2:15 | Human review, saved link, reload/restart | “A human can reject the report with a note. The backend binds the decision to this report digest and revision. It persists after restart. This demo action is a test, not financial sign-off.” |
-| 2:15–2:40 | July 20 cutoff run, no eligible filing evidence | “This 10-Q is not eligible before its filing date. The honest result is insufficient evidence; an earlier earnings release would need its own verified ingestion.” |
-| 2:40–3:00 | Sponsor/status and architecture content | “Zetaris and the H-MEM engine operate for real. The structured provider is tested against protocol fixtures; a supported authorized Nightshift host and actual Nemotron tool execution are the remaining AI blocker.” |
+## Current integration checkpoint
 
-Rehearse with the actual local servers and source configuration. If live data is unavailable, use the clearly labelled authentic cached SEC snapshot and disclose that switch. Do not replay a recording as current execution. Preserve a screenshot of an actual result, readable original citation, genuine trace and persisted review. Never show local credentials or contact configuration.
+PRs #7–#13 are merged into the existing repository. The integration checkpoint reported by the lead is `main` commit `0a6f6fb`; no open-PR approval is presented as a current submission prerequisite here. The deterministic application, evidence readers, investigation controller, restricted dispatcher, H-MEM integration and persisted review remain the accepted foundation.
 
-## Six-slide content
+Nightshift 1.2.7 now starts and independently reports reachable status/discovery. **Authenticated cloud completion, model provenance and an accepted complete ClaimTrace investigation through Nightshift have not yet been verified.** Runtime health alone is not inference or fulfillment of the mandatory Nightshift-provider requirement. The lead is conducting the separately authorized bounded acceptance; this paragraph must be updated from its actual sanitized result, not an expectation.
 
-1. **An earnings number needs context.** Quarterly versus year-to-date, GAAP versus adjusted and publication date can change what a figure supports. ClaimTrace is designed for the analyst's final evidence check.
-2. **One assertion, a traceable investigation.** Company + quarter + cutoff → restricted evidence tools → deterministic calculations → challenge/recheck → cited report → human decision. Model extraction and tool selection remain an unverified extension until a real provider runs.
-3. **A wrong EPS claim triggers a real check.** Show the actual ISRG test assertion 9.99, SEC EPS 2.29, calculated difference -7.70 and the original filing link. Label the assertion as a test; show the current real trace rather than invented reasoning.
-4. **Checks that survive a plausible answer.** Exact units/period/basis, source cutoff, conflicting evidence, source-backed memory, immutable reports and versioned reviews. Reference the finite regression cases and independent QA. No general accuracy or measured productivity claim.
-5. **What the sponsors actually do.** Zetaris: real scoped financial SQL. H-MEM: actual store/recall/reviewed correction engine; deterministic hash embeddings. Nightshift/Nemotron: prepared restricted transport, real inference blocked. Cursor: only claim an attributed qualifying human edit when its diff/tests are retained.
-6. **Next proof: a model that uses the guarded tools.** Obtain an authorized compatible host, verify native calls and Nemotron identity, run the complete bounded investigation and record an honest unresolved case. Human review stays mandatory. End with the actual private repository/demo access status, not an unapproved public URL.
+## Exact authenticated form mapping and description draft
 
-Use actual screenshots from the running accepted branch after approval. This content has not been rendered into a deck or checked for final video timing.
+The existing form exposes Track, automatic Team Name, Description (**150–2000 characters**), required Video (YouTube/Vimeo/Drive URL **or file upload**), required GitHub Solution URL, and optional Pitch Deck (URL **or upload**). File-format acceptance has not been confirmed. Additional details below are supporting review material, not invented form fields.
 
-## Reproducible guardrail comparison
+- Track: **Track 02** (existing draft).
+- Team Name: **Blackellence** (automatic; owner confirmation pending).
+- GitHub Solution URL: `https://github.com/stevensamari29-byte/ClaimTrace` (required; judge access still pending).
+- Video: use the existing final-reviewed file only after correcting stale disclosures, or supply an approved accessible URL. No upload performed.
+- Pitch Deck: optional; use final-reviewed existing PPTX/PDF only after corrections, or supply an approved accessible URL. No upload performed.
+- Description draft: **1931 characters**, counting actual newlines and spaces, excluding this document's fence markers. Recount after any provider-status edit.
 
-Run `.venv\Scripts\python.exe -m backend.investigation.evaluate` from the repository root. The committed output is `work/guardrail-evaluation.json`. Eight deliberately selected diagnostic assertions use authentic cached SEC facts: correct EPS, false EPS, non-GAAP, wrong quarter, wrong unit, unsupported causal claim, pre-publication cutoff and false margin. The guarded verifier matched 8/8 declared outcomes. An intentionally weak value-only ablation matched 4/8 because it deliberately ignored cutoff, unit, period and accounting basis. This shows the effect of those selected safeguards, not superiority to a real analyst, external product or AI baseline. The cases were not randomly sampled; no generalized accuracy, speed or analyst productivity claim follows. The evaluation makes no live network or model requests.
+```text
+ClaimTrace: Earnings Brief Gatekeeper helps analysts verify quarterly earnings assertions before using them in a brief. Wrong periods, units, GAAP definitions or publication cutoffs can make a plausible number misleading.
 
-## HackOS technical metadata draft
+Working workflow: company + quarter + as-of date + analyst assertion -> authentic SEC financial facts through Zetaris -> deterministic verification, challenge and bounded recheck -> cited report -> persistent human review. React/Vite calls FastAPI; reports and versioned decisions persist in SQLite. Only restricted evidence/calculation tools are exposed, with source/date checks and execution budgets.
 
-| Field/content | Prepared value or outstanding item |
+Real ISRG Q2 2026 cases: EPS 2.29 is supported; an intentionally false 9.99 assertion is contradicted by 2.29 (difference -7.70); a July 20 cutoff excludes the July 21 filing and returns incomplete. These are analyst test assertions, not issuer quotes. Browser activity is genuine deterministic execution.
+
+Nightshift 1.2.7 made authenticated, uncached hosted NVIDIA Nemotron Lightning calls: READY and a native tool proposal. The ONE model-directed financial attempt was blocked by host proposal validation before financial retrieval; no completed AI briefing is claimed. The separate hosted NVIDIA adapter and real receipts are preserved. The Meterless H-MEM engine provides scoped recall and reviewed correction persistence; correction tests use synthetic financial inputs and hash embeddings.
+
+Solo builder: Amari Stevens, assisted by Codex/AI tools. No unverified teammate or Cursor contribution is claimed; Cursor is optional. Pre-existing private Hackathon HQ infrastructure remains separate. An existing Zetaris connection, portable Meterless client and pinned public H-MEM source were reused with attribution. Public source, actual-capture video and slides disclose the limits. Video uses edited captures and computer narration. No measured accuracy/time savings or public deployment is claimed.
+```
+
+## Form-ready project and team fields
+
+| Field | Prepared content / human confirmation |
 | --- | --- |
-| Project | ClaimTrace: Earnings Brief Gatekeeper |
-| Repository | Existing private `stevensamari29-byte/ClaimTrace`; judge access/publication decision pending. Do not create another repository. |
-| Stack | React/Vite; Python/FastAPI; SQLite immutable run/review storage; bounded Node worker for existing H-MEM; remote Zetaris SQL; SEC primary data. |
-| AI status | Incomplete model-directed agent. Restricted proposals, dispatcher and provider transport prepared; genuine Nightshift/Nemotron execution not demonstrated. |
-| Sponsor evidence | README matrix, `docs/sponsor-path-status.md`, `docs/structured-provider.md`, `work/run-review-qa.md`, `work/autonomous-sprint-qa.md`, `work/live-data.json` and `work/financial-evaluation.json`. Tests/fixtures are identified separately. |
-| Pre-existing work | Hackathon HQ development infrastructure remains private and separate. Reused nonsecret Meterless adapter; public pinned H-MEM source/license retained under its vendor directory. Existing sponsor connection reused. Do not claim these were all written during the event. |
-| Cursor evidence | A genuine attributable product contribution and its tests remain to be supplied/verified. Installation alone is not evidence. |
-| Deployment/video/slides | Local app demonstrated; no approved deployment, uploaded final video or rendered final deck is claimed. This file supplies the script and slide content. |
-| Team/eligibility | Lead must confirm current registered human roster, eligibility and final submission ownership after withdrawals. Historical GitHub assignments are not proof of eligibility or participation. |
-| Rules | See official source links and unresolved track details in `docs/sponsor-path-status.md`. Full binding terms and direct-provider substitution remain unconfirmed; no compliance guarantee. |
-| Deadline | October 27, 2026 23:45 UTC / 7:45 p.m. Eastern, per retained event evidence. Plan feature freeze October 26 evening. |
+| Project name | **ClaimTrace: Earnings Brief Gatekeeper** |
+| Team name (automatic field) | **Blackellence**, as shown in the existing authenticated Track 02 draft. Owner confirmation pending; do not rename/create a team. ClaimTrace is the project name. |
+| Track | **Track 02 — The Agent That Can Explain Why**. Owner must select/confirm the exact current portal label and eligibility. |
+| Project lead / effective human team | **Amari**, assisted by Codex and AI development tools. Effectively one active human is reported. The authenticated registered roster shows **Amari Stevens only**, after the owner-authorized correction and a fresh portal readback. No former teammate contribution is inferred. |
+| Historical contributors | Alex, Danny, Jayden and Isaiah were earlier assigned roles. GitHub assignments are historical coordination; they are not proof of current participation or an observed contribution. Attribute only evidenced actual work. |
+| Repository URL | [Existing ClaimTrace repository](https://github.com/stevensamari29-byte/ClaimTrace). It is public; an unauthenticated GitHub API read verified `private:false`. Do not create another repository. |
+| Live application URL | **Not provided.** Working local application exists; no deployed public application is claimed. A local address is not a judge-accessible URL. |
+| Demonstration video URL | Approved HackOS-managed upload is saved in the draft; final receipt-based revision is being verified/uploaded before submission. |
+| Slide deck URL | Approved HackOS-managed PPTX upload is saved in the draft; final updated deck remains subject to owner review. |
+| Submission/project URL | Existing authenticated Track 02 draft found; **0 submitted entries** observed. A reusable public submission URL is not provided. No form was submitted by this work. |
 
-HackOS field labels, exact asset limits and required declarations must be checked against the actual submission form by the eligible owner. These draft fields are not represented as a completed form. No secrets, local configuration, personal files or private HQ contents belong in any uploaded artifact.
+### Short description
 
-## Submission blockers and human decisions
+ClaimTrace checks quarterly earnings assertions against authentic financial evidence, records its checks and challenges, and produces a cited report for human review. It preserves source dates, reporting periods, units and accounting basis, and returns an honest unresolved result when evidence is insufficient.
 
-- Approve reviewed PRs in dependency order 7 → 8 → 9 → 10 → this sprint; recheck each head/diff and retarget after approved merges. Nothing merges automatically.
-- Provide legitimate compatible Nightshift/Nemotron access or disclose incomplete inference. Missing required sponsor functionality could disqualify an entry or prevent track eligibility; exact consequences require final binding rules. Passing fixtures cannot resolve it.
-- Confirm a qualifying Cursor contribution and any mandatory sponsor evidence. Verify required development window, pre-existing-source disclosure and licenses against binding terms.
-- Confirm current registered roster and eligible account ownership; no borrowed credentials or invented contributor claims.
-- Rehearse and record the actual demonstration; render/review final slides; check audio, source readability and duration. Give judges approved artifact/repository access.
-- Lead reviews final HackOS content and authorizes any publication/deployment/submission separately. No such action is performed by this draft.
+### Problem
 
-## Freeze and maintenance handoff
+A plausible earnings number can still be misleading when it refers to the wrong quarter, uses adjusted rather than GAAP definitions, mixes units or relies on a document published after the analyst's cutoff. Analysts need to see which source supports a claim, which calculation was performed, and what remains unverified before including it in an earnings brief. ClaimTrace targets that evidence-review step; user adoption, time saved and general accuracy have not been measured.
 
-Keep the stable run/review branch available while reviewing this opt-in adapter increment. No local LLM, Docker migration, new cloud dataset or account is needed. Startup and tests remain in README. Alex supplies only missing remote schema/coverage facts; Danny supplies only legitimate provider/runtime access facts. Codex can maintain the remaining code and independent tests. Preserve contributor attribution and request a branch link before overwriting overlapping work.
+### Solution and demonstrated scope
+
+An analyst supplies a company, reporting period, as-of date and structured earnings assertion. ClaimTrace retrieves attributed SEC financial facts through an existing Zetaris connection or an explicitly labelled authentic SEC cache, checks comparable figures, challenges incomplete findings, and stores a source-backed report and versioned review decision. The existing React page displays genuine controller events, findings, calculations, limitations and original sources.
+
+The browser demonstration uses deterministic investigation rules. Restricted model proposals, tool dispatch and provider adapters are implemented. Separate real NVIDIA-hosted calls and partial financial tool flows exist, but no accepted completed model briefing is claimed. The now-reachable Nightshift Runtime still needs authenticated application inference acceptance. The current entry must not be described as a completed model-directed AI investigator or fully sponsor-compliant until that proof exists.
+
+### User workflow
+
+1. Select company and quarter, enter an as-of date, and supply an explicit analyst assertion.
+2. Start an actual backend investigation using the configured evidence reader.
+3. Inspect real retrieval, memory recall, numerical verification, challenge and bounded recheck events.
+4. Compare the assertion with evidence and calculations; open original SEC citations and publication dates.
+5. Inspect uncertainty, excluded evidence and unresolved findings rather than forcing a verdict.
+6. Approve or reject the saved report with a note. The backend enforces the report digest and review revision; the stored decision survives reload. A report decision does not approve an H-MEM correction or certify financial accuracy.
+
+### Architecture and safety
+
+React/Vite → FastAPI run/report/review API → existing bounded investigation controller → approved SEC/Zetaris evidence readers, deterministic financial tools and genuine H-MEM worker → immutable SQLite reports and append-only review history.
+
+The separate model execution path uses schema-validated proposals and a restricted dispatcher. It bounds time, calls and rechecks, preserves scope and publication cutoffs, binds citations to actual evidence, rejects unsupported verdicts and arbitrary SQL/commands, and retains human review. Provider errors are explicit. No automatic fallback silently substitutes direct NVIDIA for Nightshift. Local review identity is development metadata, not a shared-user authentication system. Servers remain local; public deployment is not part of this draft.
+
+## Three genuine documented examples
+
+These are analyst QA inputs, **not issuer quotations or AI-authored conclusions**. Actual three-case outputs are documented in README and [retained submission samples](../work/submission-samples.json). They use the same controller and existing approved connection.
+
+| Input | Actual observed output | Interpretation |
+| --- | --- | --- |
+| ISRG FY2026 Q2, April 1–June 30; GAAP diluted EPS assertion 2.29 USD/shares; October 25 cutoff | Supported numeric finding; live Zetaris returns matching SEC facts; report remains partial and requires human review. | Comparable evidence supports the entered number, not every possible earnings interpretation. |
+| Same period/basis, EPS assertion 9.99 USD/shares | Contradicted; evidence 2.29, calculated difference −7.70. Actual bounded recheck uses authentic SEC cache, visibly labelled. | A deliberately wrong analyst input triggers challenge/recheck; a second concept/read from the issuer is not independent issuer corroboration. |
+| Same EPS scope, as-of July 20, 2026 | No eligible facts from the implemented filing path; incomplete/blocked outcome. | The July 21 filing is excluded. This does not assert that no earlier earnings release existed; earlier-release ingestion is outside this path. |
+
+Original filing: [Intuitive Surgical June 30, 2026 Form 10-Q](https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm), published July 21, 2026. Preserve the actual source/date and cache/live labels in any presentation.
+
+## Sponsor and AI-assistance disclosure
+
+| Technology | Actual contribution | Important limitation / final evidence gate |
+| --- | --- | --- |
+| Zetaris | Existing AWS-hosted connection reused for real scoped financial SQL; actual returned SEC financial evidence, citations and publication cutoffs are tested. | Initial approved view has limited company/period coverage. Broader cloud writes require separate approval; a fresh clone does not grant service access. |
+| Meterless H-MEM Engine | Genuine engine/store/worker used for scoped recall and source-backed reviewed correction persistence. Application traces execute recall; sample runs have zero eligible memories. Independent correction tests execute the real engine. | Embeddings are deterministic hash mocks; correction-test financial inputs are synthetic. Neither semantic inference nor financial sign-off follows. Memory cannot replace authoritative financial facts. |
+| Meterless Nightshift | Official installed Runtime 1.2.7 now starts; status/discovery are reachable. Existing client/structured path is preserved. | **Mandatory provider acceptance pending:** authenticated cloud inference, actual model identity/provenance and complete restricted-tool application outcome remain unverified. Runtime startup does not fulfill the requirement. |
+| NVIDIA Nemotron | Authorized hosted endpoint made genuine completions and native model proposals; partial financial tool flows reached real evidence/calculation tools. | Separate direct-provider execution is not Nightshift usage. No accepted complete AI briefing, underlying-weight attestation, exact Super/VL equivalence or competition-compliance substitution is claimed. |
+| Cursor | Existing environment preserved; no actual qualifying ClaimTrace contribution observed. | Current official rules treat Cursor as optional, per the lead's latest rules review. Do not invent use or delay submission for an optional contribution. |
+| Codex / AI assistance | Code implementation, integration, documentation preparation, native independent verification and local computer-narrated review media. | AI tools are assistance, not additional human team members. Human lead retains final review, access, declarations and submission responsibility. |
+
+See [H-MEM integration](hmem-integration.md), [NVIDIA activation](nvidia-activation.md), [Nightshift activation](nightshift-windows-activation.md), [structured provider](structured-provider.md) and [independent sponsor QA](../work/live-sponsor-qa.md). Older dated runtime-unreachable notes describe prior checkpoints and are superseded by the current reachable-runtime checkpoint above; they do not prove successful inference.
+
+## Pre-existing components and attribution
+
+- **Private Hackathon HQ:** pre-existing tested development-agent and verification infrastructure, separate from the competition repository. Do not publish private code, credentials or HQ files.
+- **Existing sponsor connection:** previously verified cloud Zetaris configuration and reusable secure client behavior; private configuration remains outside Git. Approved SEC view/data work and application queries are distinct from inventing a new connection during this final sprint.
+- **Meterless client adapter:** prior portable nonsecret adapter with 13 mock tests reused and extended. Those tests are not live model inference.
+- **H-MEM reference work:** existing tested reference and public pinned source reused; vendor attribution/license is retained. Genuine application integration is described separately from prior reference tests.
+- **Vendor tools:** existing Cursor installation, official Nightshift software and NVIDIA hosted services are third-party components, not original ClaimTrace code.
+- **ClaimTrace foundation and increments:** accepted frontend/backend/evidence/controller/contracts/dispatcher/run-review/provider work accumulated through reviewed PRs #6–#13. Do not claim all code was authored during the final submission day; retain Git history and applicable build-window declarations.
+- **Media:** edited actual UI screenshots, local computer-generated narration and generated review slides. The video is not a continuous real-time screen recording and does not show live AI reasoning. No fabricated financial results or sponsor-success claims should be added.
+
+The owner must check applicable licenses, IP rights and build-window disclosures in the actual form. No credentials, personal configuration, private contact information or private HQ contents belong in uploaded artifacts.
+
+## Existing media and final review
+
+| Artifact | Existing file / actual state |
+| --- | --- |
+| Video | [ClaimTrace review demo — WebM](../submission/claimtrace-review-demo.webm): 4,222,765 bytes; recorded 181.18 seconds (3:01.18); VP8/Opus; edited actual captures and local computer narration. [Receipt](../submission/video-receipt.json). Prior playback reached EOF without a media error; owner full audiovisual/format review remains required. |
+| Editable deck | [Six-slide PPTX](../submission/claimtrace-slides.pptx), rendered/reimported/visually inspected. |
+| PDF preview | [Six-page PDF](../submission/claimtrace-slides.pdf). |
+| Integrity | [Artifact hash manifest](../submission/artifact-manifest.json). File existence/hash verification is not judge accessibility or substantive accuracy. |
+
+**These existing media are historical internal-review drafts.** Their ending/slide 5 still says the Runtime is unreachable and their blanket unmerged language is stale. Update the runtime, provider-result and merge statements after final actual inference status, then regenerate and review before uploading. Keep deterministic-controller and partial-NVIDIA disclosures unless new accepted evidence changes them. The streamed WebM lacks a duration field in Segment Info; measured recording/WAV duration is known, but the owner must confirm the submission host accepts WebM and displays it correctly. Do not merely rename it MP4.
+
+### Minimal three-minute presentation outline
+
+| Time | Show / explain |
+| --- | --- |
+| 0:00–0:25 | Problem, company/quarter/cutoff and explicit analyst assertion; identify the deterministic browser demonstration. |
+| 0:25–1:05 | Supported 2.29 EPS case, real Zetaris evidence and original SEC source/date. |
+| 1:05–1:45 | False 9.99 assertion, actual 2.29, difference −7.70, genuine challenge/recheck and cache label. |
+| 1:45–2:10 | July 20 cutoff exclusion and honest incomplete finding. |
+| 2:10–2:35 | Actual server-backed saved QA review; distinguish it from financial sign-off and memory approval. |
+| 2:35–3:00 | Genuine H-MEM use, exact current Nightshift/NVIDIA status and remaining limits. Never present startup or a partial run as a completed AI investigation. |
+
+## Verification evidence and limits
+
+Final reported independent regression checkpoint: **563 backend tests + 81 subtests; 47 frontend tests; production frontend build passed (24 modules)**. See [final submission QA](../work/final-submission-qa.md) and current lead integration evidence for the tested revision. These tests do not establish live inference or general financial accuracy. Any later production changes require relevant checks; documentation preparation alone does not justify repeating every completed test.
+
+Historical finite evaluations remain useful: [guardrail comparison](../work/guardrail-evaluation.json) records 8/8 declared outcomes versus 4/8 for a deliberately weak value-only ablation across eight selected authentic-cache cases. [Financial evaluation](../work/financial-evaluation.json) and [run/review QA](../work/run-review-qa.md) retain prior checkpoints. They are diagnostic fixtures/selected cases, not random sampling, external model benchmarks or measured analyst advantage. Dates and source modes in each record govern its claims.
+
+## Exact outstanding owner fields and actions
+
+1. Confirm existing Blackellence team, reconcile registered Amari Stevens + Daniel Herrera against effective sole-human participation, and verify withdrawals, eligibility, track selection and declarations. Do not infer registration from historical GitHub assignments.
+2. Complete the bounded authorized Nightshift acceptance and retain sanitized actual model/tool/provenance results. Record a failure honestly if no accepted completion is obtained. The mandatory provider gap remains until evidence establishes it.
+3. Review final media updates and play the full finished video with audio; confirm 1–4 minute length, readable traces/citations, accepted format and truthful disclosures.
+4. Approve repository judge access or visibility and actual video/deck hosting/upload destinations; verify access as intended judges. Add the real URLs to the form. No URL is invented here.
+5. Review the actual final form field limits, licenses/IP, pre-existing-work and AI-assistance disclosures. Current main checkpoint is `0a6f6fb`; no deployment is claimed.
+6. Explicitly authorize publication/access changes and submission separately. **Nothing is submitted by this pack.** Main-hackathon deadline retained from organizer evidence is October 27, 2026, 23:45 UTC / 7:45 p.m. EDT; verify the active portal time.
+
+Current official context supplied by the lead: Nightshift is mandatory; Cursor is optional. [Organizer event](https://hackathon.genai.works/event/open-agent-hackathon-2026) and [Academy](https://academy.genai.works/courses/open-agent-hackathon-2026/details) remain source references. [October 25 sponsor-path research](sponsor-path-status.md) is retained as dated background; earlier incomplete rule/access findings must not override the lead's later verified checklist. No compliance certification or submission guarantee is made.
+
+Separate Zetaris Demo Challenge work is outside this pack and remains gated on securing the main hackathon submission and clarifying its separate eligibility/deadline. Do not duplicate the project, add cloud infrastructure or expand the website during final readiness.
+
+
+## Actual sponsor explanation field (final prepared text)
+
+The authenticated portal now exposes this separate optional field with a 4000-character maximum. Prepared text is 2965 characters; the final saved draft readback governs.
+
+```text
+Zetaris: ClaimTrace reuses the existing authorized AWS-hosted connection and approved SEC REST registrations/normalized financial view. Actual bounded read-only SQL returns ISRG Q2 2026 revenue, diluted EPS and net income with company, period, source URL and publication date. The existing view also contains two comparative facts; broader cloud coverage is not claimed. Real supported, contradicted and cutoff-excluded cases reproduce. Its value here is a single queryable evidence contract that carries provenance into financial checks, rather than an unrelated connectivity demonstration. No speed/scalability benchmark or new cloud dataset is claimed.
+
+Meterless H-MEM: the real pinned public engine, store and worker implement scoped source-backed recall and reviewed correction persistence. Application recall runs for real; the demo has zero eligible memories. Independent correction/restart/recall tests execute the genuine engine with synthetic financial inputs and deterministic hash embeddings. Memory cannot override primary financial facts or approve a report.
+
+Meterless Nightshift + NVIDIA: the installed Runtime 1.2.7 is running and authenticated. A genuine uncached hosted NVIDIA Nemotron Lightning completion returned READY. One real native-tool financial attempt also returned an uncached proposal with matching requested, routed and served model identity. ClaimTrace rejected it at its host proposal-validation boundary BEFORE retrieving financial evidence; zero financial calculations/conclusions were accepted. Thus live transport/native proposals are demonstrated, but a completed model-directed financial investigation is NOT. The model receives only restricted tools; arbitrary SQL, commands, fabricated citations and automatic approvals are prohibited. Actual receipts and the failed outcome are retained. Separate earlier direct-NVIDIA partial financial flows are disclosed separately and are not represented as Nightshift success.
+
+Cursor: optional under the current official rules. Installed previously, but no qualifying ClaimTrace human development contribution is claimed. SpaceX AI/SpaceXSI: no verified integration or coding-agent contribution is claimed; Codex is not presented as SpaceXSI.
+
+Pre-existing components/AI assistance: private Hackathon HQ development infrastructure stays separate, with no private code/configuration/credentials copied into the application. The existing sponsor connection, portable Meterless client and pinned H-MEM source were reused with attribution and licenses preserved. Amari Stevens is the sole registered human builder; Codex/AI tools assisted implementation, independent verification, documentation and media. The video uses edited actual captures plus computer narration and labels saved provider receipts; it is not a continuous live AI run. Source is public, private credentials remain excluded, and no public application deployment, measured time savings or general accuracy is claimed.
+```
+
+
+## Final saved HackOS assets and verification
+
+- Video: [Final approximately3:20 demonstration](https://iframe.mediadelivery.net/embed/778121/9d5b6998-aaa6-4f9a-8b2a-47e598f3e4dd). HackOS explicitly accepts WebM; final upload succeeded, public player shows03:19 and playback was started. Anonymous HTTP retrieval returns200 without owner cookies/Authorization. Local final media blocks end at199.469seconds; narration199.549seconds.
+- Presentation: [Final six-slide PPTX](https://hackathon-server.genai.works/api/v1/cdn/proxy/hackathon/9776f327b1b14b6ea8d8a45a24ad2578.pptx). Anonymous download returns200 and exactly matches the local38,980-byte SHA256-verified deck.
+- Repository: [ClaimTrace public source](https://github.com/stevensamari29-byte/ClaimTrace). Unauthenticated GitHub API confirmedprivatefalse; activation release branch/PR must be reviewed/merged before main represents the final adapter.
+- Existing draft: [HackOS Submission Hub](https://hackathon.genai.works/submissions), Blackellence Track02, soloAmari. Description1931/2000 and sponsor explanation2965/4000 are saved. Video/deck link values persisted; final readback still showsDraft/0submitted. No separate entry created.
+
+Nightshift genuine inference is verified; complete AI financial investigation remainsunmet becausehost rejected its firstproposal before evidence retrieval. This limitation is in the description, sponsor explanation, video, slides and retained raw outcome. Final owner audiovisual review and exact release-merge/Submit approvals remain required. No live application deployment is claimed.

@@ -35,8 +35,13 @@ def main():
             return 0
         client = MeterlessClient(value['base_url'], value['token'])
         result = client.structured(value['context'], value['tools'], value['model'],
-                                   max_tokens=value['max_tokens'], timeout=value['timeout'])
-        sys.stdout.buffer.write(result.encode('utf-8'))
+                                   max_tokens=value['max_tokens'], timeout=value['timeout'],
+                                   with_receipt=value.get('nightshift_receipt', False))
+        if value.get('nightshift_receipt', False):
+            import json
+            sys.stdout.buffer.write(json.dumps(result, allow_nan=False).encode('utf-8'))
+        else:
+            sys.stdout.buffer.write(result.encode('utf-8'))
         sys.stdout.buffer.flush()
         return 0
     except Exception:

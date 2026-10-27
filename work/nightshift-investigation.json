@@ -1,0 +1,76 @@
+{
+  "recorded_at": "2026-10-27T17:23:10.921859+00:00",
+  "provider": "Nightshift 1.2.7 -> NVIDIA cloud",
+  "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+  "elapsed_seconds": 5.66,
+  "observed_uncached_provider_calls": 1,
+  "provider_receipts": [
+    {
+      "response_id": "chatcmpl-33f1cea6-4d9f-4a0f-9cf9-3f48d60ea647",
+      "response_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "receipt_id": "rcpt_req_6ma1r4ho",
+      "decision_id": "req_6ma1r4ho",
+      "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "provider_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "provider": "nvidia",
+      "from_cache": false,
+      "usage": {
+        "prompt_tokens": 4586,
+        "completion_tokens": 313,
+        "total_tokens": 4899
+      }
+    }
+  ],
+  "financial_report": {
+    "schema_version": "claimtrace.dispatcher.v1",
+    "execution_mode": "incomplete_no_verified_live_model",
+    "live_inference_verified": false,
+    "provider_kind": "unverified_provider",
+    "model_inference_performed": null,
+    "status": "blocked",
+    "error_code": "proposal_rejected",
+    "scope": {
+      "company": {
+        "name": "Intuitive Surgical, Inc.",
+        "ticker": "ISRG",
+        "cik": "0001035267"
+      },
+      "fiscal_year": 2026,
+      "period": "Q2",
+      "as_of": "2026-10-25",
+      "evidence_backend": "zetaris"
+    },
+    "original_claims": [],
+    "conclusion": null,
+    "diagnostic_findings": [],
+    "evidence": [],
+    "calculations": [],
+    "challenge_findings": [],
+    "citations": [],
+    "trace": [],
+    "tool_calls": 1,
+    "rechecks": 0,
+    "limits": {
+      "tool_calls": 8,
+      "transitions": 10,
+      "rechecks": 1,
+      "timeout_seconds": 120.0,
+      "automatic_retries": 0
+    },
+    "human_review_status": "required",
+    "semantic_mapping_status": "unverified",
+    "reviewed_memory": [],
+    "memory_status": "not_requested",
+    "limitations": [
+      "No verified live Nightshift/Nemotron inference.",
+      "Exact source quotes do not prove semantic extraction accuracy.",
+      "Existing readers carry fiscal identity; evidence dates alone do not independently establish fiscal calendars.",
+      "Decimal calculations retain the legacy source float precision limitation.",
+      "Optional H-MEM recall is reviewed context only; models cannot write corrections or grant approval."
+    ]
+  },
+  "human_review_status": "required",
+  "no_browser_inference_claim": true,
+  "no_automatic_retry": true
+}
