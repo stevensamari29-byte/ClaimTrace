@@ -61,3 +61,43 @@ No unresolved factual overclaim was found in these inspected documents. The vide
 The finished video is now present: `submission/claimtrace-review-demo.webm`, **4,222,765 bytes**, SHA-256 `0f1e518af2e0682948895b14792016f152e9791d18f50a295fcc8cb9af70e66d`. Independent offline parsing verified the EBML/WebM header, VP8 video (`V_VP8`) and Opus audio (`A_OPUS`), 3,925 blocks, and final block timestamp **181.109 seconds**. WebM contains no Duration metadata field; this is disclosed rather than inferred as a missing recording. The actual narration WAV has **181.183492 seconds** of PCM audio, agreeing with the browser receipt's **181.183479 seconds** (3:01.18), within the requested 1–4 minute range. The receipt records 1280×720, eight edited actual UI capture stages, local computer-generated narration, Nightshift unmet and no live-AI claim.
 
 Byte comparisons verified that the final `submission/` video, PPTX, PDF and video receipt exactly match their generated `.local/submission/` originals. PPTX SHA-256 is `6a72cbbaf5ddafb33330ddec32b5f42300baa78830d37b682e105a3bc58a3537`; PDF SHA-256 is `908e88dd891e1ecf824e75824962b2135e7b15075be4d2c728176706dd47184e`. This is an edited demonstration artifact, not real-time screen recording or completed model inference. The Director observed the saved status and final blocked-Nightshift frame. Independent QA did **not** perform a complete audiovisual playback, assess every narration timing transition, or approve organizer format/accessibility requirements. Owner full playthrough and authorized sharing/upload remain necessary. The final staged-index secret scan remains Director-owned and pending at this checkpoint. No API, inference, browser operation, new dependency or production change was performed in this media check.
+
+
+# Independent merged-main QA — October 27, 2026
+
+Reviewer: native /root/final_main_qa. Inspected authorized ClaimTrace only. Baseline main303fd76ec5942454045c41b9655f8398581fe942. No tracked edits, Git mutations, credentials, services, live network/model calls or private HQ source were touched. This reviewer writes only this ignored evidence file.
+
+## Scope and current integration
+
+`git diff --name-only codex/live-nemotron..HEAD` returned only README.md and docs/submission-readiness.md. All production code, tests, data and media match the previously independently verified branch. Git history contains actual PR7–12 merge commits through5e7a04a, followed by documentation clarifications1e7c8a4 and303fd76. Prior full563backend+81subtests regression remains applicable to identical production code; not repeated without cause. The focused post-merge checks below add actual current-main acceptance.
+
+## Actual commands and results
+
+- `.venv/Scripts/python.exe -m pytest backend/tests/test_run_api.py backend/tests/test_run_review_acceptance.py backend/tests/test_investigation_memory.py backend/tests/test_repository_secrets.py -q`: **60 passed**, exit0,34.19seconds. Existing Starlette/httpx deprecation warning only. Includes real vendored H-MEM worker, correction approval/rejection/restart/recall/feedback/source guard tests, run/review storage and security boundaries, and current complete Git-index credential/private-file scan. Financial/model HTTP fixtures remain fixtures.
+- In frontend: `node --test tests/*.test.mjs`: **47 passed**,0failed,3281.5191ms. Existing tests verify genuine returned trace/source rendering, scope, exact decimals, unavailable services, deadline and persisted review contract. Mocked transport does not establish live inference.
+- In frontend: `npm run build`: exit0,**24modules**,4.02seconds; current Vite7.3.7 production build generated successfully.
+- Read-only artifact/sample/provenance checks executed with existing Python stdin scripts: exit0. Detailed checks below. Initial raw vendor byte-hash probe failed because Windows checkout adds CRLF; follow-up verified every committed Git blob and LF-normalized checkout matches pinned source manifest. No vendored source change or unverified hash equivalence claimed.
+
+## Saved report and source evidence inspection
+
+All three actual saved reports remain in README and work/submission-samples.json. This reviewer inspected artifacts, not a fresh service request. Root owns fresh live smoke testing.
+
+- Supported EPS2.29: run10082dea-a551-4e0b-80ae-33dcc4decd87;partial/supported;3live_zetarisfacts;6traceevents/3toolcalls;exact2.29000000vs2.29,delta0E-8. Requiredreview/version0.
+- Contradicted EPS9.99: run05f2b9a6-e87b-4e4e-b62b-b80531a133ca;partial/contradicted;8combinedlive_zetaris+cached_secfacts;8traceevents/5toolcalls;actual2.29000000,delta-7.70000000. Clearly labelled QA rejection/version1; not financial signoff or memory approval.
+- July20cutoff: run1ad5e77e-d8e7-46ce-ac54-476278cbb3a3;blocked/incomplete;0facts/citations/calculations;7traceevents/4toolcalls;requiredreview/version0. No eligible ingested filing, not a claim that all earlier information was absent.
+
+Every citation evidence_id resolves to returned evidence, with matching URL/publication/locator/source_mode/hash; URLs are the primary SEC ISRG filing path. Every publication is on/before its input cutoff. Each report states model_inference_performed:false and required human review. Analyst test assertions are not issuer quotes.
+
+Actual H-MEM correction tests execute unchanged vendored engine modules with synthetic financial inputs and deterministic hash mock embeddings. All five committed source blobs match pinned provenance hashes; Windows local CRLF variants match after LF normalization. Actual memory behavior is demonstrated, not semantic inference or Nightshift completion.
+
+work/nvidia-live.json keeps accepted_completed_model_investigation:false and nightshift_provider_used:false. Genuine partial receipts must not be described as completed agent investigations.
+
+## Media and disclosure checks
+
+All delivered artifacts match submission/artifact-manifest.json bytes/SHA256: video4222765bytes;PPTX38579bytes;PDF852639bytes;receipt586bytes. PPTX ZIP contains6slides; expanded XML passed credential/personal-path-pattern check. No source/media change has occurred since prior all-slide rendering/reimport/visual checks and actual video playback. This reviewer did not independently play all video/audio or launch PowerPoint; root's observed playback and existing reviewed media evidence remain separate. No upload/format/judge access acceptance follows from matching hashes.
+
+## Findings and minimum remaining gates
+
+No blocking production/test/security regression found in the inspected merged snapshot. Documentation consistency issue for Director: docs/pre-existing-components.md foundation row still says main is behind unmerged branches; replace this current-state claim. Historical top paragraphs in work/foundation.md and AGENTS.md retain old multi-human ownership/openPR status; annotate latest one-person human roster and merged-main checkpoint without deleting attribution/history. README and readiness opening already acknowledge merges.
+
+Mandatory Nightshift execution remains unverified; existing supported startup/host blocker persists pending root's bounded official-documentation check. Direct NVIDIA partials and real H-MEM do not substitute. Repository remains private; judge access, actual media hosting URLs, final registered roster, owner Cursor contribution evidence, full owner media/format review and authorized HackOS submission remain gates. PhaseB substantive work must wait for main hackathon submission secured and separate eligibility/deadline clarification. No new optional feature is justified by these checks.
