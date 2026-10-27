@@ -1,5 +1,8 @@
 # Final submission readiness — October 26, 2026
 
+> **October 27, 2026 integration update:** The project lead approved PRs #7–#12, and GitHub confirmed all six merges into `main` in dependency order. The final merge commit for #12 is `5e7a04ae4b02c66c8c65c64f0ee9d9a5288656dc`; a documentation-only README clarification followed in `1e7c8a4b5692785d0be3cfe78c4faf490671fa71`. The original October 26 status and historical PR tables below are retained as a dated recovery record. The repository remains **private**; Nightshift execution, public judge access, media hosting, and HackOS submission are **not verified**. No GitHub-hosted CI checks are configured and a post-merge local regression run has not been observed.
+
+
 **Not ready to submit as compliant.** The final organizer checklist supplied by the lead makes Nightshift the required AI provider. A working Runtime/provider has not been demonstrated. Direct NVIDIA calls and H-MEM do not replace it. Optional model improvements stopped when this checklist arrived; no PR was merged and no deployment, access expansion or submission occurred.
 
 | Final requirement | Current verified state | Evidence / exact remaining action |
