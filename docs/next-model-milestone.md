@@ -1,0 +1,34 @@
+# Model-directed milestone and role handoff
+
+Accepted controller commit `40042f0` is open as [PR #6](https://github.com/stevensamari29-byte/ClaimTrace/pull/6), from `codex/investigation-controller` into `main`. **Do not merge without explicit owner approval.** Existing main remains the accepted foundation. The next model-contract preparation is isolated on `codex/model-tool-contracts`, based on the accepted controller, rather than changing that PR.
+
+## What is already complete
+
+| Existing issue | Completed work to preserve | Highest-value independent next task |
+|---|---|---|
+| [#1 Data & Backend](https://github.com/stevensamari29-byte/ClaimTrace/issues/1) | Existing API, authentic SEC evidence, actual scoped Zetaris financial SQL/cutoff, deterministic financial tools and generic second-company SEC retrieval | Preserve original Decimal/filing precision and ingest canonical disclosure text with source hash, publication date, exact period and trusted document ID for the extraction gate. Expand comparative/reconciliation tools only with cited inputs; new cloud data writes need their own approval. |
+| [#2 AI Agent & Reasoning](https://github.com/stevensamari29-byte/ClaimTrace/issues/2) | Standalone bounded controller, challenge/recheck, cited reports, real H-MEM sourced review/correction/recall and preserved Meterless client | Implement the host dispatcher over the new validated tool proposals: one shared budget/deadline, trusted evidence update after recheck, actual challenge checks, duplicate-key-safe response decoding and unavailable-runtime failure. Then connect actual Nightshift inference when supported authorized access exists. |
+| [#3 Frontend & UX](https://github.com/stevensamari29-byte/ClaimTrace/issues/3) | Existing one-page React selection/request, evidence/citations/calculations and error states | Agree the smallest server run/review boundary, then show genuine returned trace, evidence ledger and explicit human review in the existing page. No website expansion or redesign. Local H-MEM actor labels are not shared-user authentication. |
+| [#4 Independent QA](https://github.com/stevensamari29-byte/ClaimTrace/issues/4) | Independent controller/memory/adversarial tests, real service receipts, provenance and secret checks | Test malicious/ambiguous model proposals, semantic quote-to-metric misbinding, omitted counterevidence, forged conclusions, budgets and review bypass. Prepare a short reproducible real demonstration and accurate source/license/pre-existing-component disclosure. |
+
+All roles remain unassigned; these are available responsibilities, not teammate assignments or deadlines invented by Codex. Reserve concrete files before parallel human edits.
+
+## Exact model integration still required
+
+1. Obtain a compatible already-authorized Nightshift host and private local token configuration. No compatible host currently exists. Do not invent access, install an unsupported runtime, introduce paid services or substitute another provider.
+2. Discover real routing IDs and capabilities through the preserved adapter. Run one bounded authorized completion and retain sanitized timing/output plus a runtime receipt establishing underlying NVIDIA Nemotron execution. A `meterless/` routing ID alone does not establish the NVIDIA model.
+3. Extend the existing portable client through a reviewed change for structured messages, tool definitions/tool-call results and required runtime response fields. Its current `chat` is text-only, capped at128 output tokens with180-second timeout; it cannot already drive this tool loop. Negotiate a bounded structured-output budget and enforce the controller's overall120-second deadline across inference and tools. No startup inference.
+4. Use the actual schemas in `shared/model-tools.json` and `shared/model-output.schema.json` through `ModelProposalGate`. Dispatch only allowed operations using server-owned company/period/cutoff, approved readers, known evidence and deterministic verification. Never accept SQL, commands, model-provided credential/configuration paths or arbitrary fetch URLs.
+5. Keep registered disclosure text and financial evidence immutable to the model; implement trusted updates after recheck without resetting the shared budget. Selection of checks is not proof the checks ran: the host must actually execute and record challenge checks. Extracted proposals retain model authorship and an unverified semantic mapping until separately reviewed; exact quotes alone cannot prove a faithful interpretation.
+6. Show a genuine model-selected claim/check/tool/recheck sequence against real Zetaris, a conflicting/incomplete case, a cited conclusion with uncertainty and required human review, and sourced H-MEM recall/correction. Keep fixture/replay evidence distinct from live execution. No current contract test establishes this end-to-end AI behavior.
+
+## Focused official requirement check — October24,2026
+
+Sources were checked only for current requirements, not as another infrastructure audit. Full binding rules are not entirely accessible in public text, so potential eligibility risks below are not blanket disqualification claims.
+
+- [Organizer event](https://hackathon.genai.works/event/open-agent-hackathon-2026): submission deadline **October27,2026,23:45UTC /7:45p.m.EDT**. Wildcard explicitly requires Zetaris and Meterless. Failure to satisfy an applicable track requirement could invalidate that track entry; the selected track and final adopted rules still need confirmation.
+- [Official Academy](https://academy.genai.works/courses/open-agent-hackathon-2026/details): current guidance teaches a Meterless Engine and running the product through Nightshift on Nemotron. Real H-MEM application behavior substantially addresses Engine functionality; no completed sponsor-compliance certification is claimed. Missing Nightshift/Nemotron execution is the highest stack/completeness risk and prevents claiming a genuine working AI investigator. Accessible organizer text does not establish automatic all-track disqualification for this gap.
+- The same Academy page now permits **Cursor or any AI coding tool**, differing from stricter earlier supplied guidance. Preserve Cursor and a genuine eligible teammate edit/diff/test if used, but do not assert its absence alone definitely invalidates the entry.
+- [Meterless guide](https://raw.githubusercontent.com/Meterless/Meterless/main/docs/community/hackathon-guide.md) still shows October15–20 and different tracks/rubric. Those stale details must not override the organizer's October22–27 schedule and100-point rubric.
+
+Before submission, independently confirm final track gates, team eligibility/registration, required artifact access/visibility and pre-existing-work disclosures. The repository remains private; no publication, permissions change, invitations, deployment or submission is authorized by this preparation.
