@@ -13,6 +13,8 @@ October 25: a real deterministic investigation workflow is implemented for revie
 
 Live receipts are in `work/financial-evaluation.json`. The authentic cached evaluation matches expected classifications in eight deliberately selected cases. This is a finite regression result, not general accuracy or AI reasoning. No measured analyst time saving or baseline advantage is claimed.
 
+The separate reproducible diagnostic `.venv\Scripts\python.exe -m backend.investigation.evaluate` compares the guarded verifier against an intentionally weak value-only ablation. Saved output in `work/guardrail-evaluation.json` records 8/8 versus 4/8 declared outcomes on eight selected cases. The ablation deliberately ignores unit, period, basis and cutoff; this is a guardrail demonstration, not an external product comparison or broad accuracy claim.
+
 ## Sponsor evidence and gaps
 
 | Contribution | Honest demonstration |
@@ -24,9 +26,9 @@ Live receipts are in `work/financial-evaluation.json`. The authentic cached eval
 
 ## Before freeze and submission
 
-- Highest technical priority: obtain an eligible, authorized inference path and let Danny reuse the restricted dispatcher. Do not duplicate his adapter/semantic mapping work or bypass provider permissions.
+- Highest technical priority: obtain an eligible, authorized inference path. The autonomous sprint prepares the structured adapter and existing dispatcher independently; Danny supplies missing specialized access facts. Coordinate any overlapping unpublished branch before edits. Do not bypass provider permissions.
 - Project lead reviews PRs in dependency order 7 → 8 → 9 → run/review integration, retargeting and rechecking after each approved merge. No automatic merge or deployment. Preserve a stable demo branch.
-- Isaiah independently rehearses create/report/review/restart, difficult financial cases and honest sponsor claims. Prepare the video/slides and confirm track rules, eligibility, artifact access and pre-existing-source disclosures. Full binding rule accordions remain unverified; no compliance guarantee is made.
+- Human QA is unavailable; native independent QA verifies create/report/review/restart and difficult financial cases. The lead still needs to rehearse/record the demo, review final slides and confirm rules, eligibility, artifact access and pre-existing-source disclosures. Script, slide content and draft technical metadata are in `submission-pack.md`. Full binding rule accordions remain unverified; no compliance guarantee is made.
 
 Aim to freeze features on the evening of October 26. October 27 is for regressions, proof checks, recording and submission readiness before 23:45 UTC / 7:45 p.m. EDT. Submission, deployment and visibility changes require explicit approval.
 

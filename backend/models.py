@@ -1,4 +1,5 @@
 from datetime import date
+from decimal import Decimal, InvalidOperation
 from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 from urllib.parse import urlsplit
@@ -46,10 +47,25 @@ class Evidence(StrictModel):
     period_end: date
     unit: str
     value: float = Field(allow_inf_nan=False)
+    value_decimal: str | None = Field(default=None, max_length=80, pattern=r'^[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:[eE][+-]?[0-9]+)?$', description='Exact received numeric representation when retained; does not establish original filing rounding precision.')
     concept: str
     locator: str
     source_mode: Literal['live_sec', 'cached_sec', 'live_zetaris']
     source_sha256: str | None = None
+
+    @field_validator('value_decimal')
+    @classmethod
+    def bounded_exact_value(cls, value):
+        if value is None:
+            return value
+        try:
+            number = Decimal(value)
+        except InvalidOperation:
+            raise ValueError('Exact evidence value must be a finite decimal') from None
+        if (not number.is_finite() or len(number.as_tuple().digits) > 34 or
+                (number != 0 and abs(number.adjusted()) > 30)):
+            raise ValueError('Exact evidence value requires <=34 digits and adjusted exponent within +/-30')
+        return str(number)
 
     @field_validator('url')
     @classmethod
@@ -61,6 +77,8 @@ class Evidence(StrictModel):
 
     @model_validator(mode='after')
     def chronology(self):
+        if self.value_decimal is not None and float(Decimal(self.value_decimal)) != self.value:
+            raise ValueError('Exact evidence value conflicts with the compatible numeric value')
         if not self.period_start <= self.period_end <= self.published_at:
             raise ValueError('Evidence reporting/publication chronology is invalid')
         return self

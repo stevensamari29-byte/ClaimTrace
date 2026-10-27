@@ -6,13 +6,14 @@ import json
 import os
 import re
 import uuid
+from decimal import Decimal
 from pathlib import Path
 from urllib.parse import urlsplit
 
 import httpx
 
 from .models import Company, Evidence
-from .sources import SourceError
+from .sources import SourceError, exact_numeric_text, invalid_json_constant
 
 
 def configuration():
@@ -50,7 +51,7 @@ def query(sql, limit=25):
                     raw.extend(chunk)
                     if len(raw) > 1_000_000:
                         raise SourceError('Zetaris response exceeded the 1 MB bound.')
-            return json.loads(raw)
+            return json.loads(raw, parse_float=Decimal, parse_constant=invalid_json_constant)
     except SourceError:
         raise
     except (KeyError, OSError, httpx.HTTPError, ValueError):
@@ -98,7 +99,7 @@ def zetaris_evidence(request):
             canonical = identity
             evidence.append(Evidence(id=row['evidence_id'], document=row['document'], url=row['source_url'],
                 published_at=row['published_at'], period_start=row['period_start'], period_end=row['period_end'],
-                unit=row['unit'], value=row['value'], concept=row['concept'], locator=row['locator'],
+                unit=row['unit'], value=row['value'], value_decimal=exact_numeric_text(row['value']), concept=row['concept'], locator=row['locator'],
                 source_mode='live_zetaris', source_sha256=row.get('source_sha256')))
         except (KeyError, ValueError, TypeError):
             raise SourceError('Zetaris financial evidence failed schema validation.') from None

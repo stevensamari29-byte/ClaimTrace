@@ -161,3 +161,21 @@ test('actual record rendering keeps verdict and calculation values visible while
   assert.ok(html.includes('<strong>Retrieve additional evidence</strong>'));
   assert.ok(html.includes('state: recheck'));
 });
+
+test('evidence rendering preserves received exact numeric text beyond JavaScript precision', async () => {
+  const source = await fs.readFile(new URL('../src/main.jsx', import.meta.url), 'utf8');
+  const compiled = await transform(source.replace("import './styles.css';", '') + '\nexport { Evidence };', { loader: 'jsx', format: 'cjs' });
+  const module = { exports: {} };
+  vm.runInNewContext(compiled.code, { module, exports: module.exports, URL, document: { getElementById: () => ({}) }, require: name => {
+    if (name === 'react') return React;
+    if (name === 'react-dom/client') return { createRoot: () => ({ render() {} }) };
+    if (name === './investigation-api.js') return api;
+    throw new Error(`Unexpected dependency ${name}`);
+  } });
+  const exact = '9007199254740993.123456789012345678';
+  const html = renderToStaticMarkup(React.createElement(module.exports.Evidence, { item: { metric: 'revenue', value: Number(exact), value_decimal: exact, unit: 'USD', published_at: '2026-07-21' } }));
+  assert.ok(html.includes(exact + ' <small>USD</small>'));
+  assert.ok(html.includes('Published 2026-07-21'));
+  const legacy = renderToStaticMarkup(React.createElement(module.exports.Evidence, { item: { metric: 'diluted_eps', value: 2.29, unit: 'USD/shares' } }));
+  assert.ok(legacy.includes('2.29 <small>USD/shares</small>'));
+});
