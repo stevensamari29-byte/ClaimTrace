@@ -1,0 +1,76 @@
+{
+  "recorded_at": "2026-10-27T18:45:21.672077+00:00",
+  "provider": "Nightshift 1.2.7 -> NVIDIA cloud",
+  "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+  "elapsed_seconds": 3.496,
+  "observed_uncached_provider_calls": 0,
+  "provider_receipts": [],
+  "financial_report": {
+    "schema_version": "claimtrace.dispatcher.v1",
+    "execution_mode": "incomplete_no_verified_live_model",
+    "live_inference_verified": false,
+    "provider_kind": "unverified_provider",
+    "model_inference_performed": null,
+    "status": "blocked",
+    "error_code": "provider_unavailable",
+    "scope": {
+      "company": {
+        "name": "Intuitive Surgical, Inc.",
+        "ticker": "ISRG",
+        "cik": "0001035267"
+      },
+      "fiscal_year": 2026,
+      "period": "Q2",
+      "as_of": "2026-10-25",
+      "evidence_backend": "zetaris"
+    },
+    "original_claims": [],
+    "conclusion": null,
+    "diagnostic_findings": [],
+    "evidence": [],
+    "calculations": [],
+    "challenge_findings": [],
+    "citations": [],
+    "trace": [],
+    "tool_calls": 0,
+    "rechecks": 0,
+    "limits": {
+      "tool_calls": 8,
+      "transitions": 10,
+      "rechecks": 1,
+      "timeout_seconds": 120.0,
+      "automatic_retries": 0
+    },
+    "human_review_status": "required",
+    "semantic_mapping_status": "unverified",
+    "reviewed_memory": [],
+    "memory_status": "not_requested",
+    "limitations": [
+      "No verified live Nightshift/Nemotron inference.",
+      "Exact source quotes do not prove semantic extraction accuracy.",
+      "Existing readers carry fiscal identity; evidence dates alone do not independently establish fiscal calendars.",
+      "Decimal calculations retain the legacy source float precision limitation.",
+      "Optional H-MEM recall is reviewed context only; models cannot write corrections or grant approval."
+    ]
+  },
+  "human_review_status": "required",
+  "no_browser_inference_claim": true,
+  "no_automatic_retry": true,
+  "single_investigation_authorized": true,
+  "tested_head": "d088bbb9474c46476bb3327002df677d516b4feb",
+  "diagnostic_observation": {
+    "tool_identity": null,
+    "validation_phase": "provider_transport_before_host_dispatch",
+    "sanitized_rule_code": "provider_unavailable",
+    "schema_error_types": [],
+    "missing_diagnostics_reason": "No model proposal reached the host gate. Original rejection remains unrecoverable.",
+    "read_only_catalog_check": {
+      "operation": "read_only_model_catalog",
+      "inference_requested": false,
+      "error_category": "runtime_connection_unavailable"
+    },
+    "compatibility_bug_established": false,
+    "automatic_or_manual_model_retries": 0,
+    "no_completed_financial_investigation": true
+  }
+}

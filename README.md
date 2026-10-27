@@ -99,6 +99,8 @@ NVIDIA schemas advertise only actions whose host prerequisites are satisfied, bi
 
 ## Final submission gate — October 27
 
+Latest owner-approved diagnostic attempt on merged PR #15 (`d088bbb`) stopped with `provider_unavailable` before any proposal or host tool execution. A read-only Nightshift catalog check was unreachable. No model retry was made. Earlier authenticated inference receipts remain valid historical evidence; a completed financial AI investigation is still unverified. See [the captured diagnostic attempt](work/nightshift-diagnostic-attempt.json).
+
 **Complete AI-investigation acceptance remains unmet:** the final organizer checklist requires Nightshift as the AI provider. Runtime 1.2.7 has verified authenticated, uncached NVIDIA Lightning inference and a native tool proposal. The ONE financial attempt was rejected by host validation before evidence retrieval; no completed model-directed financial briefing is claimed. The existing deterministic application works; direct NVIDIA has genuine partial execution evidence, but no accepted completed model briefing. Optional model improvements are frozen. See [the final readiness checklist](docs/submission-readiness.md), [pre-existing component disclosures](docs/pre-existing-components.md) and [independent final QA](work/final-submission-qa.md). PRs #7–#14 were merged into `main` on October 27, 2026. The Blackellence Track 02 draft is prepared with the owner-approved solo roster and media uploads; HackOS still shows zero submitted entries. The repository is publicly accessible. No public application deployment is claimed.
 
 ## Three actual sample inputs and outputs
