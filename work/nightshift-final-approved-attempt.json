@@ -1,0 +1,100 @@
+{
+  "recorded_at": "2026-10-27T18:57:33.349015+00:00",
+  "provider": "Nightshift 1.2.7 -> NVIDIA cloud",
+  "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+  "elapsed_seconds": 8.878,
+  "observed_uncached_provider_calls": 1,
+  "provider_receipts": [
+    {
+      "response_id": "chatcmpl-3a439c4c-993e-4d27-b447-3e8864006eb5",
+      "response_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "receipt_id": "rcpt_req_jlykdkf6",
+      "decision_id": "req_jlykdkf6",
+      "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "provider_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "routed_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "provider": "nvidia",
+      "from_cache": false,
+      "usage": {
+        "prompt_tokens": 4586,
+        "completion_tokens": 583,
+        "total_tokens": 5169
+      }
+    }
+  ],
+  "financial_report": {
+    "schema_version": "claimtrace.dispatcher.v1",
+    "execution_mode": "incomplete_no_verified_live_model",
+    "live_inference_verified": false,
+    "provider_kind": "unverified_provider",
+    "model_inference_performed": null,
+    "status": "blocked",
+    "error_code": "proposal_rejected",
+    "scope": {
+      "company": {
+        "name": "Intuitive Surgical, Inc.",
+        "ticker": "ISRG",
+        "cik": "0001035267"
+      },
+      "fiscal_year": 2026,
+      "period": "Q2",
+      "as_of": "2026-10-25",
+      "evidence_backend": "zetaris"
+    },
+    "rejection_diagnostic": {
+      "tool": "propose_extracted_claims",
+      "phase": "gate",
+      "rule": "source_binding_invalid",
+      "schema_issues": []
+    },
+    "original_claims": [],
+    "conclusion": null,
+    "diagnostic_findings": [],
+    "evidence": [],
+    "calculations": [],
+    "challenge_findings": [],
+    "citations": [],
+    "trace": [],
+    "tool_calls": 1,
+    "rechecks": 0,
+    "limits": {
+      "tool_calls": 8,
+      "transitions": 10,
+      "rechecks": 1,
+      "timeout_seconds": 120.0,
+      "automatic_retries": 0
+    },
+    "human_review_status": "required",
+    "semantic_mapping_status": "unverified",
+    "reviewed_memory": [],
+    "memory_status": "not_requested",
+    "limitations": [
+      "No verified live Nightshift/Nemotron inference.",
+      "Exact source quotes do not prove semantic extraction accuracy.",
+      "Existing readers carry fiscal identity; evidence dates alone do not independently establish fiscal calendars.",
+      "Decimal calculations retain the legacy source float precision limitation.",
+      "Optional H-MEM recall is reviewed context only; models cannot write corrections or grant approval."
+    ]
+  },
+  "human_review_status": "required",
+  "no_browser_inference_claim": true,
+  "no_automatic_retry": true,
+  "single_investigation_authorized": true,
+  "tested_head": "d088bbb9474c46476bb3327002df677d516b4feb",
+  "interpretation": {
+    "transport_inference_established_by_receipt": true,
+    "completed_financial_investigation": false,
+    "precise_binding_subfield_not_retained": true,
+    "known_gate_rule": "source_binding_invalid",
+    "rule_covers": [
+      "registered_disclosure_identity",
+      "source_text_sha256",
+      "quote_offsets_and_exact_text",
+      "claim_text_equals_quote",
+      "reporting_period_equals_registered_disclosure"
+    ],
+    "specific_compatibility_bug_established": false,
+    "no_validation_changes": true,
+    "no_second_investigation": true
+  }
+}
