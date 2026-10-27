@@ -90,6 +90,7 @@ class RestrictedDispatcher:
         self._rechecks = 0
         self._queried = False
         self._failed = None
+        self._rejection_diagnostic = None
         self._conclusion = None
         self._trace = []
         self._calculations = []
@@ -222,10 +223,13 @@ class RestrictedDispatcher:
         if self._calls >= self._max_calls:
             self._fail('tool_budget_exhausted')
         self._calls += 1  # Invalid attempts also consume budget.
+        name, validation_phase = None, False
         try:
             envelope = decode_proposal(proposal_json)
             name, arguments = envelope['tool'], envelope['arguments']
+            validation_phase = True
             result = self._gate.validate(name, arguments)
+            validation_phase = False
             proposal_type = {'query_financial_evidence': QueryEvidence,
                              'request_additional_investigation': AdditionalInvestigation,
                              'calculate_financial_claim': CalculateClaim,
@@ -255,7 +259,10 @@ class RestrictedDispatcher:
             self._failed = str(error)
             self._conclusion = None
             raise
-        except Exception:
+        except Exception as error:
+            from .proposal_diagnostics import rejection_diagnostic
+            self._rejection_diagnostic = rejection_diagnostic(name, error,
+                validation_phase=validation_phase)
             self._fail('proposal_rejected')
 
     def run(self, provider=None):
@@ -297,6 +304,8 @@ class RestrictedDispatcher:
             'model_inference_performed': False if provider_kind in ('none', 'unavailable', 'protocol_fixture') else None,
             'status': 'blocked' if self._failed else ('review_required' if self._conclusion else 'in_progress'),
             'error_code': self._failed, 'scope': self._gate.scope,
+            **({'rejection_diagnostic': self._rejection_diagnostic}
+               if self._rejection_diagnostic is not None else {}),
             'original_claims': snapshot['claims'],
             'conclusion': self._conclusion, 'diagnostic_findings': list(snapshot['verified'].values()),
             'evidence': snapshot['evidence'], 'calculations': self._calculations,
