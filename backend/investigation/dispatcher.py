@@ -19,6 +19,17 @@ class DispatchError(RuntimeError):
     """Sanitized failure code; private provider/reader exceptions never escape."""
 
 
+def disclosure_quote_spans(text):
+    """Index untrusted source lines, without selecting or interpreting claims."""
+    spans, offset = [], 0
+    for line in text.splitlines(keepends=True):
+        quote = line.rstrip('\r\n')
+        if quote.strip() and len(quote) <= 4000 and len(spans) < 128:
+            spans.append({'start': offset, 'end': offset + len(quote), 'quote': quote})
+        offset += len(line)
+    return spans
+
+
 class StructuredProvider(Protocol):
     """Future integration contract, not implemented by MeterlessClient.chat.
 
@@ -99,6 +110,7 @@ class RestrictedDispatcher:
         self._gate = ModelProposalGate(self._request, disclosures=disclosures, clock=clock)
         self._gate.register_host_evidence(evidence)
         self._disclosures = [{'id': d.id, 'text': d.text, 'url': d.url,
+                             'quote_spans': disclosure_quote_spans(d.text),
                              'published_at': d.published_at.isoformat(),
                              'text_sha256': d.text_sha256,
                              'period_start': d.period_start.isoformat(), 'period_end': d.period_end.isoformat()}
@@ -285,6 +297,7 @@ class RestrictedDispatcher:
             'model_inference_performed': False if provider_kind in ('none', 'unavailable', 'protocol_fixture') else None,
             'status': 'blocked' if self._failed else ('review_required' if self._conclusion else 'in_progress'),
             'error_code': self._failed, 'scope': self._gate.scope,
+            'original_claims': snapshot['claims'],
             'conclusion': self._conclusion, 'diagnostic_findings': list(snapshot['verified'].values()),
             'evidence': snapshot['evidence'], 'calculations': self._calculations,
             'challenge_findings': self._challenges,
@@ -295,6 +308,7 @@ class RestrictedDispatcher:
             'limits': {'tool_calls': self._max_calls, 'transitions': 10, 'rechecks': 1,
                        'timeout_seconds': self._deadline - self._started, 'automatic_retries': 0},
             'human_review_status': 'required', 'semantic_mapping_status': 'unverified',
+            'reviewed_memory': self._memory_context, 'memory_status': self._memory_status,
             'limitations': ['No verified live Nightshift/Nemotron inference.',
                            'Exact source quotes do not prove semantic extraction accuracy.',
                            'Existing readers carry fiscal identity; evidence dates alone do not independently establish fiscal calendars.',

@@ -1,6 +1,7 @@
 """Opt-in, killable structured transport preparation, not verified live inference."""
 import json
 import math
+import os
 import re
 from pathlib import Path
 import subprocess
@@ -48,27 +49,38 @@ class NightshiftStructuredProvider:
                                   'tools': tools, 'timeout': min(120, remaining)}, allow_nan=False).encode('utf-8')
             if len(message) > 262144:
                 raise ValueError
-            if time.monotonic() >= deadline:
-                raise TimeoutError
-            process = subprocess.Popen([sys.executable, '-E', '-s', '-m', 'backend.providers.structured_worker'],
-                cwd=Path(__file__).resolve().parents[2], stdin=subprocess.PIPE,
-                stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
-                creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
-            remaining = deadline - time.monotonic()
-            if remaining <= 0:
-                raise TimeoutError
-            output, _ = process.communicate(message, timeout=remaining)
-            if time.monotonic() >= deadline:
-                raise TimeoutError
-            if process.returncode != 0 or len(output) > 65536:
-                raise ValueError
+            output = run_structured_worker(message, deadline, max_output=65536)
             from backend.investigation.dispatcher import decode_proposal
             text = output.decode('utf-8')
             decode_proposal(text)
             return text
         except Exception:
             raise StructuredProviderError('structured_provider_unavailable') from None
-        finally:
-            if process is not None and process.poll() is None:
-                process.kill()
-                process.communicate()
+
+
+def run_structured_worker(message, deadline, *, max_output=131072):
+    """Shared fixed child-process transport; absolute deadline and stdin secrets."""
+    process = None
+    try:
+        if len(message) > 262144 or type(deadline) not in (int, float) or not math.isfinite(deadline):
+            raise ValueError
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            raise TimeoutError
+        environment = {key: value for key, value in os.environ.items()
+                       if key not in ('NVIDIA_API_KEY', 'NIGHTSHIFT_RUNTIME_TOKEN')}
+        process = subprocess.Popen([sys.executable, '-E', '-s', '-m', 'backend.providers.structured_worker'],
+            cwd=Path(__file__).resolve().parents[2], stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, env=environment,
+            creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            raise TimeoutError
+        output, _ = process.communicate(message, timeout=remaining)
+        if time.monotonic() >= deadline or process.returncode != 0 or len(output) > max_output:
+            raise ValueError
+        return output
+    finally:
+        if process is not None and process.poll() is None:
+            process.kill()
+            process.communicate()

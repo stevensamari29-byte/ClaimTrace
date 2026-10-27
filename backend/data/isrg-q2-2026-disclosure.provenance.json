@@ -1,0 +1,12 @@
+{
+  "source_url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+  "source_document_sha256": "9ae6a1b30ea3b24b0243a23790cc0e2849bc4a37701e30c039d90d816b18a052",
+  "excerpt_sha256": "bf4bf414d5a9d8e140ae2ad8da6a81c1992c730a57f1da2b2150058405ddc09d",
+  "excerpt_length": 1162,
+  "published_at": "2026-07-21",
+  "normalization": "HTML tr text nodes joined with spaces; whitespace collapsed; rows joined with newline",
+  "claim_authorship": "No claim was authored here; model must extract an exact quote from the actual source excerpt.",
+  "source_mode": "authentic_cached_sec_disclosure",
+  "retrieved_on": "2026-10-25",
+  "limitation": "Cached primary SEC HTML excerpt for reproducible model extraction; not a live SEC request during each model run. Financial evidence backend is selected separately."
+}

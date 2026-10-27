@@ -10,6 +10,7 @@ KEY_PATTERNS = (
     rb'\bsk-proj-[A-Za-z0-9_-]{24,}',
     rb'\bgh[pousr]_[A-Za-z0-9]{36,}\b',
     rb'\bgithub_pat_[A-Za-z0-9_]{60,}\b',
+    rb'\bnvapi-[A-Za-z0-9_-]{20,}\b',
 )
 
 
