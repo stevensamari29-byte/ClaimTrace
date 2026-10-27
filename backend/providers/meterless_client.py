@@ -136,31 +136,36 @@ class MeterlessClient:
                 {'role': 'user', 'content': content}],
             'tools': tools, 'tool_choice': 'required', 'parallel_tool_calls': False,
             'stream': False, 'max_tokens': max_tokens}, timeout=timeout)
-        try:
-            choices = payload['choices']
-            if not isinstance(choices, list) or len(choices) != 1:
-                raise ValueError
-            choice = choices[0]
-            message = choice['message']
-            calls = message['tool_calls']
-            if (choice.get('finish_reason') != 'tool_calls' or message.get('refusal')
-                    or message.get('content') not in (None, '') or message.get('role') != 'assistant'
-                    or not isinstance(calls, list) or len(calls) != 1 or calls[0]['type'] != 'function'):
-                raise ValueError
-            function = calls[0]['function']
-            name = function['name']
-            raw = function['arguments']
-            if not isinstance(raw, str) or len(raw.encode('utf-8')) > 65536:
-                raise ValueError
-            arguments = strict_json(raw)
-            if name not in {t['function']['name'] for t in tools} or not isinstance(arguments, dict):
-                raise ValueError
-            proposal = json.dumps({'tool': name, 'arguments': arguments}, allow_nan=False, separators=(',', ':'))
-            if len(proposal.encode('utf-8')) > 65536:
-                raise ValueError
-            return proposal
-        except (KeyError, IndexError, TypeError, ValueError, RecursionError):
-            raise ClientError('Invalid structured tool response') from None
+        return decode_native_tool_call(payload, tools)
+
+
+def decode_native_tool_call(payload, tools):
+    """Shared strict native-call decoder; proposal schemas remain host-validated."""
+    try:
+        choices = payload['choices']
+        if not isinstance(choices, list) or len(choices) != 1:
+            raise ValueError
+        choice = choices[0]
+        message = choice['message']
+        calls = message['tool_calls']
+        if (choice.get('finish_reason') != 'tool_calls' or message.get('refusal')
+                or message.get('content') not in (None, '') or message.get('role') != 'assistant'
+                or not isinstance(calls, list) or len(calls) != 1 or calls[0]['type'] != 'function'):
+            raise ValueError
+        function = calls[0]['function']
+        name = function['name']
+        raw = function['arguments']
+        if not isinstance(raw, str) or len(raw.encode('utf-8')) > 65536:
+            raise ValueError
+        arguments = strict_json(raw)
+        if name not in {t['function']['name'] for t in tools} or not isinstance(arguments, dict):
+            raise ValueError
+        proposal = json.dumps({'tool': name, 'arguments': arguments}, allow_nan=False, separators=(',', ':'))
+        if len(proposal.encode('utf-8')) > 65536:
+            raise ValueError
+        return proposal
+    except (KeyError, IndexError, TypeError, ValueError, RecursionError):
+        raise ClientError('Invalid structured tool response') from None
 
 
 def strict_json(value):

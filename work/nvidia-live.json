@@ -1,0 +1,658 @@
+{
+  "schema_version": "claimtrace.nvidia-live-evidence.v1",
+  "recorded_on": "2026-10-26",
+  "genuine_hosted_calls_demonstrated": true,
+  "accepted_completed_model_investigation": false,
+  "nightshift_provider_used": false,
+  "not_a_competition_compliance_claim": true,
+  "smoke": {
+    "actual_response": "READY",
+    "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "response_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "response_id": "chatcmpl-11208657-0b98-4576-b340-f7dcb9076091",
+    "usage": {
+      "prompt_tokens": 24,
+      "completion_tokens": 3,
+      "total_tokens": 27
+    }
+  },
+  "model_identity_limit": "Super public route returned a different internal Nemotron name. Both are retained; alias equivalence, exact weights and VL capability are unverified.",
+  "final_transport_probe": {
+    "tool_choice": "auto",
+    "live_acceptance_after_this_probe": false,
+    "reason": "Organizer override stopped optional model testing. Fixtures are not live proof."
+  },
+  "history_limit": "These retained checkpoints include both progress and blocked outcomes; they are not representative accuracy measurements.",
+  "actual_checkpoints": [
+    {
+      "case": "super_financial_partial",
+      "actual_report": {
+        "schema_version": "claimtrace.dispatcher.v1",
+        "status": "blocked",
+        "error_code": "provider_unavailable",
+        "execution_mode": "model_directed_nvidia_hosted",
+        "provider_kind": "nvidia_hosted",
+        "provider_model_identity_status": "server_reported_name_differs_requested_route",
+        "model_inference_performed": true,
+        "live_inference_verified": true,
+        "scope": {
+          "company": {
+            "name": "Intuitive Surgical, Inc.",
+            "ticker": "ISRG",
+            "cik": "0001035267"
+          },
+          "fiscal_year": 2026,
+          "period": "Q2",
+          "as_of": "2026-10-25",
+          "evidence_backend": "zetaris"
+        },
+        "original_claims": [
+          {
+            "id": "claim-net-income-3m-2026-06-30",
+            "text": "Net income attributable to Intuitive Surgical, Inc. $ 818.1 $ 658.4 $ 1,639.6 $ 1,356.8",
+            "metric": "net_income",
+            "expected_value_decimal": "818.1",
+            "unit": "USD millions",
+            "accounting_basis": "GAAP",
+            "period_start": "2026-04-01",
+            "period_end": "2026-06-30",
+            "input_kind": "model_extracted_proposal",
+            "quote_ref": {
+              "disclosure_id": "isrg-sec-q2-2026",
+              "text_sha256": "bf4bf414d5a9d8e140ae2ad8da6a81c1992c730a57f1da2b2150058405ddc09d",
+              "normalization": "unicode-codepoints-exact-v1",
+              "start": 942,
+              "end": 1029,
+              "quote": "Net income attributable to Intuitive Surgical, Inc. $ 818.1 $ 658.4 $ 1,639.6 $ 1,356.8"
+            }
+          }
+        ],
+        "diagnostic_findings": [
+          {
+            "claim_id": "claim-net-income-3m-2026-06-30",
+            "classification": "supported",
+            "evidence_ids": [
+              "ISRG-netincome-2026-04-01-2026-06-30"
+            ],
+            "explanation": "Comparable GAAP evidence agrees within the declared tolerance.",
+            "supporting_findings": [],
+            "challenging_findings": []
+          }
+        ],
+        "calculations": [
+          {
+            "tool": "compare_value",
+            "actual_decimal": "818100000.00000000",
+            "expected_decimal": "818100000.0",
+            "difference_decimal": "0E-8",
+            "tolerance_decimal": "0",
+            "unit": "USD",
+            "evidence_ids": [
+              "ISRG-netincome-2026-04-01-2026-06-30"
+            ],
+            "precision": "Decimal arithmetic on exact received numeric representations; original filing rounding precision and any upstream Zetaris DOUBLE loss are not established. Margin division is rounded to 34 significant digits."
+          }
+        ],
+        "citations": [
+          {
+            "evidence_id": "ISRG-netincome-2026-04-01-2026-06-30",
+            "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+            "published_at": "2026-07-21",
+            "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+            "source_sha256": null,
+            "source_mode": "live_zetaris"
+          }
+        ],
+        "trace": [
+          {
+            "step": 1,
+            "state": "propose_extracted_claims"
+          },
+          {
+            "step": 2,
+            "state": "query_financial_evidence"
+          }
+        ],
+        "tool_calls": 2,
+        "rechecks": 0,
+        "human_review_status": "required",
+        "semantic_mapping_status": "unverified",
+        "memory_status": "reviewed_context_only_not_financial_fact",
+        "limitations": [
+          "Exact source quotes do not prove semantic extraction accuracy.",
+          "Existing readers carry fiscal identity; evidence dates alone do not independently establish fiscal calendars.",
+          "Decimal calculations retain the legacy source float precision limitation.",
+          "Optional H-MEM recall is reviewed context only; models cannot write corrections or grant approval.",
+          "Direct NVIDIA hosted calls observed; Nightshift was not used. Server-reported model identity is not hardware attestation. Completed financial verification and semantic accuracy are separate from inference.",
+          "Explicit observed text route: requested public Super VL name differs from the server-reported internal Nemotron name. Alias equivalence, exact weights and vision-language capability are not independently verified."
+        ]
+      },
+      "actual_provider_receipts": [
+        {
+          "provider": "nvidia_hosted",
+          "endpoint": "https://integrate.api.nvidia.com/v1",
+          "response_id": "chatcmpl-59c1d247-b94e-43b1-a535-5a1afbffb772",
+          "requested_model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+          "response_model": "private/nvidia/nemotron-3.5-super-120b-a12b",
+          "usage": {
+            "prompt_tokens": 3306,
+            "completion_tokens": 130,
+            "total_tokens": 3436
+          },
+          "elapsed_ms": 1753,
+          "identity_status": "server_reported_name_differs_requested_route",
+          "proposed_tool": "propose_extracted_claims",
+          "native_tool": "propose_claim_from_span",
+          "source_binding": "host_registered_span"
+        },
+        {
+          "provider": "nvidia_hosted",
+          "endpoint": "https://integrate.api.nvidia.com/v1",
+          "response_id": "chatcmpl-eaa07f4d-35a1-4261-86ae-c7e040cce9dd",
+          "requested_model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+          "response_model": "private/nvidia/nemotron-3.5-super-120b-a12b",
+          "usage": {
+            "prompt_tokens": 3474,
+            "completion_tokens": 31,
+            "total_tokens": 3505
+          },
+          "elapsed_ms": 997,
+          "identity_status": "server_reported_name_differs_requested_route",
+          "proposed_tool": "query_financial_evidence"
+        }
+      ],
+      "provider_error_code": "nvidia_service_unavailable",
+      "provider_diagnostic": null,
+      "provider_propose_attempts": 3,
+      "reviewed_memory_count": 0
+    },
+    {
+      "case": "latest_timeout_partial",
+      "actual_report": {
+        "schema_version": "claimtrace.dispatcher.v1",
+        "status": "blocked",
+        "error_code": "provider_unavailable",
+        "execution_mode": "model_directed_nvidia_hosted",
+        "provider_kind": "nvidia_hosted",
+        "provider_model_identity_status": "server_reported_name_differs_requested_route",
+        "model_inference_performed": true,
+        "live_inference_verified": true,
+        "scope": {
+          "company": {
+            "name": "Intuitive Surgical, Inc.",
+            "ticker": "ISRG",
+            "cik": "0001035267"
+          },
+          "fiscal_year": 2026,
+          "period": "Q2",
+          "as_of": "2026-10-25",
+          "evidence_backend": "zetaris"
+        },
+        "original_claims": [
+          {
+            "id": "isrg-q2-2026-diluted-eps",
+            "text": "Diluted $ 2.29 $ 1.81 $ 4.57 $ 3.72",
+            "metric": "diluted_eps",
+            "expected_value_decimal": "2.29",
+            "unit": "USD/share",
+            "accounting_basis": "GAAP",
+            "period_start": "2026-04-01",
+            "period_end": "2026-06-30",
+            "input_kind": "model_extracted_proposal",
+            "quote_ref": {
+              "disclosure_id": "isrg-sec-q2-2026",
+              "text_sha256": "bf4bf414d5a9d8e140ae2ad8da6a81c1992c730a57f1da2b2150058405ddc09d",
+              "normalization": "unicode-codepoints-exact-v1",
+              "start": 1127,
+              "end": 1162,
+              "quote": "Diluted $ 2.29 $ 1.81 $ 4.57 $ 3.72"
+            }
+          }
+        ],
+        "diagnostic_findings": [],
+        "calculations": [],
+        "citations": [],
+        "trace": [
+          {
+            "step": 1,
+            "state": "propose_extracted_claims"
+          }
+        ],
+        "tool_calls": 1,
+        "rechecks": 0,
+        "human_review_status": "required",
+        "semantic_mapping_status": "unverified",
+        "memory_status": "not_requested",
+        "limitations": [
+          "Exact source quotes do not prove semantic extraction accuracy.",
+          "Existing readers carry fiscal identity; evidence dates alone do not independently establish fiscal calendars.",
+          "Decimal calculations retain the legacy source float precision limitation.",
+          "Optional H-MEM recall is reviewed context only; models cannot write corrections or grant approval.",
+          "Direct NVIDIA hosted calls observed; Nightshift was not used. Server-reported model identity is not hardware attestation. Completed financial verification and semantic accuracy are separate from inference.",
+          "Explicit observed text route: requested public Super VL name differs from the server-reported internal Nemotron name. Alias equivalence, exact weights and vision-language capability are not independently verified."
+        ]
+      },
+      "actual_provider_receipts": [
+        {
+          "provider": "nvidia_hosted",
+          "endpoint": "https://integrate.api.nvidia.com/v1",
+          "response_id": "chatcmpl-de1f33be-39bb-4deb-a4a2-8e77ed1a7483",
+          "requested_model": "nvidia/nemotron-3.5-super-vl-120b-a12b",
+          "response_model": "private/nvidia/nemotron-3.5-super-120b-a12b",
+          "usage": {
+            "prompt_tokens": 3306,
+            "completion_tokens": 127,
+            "total_tokens": 3433
+          },
+          "elapsed_ms": 1874,
+          "identity_status": "server_reported_name_differs_requested_route",
+          "proposed_tool": "propose_extracted_claims",
+          "native_tool": "propose_claim_from_span",
+          "source_binding": "host_registered_span"
+        }
+      ],
+      "provider_error_code": "nvidia_provider_unavailable",
+      "provider_diagnostic": null,
+      "provider_propose_attempts": 2,
+      "reviewed_memory_count": 0
+    },
+    {
+      "case": "bounded_no_progress_failure",
+      "actual_report": {
+        "schema_version": "claimtrace.dispatcher.v1",
+        "status": "blocked",
+        "error_code": "tool_budget_exhausted",
+        "execution_mode": "model_directed_nvidia_hosted",
+        "provider_kind": "nvidia_hosted",
+        "model_inference_performed": true,
+        "live_inference_verified": true,
+        "scope": {
+          "company": {
+            "name": "Intuitive Surgical, Inc.",
+            "ticker": "ISRG",
+            "cik": "0001035267"
+          },
+          "fiscal_year": 2026,
+          "period": "Q2",
+          "as_of": "2026-10-25",
+          "evidence_backend": "zetaris"
+        },
+        "original_claims": [
+          {
+            "id": "clm-isrg-q2-revenue-2026q2",
+            "text": "Total revenue 2,892.3 2,440.0 5,663.1 4,693.4",
+            "metric": "revenue",
+            "expected_value_decimal": "2892.3",
+            "unit": "USD millions",
+            "accounting_basis": "GAAP",
+            "period_start": "2026-04-01",
+            "period_end": "2026-06-30",
+            "input_kind": "model_extracted_proposal",
+            "quote_ref": {
+              "disclosure_id": "isrg-sec-q2-2026",
+              "text_sha256": "bf4bf414d5a9d8e140ae2ad8da6a81c1992c730a57f1da2b2150058405ddc09d",
+              "normalization": "unicode-codepoints-exact-v1",
+              "start": 202,
+              "end": 247,
+              "quote": "Total revenue 2,892.3 2,440.0 5,663.1 4,693.4"
+            }
+          }
+        ],
+        "diagnostic_findings": [
+          {
+            "claim_id": "clm-isrg-q2-revenue-2026q2",
+            "classification": "supported",
+            "evidence_ids": [
+              "ISRG-revenue-2026-04-01-2026-06-30"
+            ],
+            "explanation": "Comparable GAAP evidence agrees within the declared tolerance.",
+            "supporting_findings": [],
+            "challenging_findings": []
+          }
+        ],
+        "calculations": [
+          {
+            "tool": "compare_value",
+            "actual_decimal": "2892300000.00000000",
+            "expected_decimal": "2892300000.0",
+            "difference_decimal": "0E-8",
+            "tolerance_decimal": "0",
+            "unit": "USD",
+            "evidence_ids": [
+              "ISRG-revenue-2026-04-01-2026-06-30"
+            ],
+            "precision": "Decimal arithmetic on exact received numeric representations; original filing rounding precision and any upstream Zetaris DOUBLE loss are not established. Margin division is rounded to 34 significant digits."
+          }
+        ],
+        "citations": [
+          {
+            "evidence_id": "ISRG-revenue-2026-04-01-2026-06-30",
+            "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+            "published_at": "2026-07-21",
+            "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+            "source_sha256": null,
+            "source_mode": "live_zetaris"
+          }
+        ],
+        "trace": [
+          {
+            "step": 1,
+            "state": "propose_extracted_claims"
+          },
+          {
+            "step": 2,
+            "state": "select_evidence_checks",
+            "host_challenge": [
+              {
+                "claim_id": "clm-isrg-q2-revenue-2026q2",
+                "checks_run": [
+                  "source_dates",
+                  "exact_period",
+                  "units",
+                  "accounting_basis",
+                  "conflicting_values",
+                  "missing_context"
+                ],
+                "classification": "incomplete",
+                "evidence_ids": [],
+                "missing_context": [
+                  "Semantic extraction requires human review.",
+                  "Original source decimal precision is unavailable."
+                ],
+                "explanation": "No eligible evidence matches the metric, exact period and unit; YTD is never substituted for a quarter."
+              }
+            ]
+          },
+          {
+            "step": 3,
+            "state": "query_financial_evidence",
+            "host_challenge": [
+              {
+                "claim_id": "clm-isrg-q2-revenue-2026q2",
+                "checks_run": [
+                  "source_dates",
+                  "exact_period",
+                  "units",
+                  "accounting_basis",
+                  "conflicting_values",
+                  "missing_context"
+                ],
+                "classification": "supported",
+                "evidence_ids": [
+                  "ISRG-revenue-2026-04-01-2026-06-30"
+                ],
+                "missing_context": [
+                  "Semantic extraction requires human review.",
+                  "Original source decimal precision is unavailable."
+                ],
+                "explanation": "Comparable GAAP evidence agrees within the declared tolerance."
+              }
+            ]
+          },
+          {
+            "step": 4,
+            "state": "calculate_financial_claim",
+            "host_challenge": [
+              {
+                "claim_id": "clm-isrg-q2-revenue-2026q2",
+                "checks_run": [
+                  "source_dates",
+                  "exact_period",
+                  "units",
+                  "accounting_basis",
+                  "conflicting_values",
+                  "missing_context"
+                ],
+                "classification": "supported",
+                "evidence_ids": [
+                  "ISRG-revenue-2026-04-01-2026-06-30"
+                ],
+                "missing_context": [
+                  "Semantic extraction requires human review.",
+                  "Original source decimal precision is unavailable."
+                ],
+                "explanation": "Comparable GAAP evidence agrees within the declared tolerance."
+              }
+            ]
+          },
+          {
+            "step": 5,
+            "state": "calculate_financial_claim",
+            "host_challenge": [
+              {
+                "claim_id": "clm-isrg-q2-revenue-2026q2",
+                "checks_run": [
+                  "source_dates",
+                  "exact_period",
+                  "units",
+                  "accounting_basis",
+                  "conflicting_values",
+                  "missing_context"
+                ],
+                "classification": "supported",
+                "evidence_ids": [
+                  "ISRG-revenue-2026-04-01-2026-06-30"
+                ],
+                "missing_context": [
+                  "Semantic extraction requires human review.",
+                  "Original source decimal precision is unavailable."
+                ],
+                "explanation": "Comparable GAAP evidence agrees within the declared tolerance."
+              }
+            ]
+          },
+          {
+            "step": 6,
+            "state": "calculate_financial_claim",
+            "host_challenge": [
+              {
+                "claim_id": "clm-isrg-q2-revenue-2026q2",
+                "checks_run": [
+                  "source_dates",
+                  "exact_period",
+                  "units",
+                  "accounting_basis",
+                  "conflicting_values",
+                  "missing_context"
+                ],
+                "classification": "supported",
+                "evidence_ids": [
+                  "ISRG-revenue-2026-04-01-2026-06-30"
+                ],
+                "missing_context": [
+                  "Semantic extraction requires human review.",
+                  "Original source decimal precision is unavailable."
+                ],
+                "explanation": "Comparable GAAP evidence agrees within the declared tolerance."
+              }
+            ]
+          },
+          {
+            "step": 7,
+            "state": "calculate_financial_claim",
+            "host_challenge": [
+              {
+                "claim_id": "clm-isrg-q2-revenue-2026q2",
+                "checks_run": [
+                  "source_dates",
+                  "exact_period",
+                  "units",
+                  "accounting_basis",
+                  "conflicting_values",
+                  "missing_context"
+                ],
+                "classification": "supported",
+                "evidence_ids": [
+                  "ISRG-revenue-2026-04-01-2026-06-30"
+                ],
+                "missing_context": [
+                  "Semantic extraction requires human review.",
+                  "Original source decimal precision is unavailable."
+                ],
+                "explanation": "Comparable GAAP evidence agrees within the declared tolerance."
+              }
+            ]
+          },
+          {
+            "step": 8,
+            "state": "calculate_financial_claim",
+            "host_challenge": [
+              {
+                "claim_id": "clm-isrg-q2-revenue-2026q2",
+                "checks_run": [
+                  "source_dates",
+                  "exact_period",
+                  "units",
+                  "accounting_basis",
+                  "conflicting_values",
+                  "missing_context"
+                ],
+                "classification": "supported",
+                "evidence_ids": [
+                  "ISRG-revenue-2026-04-01-2026-06-30"
+                ],
+                "missing_context": [
+                  "Semantic extraction requires human review.",
+                  "Original source decimal precision is unavailable."
+                ],
+                "explanation": "Comparable GAAP evidence agrees within the declared tolerance."
+              }
+            ]
+          }
+        ],
+        "tool_calls": 8,
+        "rechecks": 0,
+        "human_review_status": "required",
+        "semantic_mapping_status": "unverified",
+        "memory_status": "reviewed_context_only_not_financial_fact",
+        "limitations": [
+          "Exact source quotes do not prove semantic extraction accuracy.",
+          "Existing readers carry fiscal identity; evidence dates alone do not independently establish fiscal calendars.",
+          "Decimal calculations retain the legacy source float precision limitation.",
+          "Optional H-MEM recall is reviewed context only; models cannot write corrections or grant approval.",
+          "Direct NVIDIA hosted calls observed; Nightshift was not used. Server-reported model identity is not hardware attestation. Completed financial verification and semantic accuracy are separate from inference."
+        ]
+      },
+      "actual_provider_receipts": [
+        {
+          "provider": "nvidia_hosted",
+          "endpoint": "https://integrate.api.nvidia.com/v1",
+          "response_id": "chatcmpl-e3a32cfa-9cf1-4957-8443-50059e4242b9",
+          "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "response_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "usage": {
+            "prompt_tokens": 3169,
+            "completion_tokens": 988,
+            "total_tokens": 4157
+          },
+          "elapsed_ms": 11145,
+          "proposed_tool": "propose_extracted_claims",
+          "native_tool": "propose_claim_from_span",
+          "source_binding": "host_registered_span"
+        },
+        {
+          "provider": "nvidia_hosted",
+          "endpoint": "https://integrate.api.nvidia.com/v1",
+          "response_id": "chatcmpl-860e0ce5-c7a8-4e4b-a08d-7ac634a1bb21",
+          "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "response_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "usage": {
+            "prompt_tokens": 3360,
+            "completion_tokens": 72,
+            "total_tokens": 3432
+          },
+          "elapsed_ms": 1215,
+          "proposed_tool": "select_evidence_checks"
+        },
+        {
+          "provider": "nvidia_hosted",
+          "endpoint": "https://integrate.api.nvidia.com/v1",
+          "response_id": "chatcmpl-b1e7bd7c-a3f9-4921-90c2-f4096b6cf105",
+          "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "response_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "usage": {
+            "prompt_tokens": 3345,
+            "completion_tokens": 26,
+            "total_tokens": 3371
+          },
+          "elapsed_ms": 726,
+          "proposed_tool": "query_financial_evidence"
+        },
+        {
+          "provider": "nvidia_hosted",
+          "endpoint": "https://integrate.api.nvidia.com/v1",
+          "response_id": "chatcmpl-4aa2aadf-1310-4f4b-816e-48624011434f",
+          "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "response_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "usage": {
+            "prompt_tokens": 4562,
+            "completion_tokens": 298,
+            "total_tokens": 4860
+          },
+          "elapsed_ms": 5337,
+          "proposed_tool": "calculate_financial_claim"
+        },
+        {
+          "provider": "nvidia_hosted",
+          "endpoint": "https://integrate.api.nvidia.com/v1",
+          "response_id": "chatcmpl-2df8d6b4-c170-46b9-9a58-5676f88acfee",
+          "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "response_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "usage": {
+            "prompt_tokens": 4704,
+            "completion_tokens": 79,
+            "total_tokens": 4783
+          },
+          "elapsed_ms": 1132,
+          "proposed_tool": "calculate_financial_claim"
+        },
+        {
+          "provider": "nvidia_hosted",
+          "endpoint": "https://integrate.api.nvidia.com/v1",
+          "response_id": "chatcmpl-8e248e0a-87d0-4d5e-a262-6548d9fdd7ff",
+          "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "response_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "usage": {
+            "prompt_tokens": 4846,
+            "completion_tokens": 79,
+            "total_tokens": 4925
+          },
+          "elapsed_ms": 1110,
+          "proposed_tool": "calculate_financial_claim"
+        },
+        {
+          "provider": "nvidia_hosted",
+          "endpoint": "https://integrate.api.nvidia.com/v1",
+          "response_id": "chatcmpl-c6507ffd-6e44-476c-acfe-494991734a39",
+          "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "response_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "usage": {
+            "prompt_tokens": 4988,
+            "completion_tokens": 79,
+            "total_tokens": 5067
+          },
+          "elapsed_ms": 1426,
+          "proposed_tool": "calculate_financial_claim"
+        },
+        {
+          "provider": "nvidia_hosted",
+          "endpoint": "https://integrate.api.nvidia.com/v1",
+          "response_id": "chatcmpl-bfb3f498-6500-4de4-9394-022bf79a8965",
+          "requested_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "response_model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+          "usage": {
+            "prompt_tokens": 5130,
+            "completion_tokens": 79,
+            "total_tokens": 5209
+          },
+          "elapsed_ms": 1220,
+          "proposed_tool": "calculate_financial_claim"
+        }
+      ],
+      "provider_error_code": null,
+      "provider_diagnostic": null,
+      "provider_propose_attempts": null,
+      "reviewed_memory_count": 0
+    }
+  ]
+}

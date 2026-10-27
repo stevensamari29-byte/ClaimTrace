@@ -1,0 +1,18 @@
+{
+  "claimtrace-slides.pptx": {
+    "bytes": 38579,
+    "sha256": "6a72cbbaf5ddafb33330ddec32b5f42300baa78830d37b682e105a3bc58a3537"
+  },
+  "claimtrace-slides.pdf": {
+    "bytes": 852639,
+    "sha256": "908e88dd891e1ecf824e75824962b2135e7b15075be4d2c728176706dd47184e"
+  },
+  "claimtrace-review-demo.webm": {
+    "bytes": 4222765,
+    "sha256": "0f1e518af2e0682948895b14792016f152e9791d18f50a295fcc8cb9af70e66d"
+  },
+  "video-receipt.json": {
+    "bytes": 586,
+    "sha256": "aa97c083ed4bd9c7a6ef207bacb264ef10ca4a4dfdb4116503aefb6d5107ca9c"
+  }
+}

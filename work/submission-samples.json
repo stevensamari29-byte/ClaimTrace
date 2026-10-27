@@ -1,0 +1,966 @@
+{
+  "recorded_at": "2026-10-27T02:47:35.446195+00:00",
+  "execution_kind": "actual_local_HTTP_deterministic_controller",
+  "model_inference_performed": false,
+  "samples": [
+    {
+      "name": "supported",
+      "input": {
+        "request": {
+          "company": {
+            "name": "Intuitive Surgical, Inc.",
+            "ticker": "ISRG",
+            "cik": "0001035267"
+          },
+          "fiscal_year": 2026,
+          "period": "Q2",
+          "as_of": "2026-10-25",
+          "evidence_backend": "zetaris"
+        },
+        "claim_inputs": [
+          {
+            "id": "analyst-eps",
+            "text": "Analyst test assertion: quarterly GAAP diluted EPS was 2.29 USD/shares.",
+            "metric": "diluted_eps",
+            "expected_value_decimal": "2.29",
+            "unit": "USD/shares",
+            "accounting_basis": "GAAP",
+            "period_start": "2026-04-01",
+            "period_end": "2026-06-30",
+            "tolerance_decimal": "0"
+          }
+        ]
+      },
+      "actual_output": {
+        "schema_version": "claimtrace.run.v1",
+        "run_id": "10082dea-a551-4e0b-80ae-33dcc4decd87",
+        "report_digest": "0cf003d685e38509bbd45ecb2fee13b566159a3b0419956a1d18ffc3ea39c115",
+        "report": {
+          "calculations": [
+            {
+              "actual_decimal": "2.29000000",
+              "difference_decimal": "0E-8",
+              "evidence_ids": [
+                "ISRG-eps-2026-04-01-2026-06-30"
+              ],
+              "expected_decimal": "2.29",
+              "precision": "Decimal arithmetic on exact received numeric representations; original filing rounding precision and any upstream Zetaris DOUBLE loss are not established. Margin division is rounded to 34 significant digits.",
+              "tolerance_decimal": "0",
+              "tool": "compare_value",
+              "unit": "USD/shares"
+            }
+          ],
+          "challenge_findings": [
+            {
+              "additional_evidence_needed": false,
+              "checks": [
+                "Legacy float boundary limits precision; source rounding is not independently established.",
+                "Source content hash is unavailable for at least one citation."
+              ],
+              "claim_id": "analyst-eps",
+              "quality_checks": {
+                "accounting_basis_is_gaap": true,
+                "citations_resolve": true,
+                "comparable_value_check": "supported",
+                "exact_period_matches": true,
+                "publication_cutoff_met": true,
+                "source_precision_established": false
+              }
+            }
+          ],
+          "citations": [
+            {
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "evidence_id": "ISRG-revenue-2026-04-01-2026-06-30",
+              "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+              "published_at": "2026-07-21",
+              "source_mode": "live_zetaris",
+              "source_sha256": null,
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+            },
+            {
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "evidence_id": "ISRG-eps-2026-04-01-2026-06-30",
+              "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+              "published_at": "2026-07-21",
+              "source_mode": "live_zetaris",
+              "source_sha256": null,
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+            },
+            {
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "evidence_id": "ISRG-netincome-2026-04-01-2026-06-30",
+              "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+              "published_at": "2026-07-21",
+              "source_mode": "live_zetaris",
+              "source_sha256": null,
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+            }
+          ],
+          "evidence": [
+            {
+              "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "id": "ISRG-revenue-2026-04-01-2026-06-30",
+              "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "published_at": "2026-07-21",
+              "source_mode": "live_zetaris",
+              "source_sha256": null,
+              "unit": "USD",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+              "value": 2892300000.0,
+              "value_decimal": "2892300000.00000000"
+            },
+            {
+              "concept": "EarningsPerShareDiluted",
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "id": "ISRG-eps-2026-04-01-2026-06-30",
+              "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "published_at": "2026-07-21",
+              "source_mode": "live_zetaris",
+              "source_sha256": null,
+              "unit": "USD/shares",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+              "value": 2.29,
+              "value_decimal": "2.29000000"
+            },
+            {
+              "concept": "NetIncomeLoss",
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "id": "ISRG-netincome-2026-04-01-2026-06-30",
+              "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "published_at": "2026-07-21",
+              "source_mode": "live_zetaris",
+              "source_sha256": null,
+              "unit": "USD",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+              "value": 818100000.0,
+              "value_decimal": "818100000.00000000"
+            }
+          ],
+          "execution_mode": "incomplete_no_live_model",
+          "findings": [
+            {
+              "challenging_findings": [
+                "Legacy float boundary limits precision; source rounding is not independently established.",
+                "Source content hash is unavailable for at least one citation."
+              ],
+              "claim_id": "analyst-eps",
+              "classification": "supported",
+              "evidence_ids": [
+                "ISRG-eps-2026-04-01-2026-06-30"
+              ],
+              "explanation": "Comparable GAAP evidence agrees within the declared tolerance.",
+              "supporting_findings": [
+                "Comparable evidence and declared tolerance agree."
+              ]
+            }
+          ],
+          "human_review_status": "required",
+          "initial_findings": [
+            {
+              "challenging_findings": [],
+              "claim_id": "analyst-eps",
+              "classification": "supported",
+              "evidence_ids": [
+                "ISRG-eps-2026-04-01-2026-06-30"
+              ],
+              "explanation": "Comparable GAAP evidence agrees within the declared tolerance.",
+              "supporting_findings": []
+            }
+          ],
+          "limitations": [
+            "Incomplete agent implementation: no live model extraction, reasoning or generation.",
+            "Typed human assertions and deterministic rules choose tools and conclusions.",
+            "Financial inputs cross the existing float boundary; Decimal operations do not recover original source precision.",
+            "Fiscal-year/quarter identity is validated by the existing source readers; the legacy Evidence object carries dates, not a second independent fiscal-calendar mapping.",
+            "Only GAAP revenue, diluted EPS, net income and net margin are supported; no reconciliation or causal reasoning.",
+            "GAAP classification is restricted to the allowlisted us-gaap concepts returned by existing scoped SEC/Zetaris readers; no non-GAAP reconciliation is inferred.",
+            "A Zetaris challenge may request the existing SEC reader for additional concepts; no independent issuer release or arbitrary document is fetched."
+          ],
+          "limits": {
+            "automatic_retries": 0,
+            "max_claims": 3,
+            "max_rechecks": 1,
+            "max_tool_calls": 8,
+            "max_transitions": 10,
+            "timeout_seconds": 120
+          },
+          "model_inference_performed": false,
+          "original_claims": [
+            {
+              "accounting_basis": "GAAP",
+              "expected_value_decimal": "2.29",
+              "id": "analyst-eps",
+              "input_kind": "human_assertion",
+              "metric": "diluted_eps",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "text": "Analyst test assertion: quarterly GAAP diluted EPS was 2.29 USD/shares.",
+              "tolerance_decimal": "0",
+              "unit": "USD/shares"
+            }
+          ],
+          "rejected_evidence": [],
+          "request": {
+            "as_of": "2026-10-25",
+            "company": {
+              "cik": "0001035267",
+              "name": "Intuitive Surgical, Inc.",
+              "ticker": "ISRG"
+            },
+            "evidence_backend": "zetaris",
+            "fiscal_year": 2026,
+            "period": "Q2"
+          },
+          "reviewed_memory": [],
+          "run_id": "10082dea-a551-4e0b-80ae-33dcc4decd87",
+          "schema_version": "claimtrace.investigation.v1",
+          "status": "partial",
+          "tool_calls": 3,
+          "trace": [
+            {
+              "decision": "Typed human assertions accepted; model extraction unavailable.",
+              "elapsed_ms": 0,
+              "state": "validate",
+              "step": 1
+            },
+            {
+              "backend": "zetaris",
+              "elapsed_ms": 8870,
+              "eligible_count": 3,
+              "ok": true,
+              "rejected_count": 0,
+              "state": "retrieve",
+              "step": 2,
+              "tool": "retrieve_financial_evidence"
+            },
+            {
+              "count": 0,
+              "elapsed_ms": 9325,
+              "ok": true,
+              "state": "recall",
+              "step": 3,
+              "tool": "hmem_recall"
+            },
+            {
+              "classifications": [
+                "supported"
+              ],
+              "elapsed_ms": 9326,
+              "state": "verify",
+              "step": 4,
+              "tool": "financial_verification_batch"
+            },
+            {
+              "decision": "Comparable values agree; retain precision qualifications.",
+              "elapsed_ms": 9326,
+              "findings": [
+                {
+                  "additional_evidence_needed": false,
+                  "checks": [
+                    "Legacy float boundary limits precision; source rounding is not independently established.",
+                    "Source content hash is unavailable for at least one citation."
+                  ],
+                  "claim_id": "analyst-eps",
+                  "quality_checks": {
+                    "accounting_basis_is_gaap": true,
+                    "citations_resolve": true,
+                    "comparable_value_check": "supported",
+                    "exact_period_matches": true,
+                    "publication_cutoff_met": true,
+                    "source_precision_established": false
+                  }
+                }
+              ],
+              "state": "challenge",
+              "step": 5
+            },
+            {
+              "decision": "Return source-backed deterministic findings for required human review; model capability remains incomplete.",
+              "elapsed_ms": 9326,
+              "state": "conclude",
+              "step": 6
+            }
+          ]
+        },
+        "review": {
+          "status": "required",
+          "version": 0,
+          "history": []
+        }
+      },
+      "execution": "real local HTTP API and accepted deterministic controller; not AI inference",
+      "analyst_assertion_not_issuer_quote": true
+    },
+    {
+      "name": "contradicted",
+      "input": {
+        "request": {
+          "company": {
+            "name": "Intuitive Surgical, Inc.",
+            "ticker": "ISRG",
+            "cik": "0001035267"
+          },
+          "fiscal_year": 2026,
+          "period": "Q2",
+          "as_of": "2026-10-25",
+          "evidence_backend": "zetaris"
+        },
+        "claim_inputs": [
+          {
+            "id": "analyst-eps",
+            "text": "Analyst test assertion: quarterly GAAP diluted EPS was 9.99 USD/shares.",
+            "metric": "diluted_eps",
+            "expected_value_decimal": "9.99",
+            "unit": "USD/shares",
+            "accounting_basis": "GAAP",
+            "period_start": "2026-04-01",
+            "period_end": "2026-06-30",
+            "tolerance_decimal": "0"
+          }
+        ]
+      },
+      "actual_output": {
+        "schema_version": "claimtrace.run.v1",
+        "run_id": "05f2b9a6-e87b-4e4e-b62b-b80531a133ca",
+        "report_digest": "e82205efa361f26c00086c45d5b70e2910f0c36da3d6232cd0e21f1d9ed24fb2",
+        "report": {
+          "calculations": [
+            {
+              "actual_decimal": "2.29000000",
+              "difference_decimal": "-7.70000000",
+              "evidence_ids": [
+                "ISRG-eps-2026-04-01-2026-06-30",
+                "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30"
+              ],
+              "expected_decimal": "9.99",
+              "precision": "Decimal arithmetic on exact received numeric representations; original filing rounding precision and any upstream Zetaris DOUBLE loss are not established. Margin division is rounded to 34 significant digits.",
+              "tolerance_decimal": "0",
+              "tool": "compare_value",
+              "unit": "USD/shares"
+            }
+          ],
+          "challenge_findings": [
+            {
+              "additional_evidence_needed": true,
+              "checks": [
+                "Legacy float boundary limits precision; source rounding is not independently established.",
+                "Comparable GAAP evidence disagrees beyond the declared tolerance.",
+                "Source content hash is unavailable for at least one citation."
+              ],
+              "claim_id": "analyst-eps",
+              "quality_checks": {
+                "accounting_basis_is_gaap": true,
+                "citations_resolve": true,
+                "comparable_value_check": "contradicted",
+                "exact_period_matches": true,
+                "publication_cutoff_met": true,
+                "source_precision_established": false
+              }
+            }
+          ],
+          "citations": [
+            {
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "evidence_id": "ISRG-revenue-2026-04-01-2026-06-30",
+              "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+              "published_at": "2026-07-21",
+              "source_mode": "live_zetaris",
+              "source_sha256": null,
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+            },
+            {
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "evidence_id": "ISRG-eps-2026-04-01-2026-06-30",
+              "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+              "published_at": "2026-07-21",
+              "source_mode": "live_zetaris",
+              "source_sha256": null,
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+            },
+            {
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "evidence_id": "ISRG-netincome-2026-04-01-2026-06-30",
+              "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+              "published_at": "2026-07-21",
+              "source_mode": "live_zetaris",
+              "source_sha256": null,
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+            },
+            {
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "evidence_id": "ISRG-revenue-2026-04-01-2026-06-30-version-96570bd1a7c8",
+              "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"-5\", \"display_value\": \"2,892.3\", \"ix_id\": \"f-112\", \"scale\": 6}",
+              "published_at": "2026-07-21",
+              "source_mode": "cached_sec",
+              "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-112"
+            },
+            {
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "evidence_id": "ISRG-net_income_gaap-2026-04-01-2026-06-30",
+              "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"-5\", \"display_value\": \"818.1\", \"ix_id\": \"f-168\", \"scale\": 6}",
+              "published_at": "2026-07-21",
+              "source_mode": "cached_sec",
+              "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-168"
+            },
+            {
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "evidence_id": "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30",
+              "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"2\", \"display_value\": \"2.29\", \"ix_id\": \"f-176\", \"scale\": 0}",
+              "published_at": "2026-07-21",
+              "source_mode": "cached_sec",
+              "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-176"
+            },
+            {
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "evidence_id": "ISRG-operating_income_gaap-2026-04-01-2026-06-30",
+              "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"-5\", \"display_value\": \"971.9\", \"ix_id\": \"f-144\", \"scale\": 6}",
+              "published_at": "2026-07-21",
+              "source_mode": "cached_sec",
+              "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-144"
+            },
+            {
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "evidence_id": "ISRG-gross_profit_gaap-2026-04-01-2026-06-30",
+              "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"-5\", \"display_value\": \"1,960.4\", \"ix_id\": \"f-128\", \"scale\": 6}",
+              "published_at": "2026-07-21",
+              "source_mode": "cached_sec",
+              "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-128"
+            }
+          ],
+          "evidence": [
+            {
+              "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "id": "ISRG-revenue-2026-04-01-2026-06-30",
+              "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "published_at": "2026-07-21",
+              "source_mode": "live_zetaris",
+              "source_sha256": null,
+              "unit": "USD",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+              "value": 2892300000.0,
+              "value_decimal": "2892300000.00000000"
+            },
+            {
+              "concept": "EarningsPerShareDiluted",
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "id": "ISRG-eps-2026-04-01-2026-06-30",
+              "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "published_at": "2026-07-21",
+              "source_mode": "live_zetaris",
+              "source_sha256": null,
+              "unit": "USD/shares",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+              "value": 2.29,
+              "value_decimal": "2.29000000"
+            },
+            {
+              "concept": "NetIncomeLoss",
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "id": "ISRG-netincome-2026-04-01-2026-06-30",
+              "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "published_at": "2026-07-21",
+              "source_mode": "live_zetaris",
+              "source_sha256": null,
+              "unit": "USD",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm",
+              "value": 818100000.0,
+              "value_decimal": "818100000.00000000"
+            },
+            {
+              "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "id": "ISRG-revenue-2026-04-01-2026-06-30-version-96570bd1a7c8",
+              "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"-5\", \"display_value\": \"2,892.3\", \"ix_id\": \"f-112\", \"scale\": 6}",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "published_at": "2026-07-21",
+              "source_mode": "cached_sec",
+              "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+              "unit": "USD",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-112",
+              "value": 2892300000.0,
+              "value_decimal": "2892300000"
+            },
+            {
+              "concept": "NetIncomeLoss",
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "id": "ISRG-net_income_gaap-2026-04-01-2026-06-30",
+              "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"-5\", \"display_value\": \"818.1\", \"ix_id\": \"f-168\", \"scale\": 6}",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "published_at": "2026-07-21",
+              "source_mode": "cached_sec",
+              "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+              "unit": "USD",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-168",
+              "value": 818100000.0,
+              "value_decimal": "818100000"
+            },
+            {
+              "concept": "EarningsPerShareDiluted",
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "id": "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30",
+              "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"2\", \"display_value\": \"2.29\", \"ix_id\": \"f-176\", \"scale\": 0}",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "published_at": "2026-07-21",
+              "source_mode": "cached_sec",
+              "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+              "unit": "USD/shares",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-176",
+              "value": 2.29,
+              "value_decimal": "2.29"
+            },
+            {
+              "concept": "OperatingIncomeLoss",
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "id": "ISRG-operating_income_gaap-2026-04-01-2026-06-30",
+              "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"-5\", \"display_value\": \"971.9\", \"ix_id\": \"f-144\", \"scale\": 6}",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "published_at": "2026-07-21",
+              "source_mode": "cached_sec",
+              "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+              "unit": "USD",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-144",
+              "value": 971900000.0,
+              "value_decimal": "971900000"
+            },
+            {
+              "concept": "GrossProfit",
+              "document": "SEC 10-Q 0001035267-26-000058",
+              "id": "ISRG-gross_profit_gaap-2026-04-01-2026-06-30",
+              "locator": "{\"context_ref\": \"c-13\", \"decimals\": \"-5\", \"display_value\": \"1,960.4\", \"ix_id\": \"f-128\", \"scale\": 6}",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "published_at": "2026-07-21",
+              "source_mode": "cached_sec",
+              "source_sha256": "bc8321e74b775821bfa404b0e2096c28db8b9e04da5acab2fb06e4a007c7bb9c",
+              "unit": "USD",
+              "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm#f-128",
+              "value": 1960400000.0,
+              "value_decimal": "1960400000"
+            }
+          ],
+          "execution_mode": "incomplete_no_live_model",
+          "findings": [
+            {
+              "challenging_findings": [
+                "Legacy float boundary limits precision; source rounding is not independently established.",
+                "Comparable GAAP evidence disagrees beyond the declared tolerance.",
+                "Source content hash is unavailable for at least one citation."
+              ],
+              "claim_id": "analyst-eps",
+              "classification": "contradicted",
+              "evidence_ids": [
+                "ISRG-eps-2026-04-01-2026-06-30",
+                "ISRG-diluted_eps_gaap-2026-04-01-2026-06-30"
+              ],
+              "explanation": "Comparable GAAP evidence disagrees beyond the declared tolerance.",
+              "supporting_findings": []
+            }
+          ],
+          "human_review_status": "required",
+          "initial_findings": [
+            {
+              "challenging_findings": [],
+              "claim_id": "analyst-eps",
+              "classification": "contradicted",
+              "evidence_ids": [
+                "ISRG-eps-2026-04-01-2026-06-30"
+              ],
+              "explanation": "Comparable GAAP evidence disagrees beyond the declared tolerance.",
+              "supporting_findings": []
+            }
+          ],
+          "limitations": [
+            "Incomplete agent implementation: no live model extraction, reasoning or generation.",
+            "Typed human assertions and deterministic rules choose tools and conclusions.",
+            "Financial inputs cross the existing float boundary; Decimal operations do not recover original source precision.",
+            "Fiscal-year/quarter identity is validated by the existing source readers; the legacy Evidence object carries dates, not a second independent fiscal-calendar mapping.",
+            "Only GAAP revenue, diluted EPS, net income and net margin are supported; no reconciliation or causal reasoning.",
+            "GAAP classification is restricted to the allowlisted us-gaap concepts returned by existing scoped SEC/Zetaris readers; no non-GAAP reconciliation is inferred.",
+            "A Zetaris challenge may request the existing SEC reader for additional concepts; no independent issuer release or arbitrary document is fetched."
+          ],
+          "limits": {
+            "automatic_retries": 0,
+            "max_claims": 3,
+            "max_rechecks": 1,
+            "max_tool_calls": 8,
+            "max_transitions": 10,
+            "timeout_seconds": 120
+          },
+          "model_inference_performed": false,
+          "original_claims": [
+            {
+              "accounting_basis": "GAAP",
+              "expected_value_decimal": "9.99",
+              "id": "analyst-eps",
+              "input_kind": "human_assertion",
+              "metric": "diluted_eps",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "text": "Analyst test assertion: quarterly GAAP diluted EPS was 9.99 USD/shares.",
+              "tolerance_decimal": "0",
+              "unit": "USD/shares"
+            }
+          ],
+          "rejected_evidence": [],
+          "request": {
+            "as_of": "2026-10-25",
+            "company": {
+              "cik": "0001035267",
+              "name": "Intuitive Surgical, Inc.",
+              "ticker": "ISRG"
+            },
+            "evidence_backend": "zetaris",
+            "fiscal_year": 2026,
+            "period": "Q2"
+          },
+          "reviewed_memory": [],
+          "run_id": "05f2b9a6-e87b-4e4e-b62b-b80531a133ca",
+          "schema_version": "claimtrace.investigation.v1",
+          "status": "partial",
+          "tool_calls": 5,
+          "trace": [
+            {
+              "decision": "Typed human assertions accepted; model extraction unavailable.",
+              "elapsed_ms": 0,
+              "state": "validate",
+              "step": 1
+            },
+            {
+              "backend": "zetaris",
+              "elapsed_ms": 7959,
+              "eligible_count": 3,
+              "ok": true,
+              "rejected_count": 0,
+              "state": "retrieve",
+              "step": 2,
+              "tool": "retrieve_financial_evidence"
+            },
+            {
+              "count": 0,
+              "elapsed_ms": 8177,
+              "ok": true,
+              "state": "recall",
+              "step": 3,
+              "tool": "hmem_recall"
+            },
+            {
+              "classifications": [
+                "contradicted"
+              ],
+              "elapsed_ms": 8177,
+              "state": "verify",
+              "step": 4,
+              "tool": "financial_verification_batch"
+            },
+            {
+              "decision": "Request one fresh read for missing or contrary evidence.",
+              "elapsed_ms": 8177,
+              "findings": [
+                {
+                  "additional_evidence_needed": true,
+                  "checks": [
+                    "Legacy float boundary limits precision; source rounding is not independently established.",
+                    "Comparable GAAP evidence disagrees beyond the declared tolerance.",
+                    "Source content hash is unavailable for at least one citation."
+                  ],
+                  "claim_id": "analyst-eps",
+                  "quality_checks": {
+                    "accounting_basis_is_gaap": true,
+                    "citations_resolve": true,
+                    "comparable_value_check": "contradicted",
+                    "exact_period_matches": true,
+                    "publication_cutoff_met": true,
+                    "source_precision_established": false
+                  }
+                }
+              ],
+              "state": "challenge",
+              "step": 5
+            },
+            {
+              "backend": "sec",
+              "elapsed_ms": 8871,
+              "eligible_count": 8,
+              "ok": true,
+              "reason": "Explicit challenger found missing, conflicting, unsupported or contrary evidence; request additional SEC concepts when starting from Zetaris.",
+              "rejected_count": 0,
+              "state": "recheck",
+              "step": 6,
+              "tool": "retrieve_financial_evidence"
+            },
+            {
+              "classifications": [
+                "contradicted"
+              ],
+              "elapsed_ms": 8871,
+              "state": "reverify",
+              "step": 7,
+              "tool": "financial_verification_batch"
+            },
+            {
+              "decision": "Return source-backed deterministic findings for required human review; model capability remains incomplete.",
+              "elapsed_ms": 8871,
+              "state": "conclude",
+              "step": 8
+            }
+          ]
+        },
+        "review": {
+          "status": "rejected",
+          "version": 1,
+          "history": [
+            {
+              "version": 1,
+              "decision": "rejected",
+              "comment": "Submission QA demonstration: reject test report; not a human financial sign-off.",
+              "reviewer": "local-human",
+              "reviewed_at": "2026-10-27T02:33:32.388358+00:00"
+            }
+          ]
+        }
+      },
+      "execution": "real local HTTP API and accepted deterministic controller; not AI inference",
+      "analyst_assertion_not_issuer_quote": true,
+      "review_demo": "Automated QA rejection persisted after browser reload; not human financial sign-off."
+    },
+    {
+      "name": "cutoff",
+      "input": {
+        "request": {
+          "company": {
+            "name": "Intuitive Surgical, Inc.",
+            "ticker": "ISRG",
+            "cik": "0001035267"
+          },
+          "fiscal_year": 2026,
+          "period": "Q2",
+          "as_of": "2026-07-20",
+          "evidence_backend": "zetaris"
+        },
+        "claim_inputs": [
+          {
+            "id": "analyst-eps",
+            "text": "Analyst test assertion: quarterly GAAP diluted EPS was 2.29 USD/shares.",
+            "metric": "diluted_eps",
+            "expected_value_decimal": "2.29",
+            "unit": "USD/shares",
+            "accounting_basis": "GAAP",
+            "period_start": "2026-04-01",
+            "period_end": "2026-06-30",
+            "tolerance_decimal": "0"
+          }
+        ]
+      },
+      "actual_output": {
+        "schema_version": "claimtrace.run.v1",
+        "run_id": "1ad5e77e-d8e7-46ce-ac54-476278cbb3a3",
+        "report_digest": "fc2363107048f29c268f69929c9250c88805269a4d67c13dc701d9eff42342bb",
+        "report": {
+          "calculations": [],
+          "challenge_findings": [
+            {
+              "additional_evidence_needed": true,
+              "checks": [
+                "Legacy float boundary limits precision; source rounding is not independently established.",
+                "No eligible evidence matches the metric, exact period and unit; YTD is never substituted for a quarter."
+              ],
+              "claim_id": "analyst-eps",
+              "quality_checks": {
+                "accounting_basis_is_gaap": true,
+                "citations_resolve": false,
+                "comparable_value_check": "incomplete",
+                "exact_period_matches": false,
+                "publication_cutoff_met": false,
+                "source_precision_established": false
+              }
+            }
+          ],
+          "citations": [],
+          "evidence": [],
+          "execution_mode": "incomplete_no_live_model",
+          "findings": [
+            {
+              "challenging_findings": [
+                "Legacy float boundary limits precision; source rounding is not independently established.",
+                "No eligible evidence matches the metric, exact period and unit; YTD is never substituted for a quarter."
+              ],
+              "claim_id": "analyst-eps",
+              "classification": "incomplete",
+              "evidence_ids": [],
+              "explanation": "No eligible evidence matches the metric, exact period and unit; YTD is never substituted for a quarter.",
+              "supporting_findings": []
+            }
+          ],
+          "human_review_status": "required",
+          "initial_findings": [
+            {
+              "challenging_findings": [],
+              "claim_id": "analyst-eps",
+              "classification": "incomplete",
+              "evidence_ids": [],
+              "explanation": "No eligible evidence matches the metric, exact period and unit; YTD is never substituted for a quarter.",
+              "supporting_findings": []
+            }
+          ],
+          "limitations": [
+            "Incomplete agent implementation: no live model extraction, reasoning or generation.",
+            "Typed human assertions and deterministic rules choose tools and conclusions.",
+            "Financial inputs cross the existing float boundary; Decimal operations do not recover original source precision.",
+            "Fiscal-year/quarter identity is validated by the existing source readers; the legacy Evidence object carries dates, not a second independent fiscal-calendar mapping.",
+            "Only GAAP revenue, diluted EPS, net income and net margin are supported; no reconciliation or causal reasoning.",
+            "GAAP classification is restricted to the allowlisted us-gaap concepts returned by existing scoped SEC/Zetaris readers; no non-GAAP reconciliation is inferred.",
+            "A Zetaris challenge may request the existing SEC reader for additional concepts; no independent issuer release or arbitrary document is fetched."
+          ],
+          "limits": {
+            "automatic_retries": 0,
+            "max_claims": 3,
+            "max_rechecks": 1,
+            "max_tool_calls": 8,
+            "max_transitions": 10,
+            "timeout_seconds": 120
+          },
+          "model_inference_performed": false,
+          "original_claims": [
+            {
+              "accounting_basis": "GAAP",
+              "expected_value_decimal": "2.29",
+              "id": "analyst-eps",
+              "input_kind": "human_assertion",
+              "metric": "diluted_eps",
+              "period_end": "2026-06-30",
+              "period_start": "2026-04-01",
+              "text": "Analyst test assertion: quarterly GAAP diluted EPS was 2.29 USD/shares.",
+              "tolerance_decimal": "0",
+              "unit": "USD/shares"
+            }
+          ],
+          "rejected_evidence": [],
+          "request": {
+            "as_of": "2026-07-20",
+            "company": {
+              "cik": "0001035267",
+              "name": "Intuitive Surgical, Inc.",
+              "ticker": "ISRG"
+            },
+            "evidence_backend": "zetaris",
+            "fiscal_year": 2026,
+            "period": "Q2"
+          },
+          "reviewed_memory": [],
+          "run_id": "1ad5e77e-d8e7-46ce-ac54-476278cbb3a3",
+          "schema_version": "claimtrace.investigation.v1",
+          "status": "blocked",
+          "tool_calls": 4,
+          "trace": [
+            {
+              "decision": "Typed human assertions accepted; model extraction unavailable.",
+              "elapsed_ms": 0,
+              "state": "validate",
+              "step": 1
+            },
+            {
+              "backend": "zetaris",
+              "elapsed_ms": 25474,
+              "eligible_count": 0,
+              "ok": true,
+              "rejected_count": 0,
+              "state": "retrieve",
+              "step": 2,
+              "tool": "retrieve_financial_evidence"
+            },
+            {
+              "classifications": [
+                "incomplete"
+              ],
+              "elapsed_ms": 25474,
+              "state": "verify",
+              "step": 3,
+              "tool": "financial_verification_batch"
+            },
+            {
+              "decision": "Request one fresh read for missing or contrary evidence.",
+              "elapsed_ms": 25474,
+              "findings": [
+                {
+                  "additional_evidence_needed": true,
+                  "checks": [
+                    "Legacy float boundary limits precision; source rounding is not independently established.",
+                    "No eligible evidence matches the metric, exact period and unit; YTD is never substituted for a quarter."
+                  ],
+                  "claim_id": "analyst-eps",
+                  "quality_checks": {
+                    "accounting_basis_is_gaap": true,
+                    "citations_resolve": false,
+                    "comparable_value_check": "incomplete",
+                    "exact_period_matches": false,
+                    "publication_cutoff_met": false,
+                    "source_precision_established": false
+                  }
+                }
+              ],
+              "state": "challenge",
+              "step": 4
+            },
+            {
+              "backend": "sec",
+              "elapsed_ms": 26208,
+              "eligible_count": 0,
+              "ok": true,
+              "reason": "Explicit challenger found missing, conflicting, unsupported or contrary evidence; request additional SEC concepts when starting from Zetaris.",
+              "rejected_count": 0,
+              "state": "recheck",
+              "step": 5,
+              "tool": "retrieve_financial_evidence"
+            },
+            {
+              "classifications": [
+                "incomplete"
+              ],
+              "elapsed_ms": 26208,
+              "state": "reverify",
+              "step": 6,
+              "tool": "financial_verification_batch"
+            },
+            {
+              "decision": "Return source-backed deterministic findings for required human review; model capability remains incomplete.",
+              "elapsed_ms": 26208,
+              "state": "conclude",
+              "step": 7
+            }
+          ]
+        },
+        "review": {
+          "status": "required",
+          "version": 0,
+          "history": []
+        }
+      },
+      "execution": "real local HTTP API and accepted deterministic controller; not AI inference",
+      "analyst_assertion_not_issuer_quote": true
+    }
+  ]
+}

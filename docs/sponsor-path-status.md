@@ -2,7 +2,7 @@
 
 Research only: no account, credential, private configuration or runtime was accessed; no inference, installation, spending or sponsor-compliance certification occurred. Nightshift remains the intended primary runtime. This note updates the access question without replacing Danny's adapter work.
 
-**Current owner-confirmed blocker, October25:** Amari confirmed that neither an authorized compatible Nightshift host nor authorized direct NVIDIA access is available. Both live-inference paths therefore remain blocked; the public alternatives below are conditional options, not available credentials or working integrations.
+**Owner update, October25–26:** Amari supplied an existing NVIDIA key privately; real hosted completions and model-directed financial tool calls now execute through the separately enabled NVIDIA CLI. See `nvidia-activation.md` for actual acceptance and failures. Nightshift is installed but its CLI reports unreachable; local dedicated-GPU requirements are unmet and supported cloud-only startup remains unverified. Earlier access-blocked statements below describe the prior research checkpoint, not current NVIDIA access. No Nightshift completion or sponsor-compliance certification follows from direct NVIDIA calls.
 
 ## What the sources establish
 
