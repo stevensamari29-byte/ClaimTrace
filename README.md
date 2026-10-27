@@ -1,11 +1,11 @@
 # ClaimTrace
 Help financial analysts check the accuracy, context, and supporting evidence behind corporate earnings claims before using them in research.
 
-Application on the run/review integration branch: React/Vite → FastAPI → existing investigation controller → attributed financial evidence, challenge/recheck, H-MEM recall and durable local report review. The browser uses deterministic investigation rules. The separate opt-in NVIDIA CLI now makes genuine hosted model calls and model-directed financial tool proposals; completed-investigation status, failures and model-identity limitations are recorded in [NVIDIA activation](docs/nvidia-activation.md). Nightshift Runtime integration remains unverified. Every result requires human review. See [standalone controller usage](docs/investigation-controller.md); the existing one-page frontend is preserved.
+Application on the integrated `main` branch (PRs #7–#12 merged October 27, 2026): React/Vite → FastAPI → existing investigation controller → attributed financial evidence, challenge/recheck, H-MEM recall and durable local report review. The browser uses deterministic investigation rules. The separate opt-in NVIDIA CLI now makes genuine hosted model calls and model-directed financial tool proposals; completed-investigation status, failures and model-identity limitations are recorded in [NVIDIA activation](docs/nvidia-activation.md). Nightshift Runtime integration remains unverified. Every result requires human review. See [standalone controller usage](docs/investigation-controller.md); the existing one-page frontend is preserved.
 
-Use the existing private repository: `https://github.com/stevensamari29-byte/ClaimTrace.git`. Python 3.11+ and Node 22.12+ are sufficient; the verified workstation uses Python 3.14 and Node 24. No Docker, new cloud services or model credentials are required to run this slice.
+Repository (currently private; judge access must be enabled separately): `https://github.com/stevensamari29-byte/ClaimTrace.git`. Python 3.11+ and Node 22.12+ are sufficient; the verified workstation uses Python 3.14 and Node 24. No Docker, new cloud services or model credentials are required to run this slice.
 
-The browser run/review integration is a separate reviewed branch/PR until explicitly merged; `main` does not automatically contain it. The verified foundation is merged into `main` through [PR #5](https://github.com/stevensamari29-byte/ClaimTrace/pull/5). Teammates with access to this private repository can clone and run it using the commands below. Live sponsor access requires separate authorized private configuration; credentials are not bundled in the clone.
+The browser run/review integration and subsequent model-provider work are now merged into `main` through PRs #7–#12. Clone `main` with access to this repository and run the commands below. Live sponsor access requires separate authorized private configuration; credentials are not bundled in the clone.
 
 ```powershell
 git clone --branch main https://github.com/stevensamari29-byte/ClaimTrace.git
@@ -23,7 +23,7 @@ npm ci
 npm run dev
 ```
 
-Open `http://127.0.0.1:5173/` and select **Start investigation** with an explicit analyst assertion. On this integration branch the browser invokes the real controller; this does not imply model inference. Saved investigation links restore the original report and review after refresh or backend restart. On macOS/Linux use `.venv/bin/python` in place of `.venv\Scripts\python.exe`. Vite forwards `/api` to the local backend; secrets stay server-side. These are local development servers, not a deployment.
+Open `http://127.0.0.1:5173/` and select **Start investigation** with an explicit analyst assertion. On `main` the browser invokes the real controller; this does not imply model inference. Saved investigation links restore the original report and review after refresh or backend restart. On macOS/Linux use `.venv/bin/python` in place of `.venv\Scripts\python.exe`. Vite forwards `/api` to the local backend; secrets stay server-side. These are local development servers, not a deployment.
 
 ```powershell
 # Repository root
@@ -69,11 +69,11 @@ Sponsor integration status:
 | NVIDIA hosted Nemotron | `backend/providers/nvidia.py`, standalone `nvidia_run.py`, original restricted dispatcher and financial tools | Actual authenticated completion, native source extraction, real Zetaris queries and host financial verification; failures and final acceptance are retained separately | Browser remains deterministic. Exact public/internal Super route equivalence, underlying weights and VL capability are not attested; direct NVIDIA does not prove Nightshift or track compliance. See `docs/nvidia-activation.md` |
 | Cursor | Existing installation preserved | No ClaimTrace human development contribution claimed | Eligible teammate makes a meaningful product edit; retain attribution, actual diff, test and explanation |
 
-Four assigned team issues: [Data & Backend](https://github.com/stevensamari29-byte/ClaimTrace/issues/1), [AI Agent & Reasoning](https://github.com/stevensamari29-byte/ClaimTrace/issues/2), [Frontend & UX](https://github.com/stevensamari29-byte/ClaimTrace/issues/3), [QA, Research & Submission](https://github.com/stevensamari29-byte/ClaimTrace/issues/4). Their confirmed owners and remaining responsibilities are recorded in the issues and AGENTS.md. Preserve separate branches and reviewed PRs; coordinate shared backend routes before editing. Current evidence, limitations and approvals are in [work/foundation.md](work/foundation.md).
+Historical assigned team issues (not the current active roster): [Data & Backend](https://github.com/stevensamari29-byte/ClaimTrace/issues/1), [AI Agent & Reasoning](https://github.com/stevensamari29-byte/ClaimTrace/issues/2), [Frontend & UX](https://github.com/stevensamari29-byte/ClaimTrace/issues/3), [QA, Research & Submission](https://github.com/stevensamari29-byte/ClaimTrace/issues/4). Their confirmed owners and remaining responsibilities are recorded in the issues and AGENTS.md. Preserve separate branches and reviewed PRs; coordinate shared backend routes before editing. Current evidence, limitations and approvals are in [work/foundation.md](work/foundation.md).
 
-## Current integration branch and local review
+## Integrated controller and local review
 
-To reproduce the new workflow before its approved merge, check out `codex/run-review-integration` in the existing clone, then use the same environment and startup commands above. No additional package, cloud dataset or service is required. Do not switch a shared checkout while another contributor is editing; use a separate checkout if needed.
+To reproduce the current integrated workflow, use `main` and the environment and startup commands above. No additional cloud dataset or service is required for the explicitly labeled cached SEC path. Do not switch a shared checkout while another contributor is editing; use a separate checkout if needed.
 
 An editable ISRG Q2 EPS assertion is a starting input, not an extracted issuer quotation or predefined result. The backend validates explicit dates, metric, unit, basis and Decimal strings, calls the accepted controller, and persists its actual report. Canonical issuer identity comes from the reader. Scope changes clear the earlier assertion. Findings verify structured financial inputs; automatic text interpretation remains unavailable.
 
@@ -83,7 +83,7 @@ Use [the truthful browser demo](docs/demo-readiness.md), [independent integratio
 
 ## Structured provider and exact received numbers
 
-`codex/structured-inference` builds on the unmerged run/review branch. It adds an opt-in native tool-call adapter, a separate model-dispatch CLI and read-only reviewed H-MEM context. Browser runs continue using the accepted deterministic controller. No new dependencies or cloud objects are required. See [provider acceptance and access requirements](docs/structured-provider.md) and [submission materials](docs/submission-pack.md).
+The structured inference changes, merged through PR #11, add an opt-in native tool-call adapter, a separate model-dispatch CLI and read-only reviewed H-MEM context. Browser runs continue using the accepted deterministic controller. No new dependencies or cloud objects are required. See [provider acceptance and access requirements](docs/structured-provider.md) and [submission materials](docs/submission-pack.md).
 
 Evidence may now include `value_decimal`, preserving numeric text received from SEC, its authentic cache, or the Zetaris gateway before conversion to the compatible legacy numeric `value`. Verification and the evidence display prefer this exact text. Legacy saved reports still render. This cannot recover rounding already introduced upstream (including a Zetaris `DOUBLE`) and does not prove original filing rounding precision. Margin division remains explicitly bounded/rounded. Changed exact evidence invalidates the matching memory fingerprint; legacy evidence without the field retains its previous fingerprint.
 
@@ -91,15 +91,15 @@ Run frontend tests with `node --test tests/*.test.mjs` in `frontend`. Run the st
 
 For a reproducible no-network safeguard comparison, run `.venv\Scripts\python.exe -m backend.investigation.evaluate`. [Saved results](work/guardrail-evaluation.json) compare eight deliberately selected authentic-cache cases with an explicitly weak value-only ablation. This finite diagnostic is not general accuracy or an external model benchmark.
 
-## Hosted NVIDIA activation branch
+## Hosted NVIDIA adapter and activation
 
-`codex/live-nemotron` builds on PR #11 without merging its dependencies. Follow [secure activation and live evidence](docs/nvidia-activation.md). Public SEC disclosure input and provenance are provided in `backend/data/isrg-q2-2026-disclosure*.json`; `shared/example.nvidia.request.json` selects the existing approved Zetaris financial view. A private authorized NVIDIA key and existing Zetaris configuration are still required. Never rerun cloud CREATE statements.
+The hosted NVIDIA adapter and honest partial-inference receipts were merged through PR #12. Follow [secure activation and live evidence](docs/nvidia-activation.md). Public SEC disclosure input and provenance are provided in `backend/data/isrg-q2-2026-disclosure*.json`; `shared/example.nvidia.request.json` selects the existing approved Zetaris financial view. A private authorized NVIDIA key and existing Zetaris configuration are still required. Never rerun cloud CREATE statements.
 
 NVIDIA schemas advertise only actions whose host prerequisites are satisfied, bind references to known IDs, and suppress unchanged repeated calculations. The model chooses the source span, financial interpretation and permitted actions; the original host gate still decides financial classifications. Optional one-time model-generated format correction is separately disabled by default, visible in output and included in the global eight-request/120-second budget. Rejected arguments are never automatically repaired. No website inference switch or model-report review persistence is claimed by this increment; the existing browser and its durable review workflow remain intact.
 
 ## Final submission gate — October 26
 
-**Not ready to submit as compliant:** the final organizer checklist requires Nightshift as the AI provider. Its installed Runtime is unreachable, and no genuine Nightshift investigation has executed. The existing deterministic application works; direct NVIDIA has genuine partial execution evidence, but no accepted completed model briefing. Optional model improvements are frozen. See [the final readiness checklist](docs/submission-readiness.md), [pre-existing component disclosures](docs/pre-existing-components.md) and [independent final QA](work/final-submission-qa.md). Nothing has been merged, deployed or submitted by this sprint.
+**Not ready to submit as compliant:** the final organizer checklist requires Nightshift as the AI provider. Its installed Runtime is unreachable, and no genuine Nightshift investigation has executed. The existing deterministic application works; direct NVIDIA has genuine partial execution evidence, but no accepted completed model briefing. Optional model improvements are frozen. See [the final readiness checklist](docs/submission-readiness.md), [pre-existing component disclosures](docs/pre-existing-components.md) and [independent final QA](work/final-submission-qa.md). PRs #7–#12 were merged into `main` on October 27, 2026. No HackOS submission or public deployment has been confirmed; the repository still requires judge access.
 
 ## Three actual sample inputs and outputs
 
