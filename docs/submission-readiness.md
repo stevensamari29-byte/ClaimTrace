@@ -1,5 +1,40 @@
 # Final submission readiness — October 26, 2026
 
+## Current Phase A checkpoint — October 27
+
+**Integrated application verified; mandatory Nightshift provider requirement still unmet.** This current checkpoint supersedes historical open-PR, main-behind and post-merge-test statements retained below. PRs #7–#12 are merged. Current main is `303fd76ec5942454045c41b9655f8398581fe942`, and a fresh clone with repository access now includes the demonstrated controller/run/review workflow. Production/tests/data/media match the independently tested release; only README/readiness changed in the merge aftermath. Main is private, not automatically judge-accessible.
+
+Independent `/root/final_main_qa` ran **60 focused backend tests** including actual H-MEM worker/correction/restart/recall, persisted reviews and committed-index secret checks; **47 frontend tests** and **production build (24 modules)** all passed. Prior full **563 backend tests + 81 subtests** applies to identical production code and was not unnecessarily repeated. No blocking regression was found. No configured GitHub CI is implied.
+
+Director reproduced all three README inputs through actual local HTTP calls using the existing approved Zetaris view:
+
+| Fresh case | Actual finding / evidence | Saved run |
+| --- | --- | --- |
+| EPS 2.29, October 25 cutoff | Supported / partial; 3 live_zetaris facts; 6 trace events, 3 tool calls | `7915831d-0cf5-4f0a-a422-14a95706ba21` |
+| EPS 9.99, same scope | Contradicted / partial; actual 2.29000000, delta -7.70000000; 8 combined live_zetaris + labelled cached_sec facts; 8 trace events, 5 tool calls | `354cb556-53c5-40e1-b15e-bda1f3f28b45` |
+| EPS 2.29, July 20 cutoff | Incomplete / blocked; both readers succeeded with 0 eligible facts; 7 trace events, 4 tool calls | `d4afa33e-4de7-4c5d-9004-08bbea9302ca` |
+
+All remain deterministic with `model_inference_performed:false`; these are analyst test assertions, not issuer quotes. Current browser renders the contradicted report, real retrieval/recall/challenge/recheck trace, calculations and original SEC links. An explicitly labelled automated QA rejection persists at review version 1 after GET/browser load; a replayed stale review returns 409. This is not financial sign-off or H-MEM correction approval. Controller H-MEM recall really executes with zero matching memories; independent correction tests use synthetic financial inputs/hash embeddings and the genuine engine. A separate actual **live SEC** request returned **five** eligible facts, published July 21, without a cache substitution. No cloud writes or credential changes occurred.
+
+Final official Nightshift documentation check did not establish a supported cloud-only/no-local-model first launch on Iris Xe/8 GB. No startup experiment or readiness retry occurred; last actual local status remains E_UNREACHABLE. See [exact supported-host dependency](nightshift-windows-activation.md). Direct NVIDIA partial receipts and H-MEM do not replace required Nightshift inference.
+
+### Actual submission materials and owner actions
+
+- [3:01.18 WebM review video](../submission/claimtrace-review-demo.webm), [six-slide editable PPTX](../submission/claimtrace-slides.pptx), [six-page PDF preview](../submission/claimtrace-slides.pdf) and [hash manifest](../submission/artifact-manifest.json) exist unchanged on main. Hashes pass; prior video playback reached EOF without a media error. The deck was rendered/reimported/all-slide inspected. Full owner audiovisual/native-viewer/accepted-format review remains required. These edited actual-capture/computer-narrated assets disclose incomplete Nightshift, not a successful AI demo.
+- **Repository:** existing [ClaimTrace](https://github.com/stevensamari29-byte/ClaimTrace) is private. Owner must approve the organizer-required judge access/visibility; no access change is performed here. A clone needs separately authorized live-service configuration.
+- **Media hosting:** no judge-accessible video or slides URL has been provided/verified. Owner must approve actual destinations/uploads and verify access; local files/private GitHub assets alone do not establish it.
+- **Roster:** owner now reports effectively one active human, Amari, assisted by AI. Confirm the registered HackOS roster/withdrawals/eligibility and disclose actual AI assistance. Earlier issue assignees are historical; do not claim their unobserved work.
+- **HackOS:** final entry URL/field completion and submission are unverified. Review declarations and links, then explicitly approve submission. The main deadline supplied by owner is October 27, 23:45 UTC (7:45 PM Eastern). No upload, deployment, external publication or submission occurs automatically.
+
+### Useful bounded owner task in Cursor
+
+README is reserved for an actual owner Cursor contribution: open this existing repository in Cursor, independently review the UI's saved report/trace/review behavior against `frontend/src/main.jsx` and `backend/run_api.py`, and correct the stale README sentence “The integration branch adds create/read/review routes” to describe routes now included on main. Also clarify current effectively solo-human ownership without inventing contributions. Retain the real Cursor transcript, exact diff, `node --test tests/*.test.mjs` result and your explanation. Codex has not made this reserved README edit and cannot attest that the owner used Cursor. This is a proposed useful task, not completed sponsor compliance or guaranteed organizer qualification; do not purchase or activate a paid feature.
+
+### Phase B gate
+
+Substantive Zetaris Demo Challenge research/development/video work remains **not started** until the main hackathon submission is secured. Its October 29, 23:45 UTC deadline and scoring are owner-supplied from organizer email; eligibility and conflicting placeholder rules still require organizer clarification before entry. No SpaceXSI access, reflection testimony, video, performance benchmark or separate submission is claimed. Preserve existing genuine financial SQL evidence and do not create new cloud datasets.
+
+
 > **October 27, 2026 integration update:** The project lead approved PRs #7–#12, and GitHub confirmed all six merges into `main` in dependency order. The final merge commit for #12 is `5e7a04ae4b02c66c8c65c64f0ee9d9a5288656dc`; a documentation-only README clarification followed in `1e7c8a4b5692785d0be3cfe78c4faf490671fa71`. The original October 26 status and historical PR tables below are retained as a dated recovery record. The repository remains **private**; Nightshift execution, public judge access, media hosting, and HackOS submission are **not verified**. No GitHub-hosted CI checks are configured and a post-merge local regression run has not been observed.
 
 
