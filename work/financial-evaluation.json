@@ -1,0 +1,634 @@
+{
+  "schema_version": "claimtrace.financial-evaluation.v1",
+  "date": "2026-10-25",
+  "scope_limit": "Eight deliberately selected human-assertion cases against authentic cached SEC evidence; finite regression results, not general accuracy or model reasoning. Live cases separately invoke actual HTTP controller/readers. Automated review tests are not actual human financial approval.",
+  "cached_evaluation": {
+    "total_cases": 8,
+    "matched_expected_classifications": 8,
+    "cases": [
+      {
+        "case": "supported_eps",
+        "expected": "supported",
+        "observed": "supported",
+        "classification_matched": true,
+        "report_status": "partial",
+        "evidence_count": 5,
+        "citation_ids_resolve": true,
+        "publication_cutoff_met": true,
+        "source_modes": [
+          "cached_sec"
+        ],
+        "trace_states": [
+          "validate",
+          "retrieve",
+          "verify",
+          "challenge",
+          "conclude"
+        ],
+        "model_inference_performed": false
+      },
+      {
+        "case": "wrong_eps",
+        "expected": "contradicted",
+        "observed": "contradicted",
+        "classification_matched": true,
+        "report_status": "partial",
+        "evidence_count": 5,
+        "citation_ids_resolve": true,
+        "publication_cutoff_met": true,
+        "source_modes": [
+          "cached_sec"
+        ],
+        "trace_states": [
+          "validate",
+          "retrieve",
+          "verify",
+          "challenge",
+          "recheck",
+          "reverify",
+          "conclude"
+        ],
+        "model_inference_performed": false
+      },
+      {
+        "case": "non_gaap",
+        "expected": "incomplete",
+        "observed": "incomplete",
+        "classification_matched": true,
+        "report_status": "partial",
+        "evidence_count": 5,
+        "citation_ids_resolve": true,
+        "publication_cutoff_met": true,
+        "source_modes": [
+          "cached_sec"
+        ],
+        "trace_states": [
+          "validate",
+          "retrieve",
+          "verify",
+          "challenge",
+          "recheck",
+          "reverify",
+          "conclude"
+        ],
+        "model_inference_performed": false
+      },
+      {
+        "case": "wrong_period",
+        "expected": "incomplete",
+        "observed": "incomplete",
+        "classification_matched": true,
+        "report_status": "partial",
+        "evidence_count": 5,
+        "citation_ids_resolve": true,
+        "publication_cutoff_met": true,
+        "source_modes": [
+          "cached_sec"
+        ],
+        "trace_states": [
+          "validate",
+          "retrieve",
+          "verify",
+          "challenge",
+          "recheck",
+          "reverify",
+          "conclude"
+        ],
+        "model_inference_performed": false
+      },
+      {
+        "case": "wrong_unit",
+        "expected": "incomplete",
+        "observed": "incomplete",
+        "classification_matched": true,
+        "report_status": "partial",
+        "evidence_count": 5,
+        "citation_ids_resolve": true,
+        "publication_cutoff_met": true,
+        "source_modes": [
+          "cached_sec"
+        ],
+        "trace_states": [
+          "validate",
+          "retrieve",
+          "verify",
+          "challenge",
+          "recheck",
+          "reverify",
+          "conclude"
+        ],
+        "model_inference_performed": false
+      },
+      {
+        "case": "unsupported_causal",
+        "expected": "unresolved",
+        "observed": "unresolved",
+        "classification_matched": true,
+        "report_status": "partial",
+        "evidence_count": 5,
+        "citation_ids_resolve": true,
+        "publication_cutoff_met": true,
+        "source_modes": [
+          "cached_sec"
+        ],
+        "trace_states": [
+          "validate",
+          "retrieve",
+          "verify",
+          "challenge",
+          "recheck",
+          "reverify",
+          "conclude"
+        ],
+        "model_inference_performed": false
+      },
+      {
+        "case": "before_publication",
+        "expected": "incomplete",
+        "observed": "incomplete",
+        "classification_matched": true,
+        "report_status": "blocked",
+        "evidence_count": 0,
+        "citation_ids_resolve": true,
+        "publication_cutoff_met": true,
+        "source_modes": [],
+        "trace_states": [
+          "validate",
+          "retrieve",
+          "verify",
+          "challenge",
+          "recheck",
+          "reverify",
+          "conclude"
+        ],
+        "model_inference_performed": false
+      },
+      {
+        "case": "wrong_margin",
+        "expected": "contradicted",
+        "observed": "contradicted",
+        "classification_matched": true,
+        "report_status": "partial",
+        "evidence_count": 5,
+        "citation_ids_resolve": true,
+        "publication_cutoff_met": true,
+        "source_modes": [
+          "cached_sec"
+        ],
+        "trace_states": [
+          "validate",
+          "retrieve",
+          "verify",
+          "challenge",
+          "recheck",
+          "reverify",
+          "conclude"
+        ],
+        "model_inference_performed": false
+      }
+    ]
+  },
+  "live_http_investigations": [
+    {
+      "case": "isrg_supported_zetaris",
+      "expected": "supported",
+      "observed": "supported",
+      "run_id": "2fab8ddd-1623-4145-a8d5-695c57cab457",
+      "report_digest": "4d52ac72f47fe66b1747aa9b2c0f94e35a8d0ff093b39ac533ed86275447f0e9",
+      "elapsed_ms": 3052,
+      "status": "partial",
+      "scope": {
+        "as_of": "2026-10-25",
+        "company": {
+          "cik": "0001035267",
+          "name": "Intuitive Surgical, Inc.",
+          "ticker": "ISRG"
+        },
+        "evidence_backend": "zetaris",
+        "fiscal_year": 2026,
+        "period": "Q2"
+      },
+      "evidence_count": 3,
+      "source_modes": [
+        "live_zetaris"
+      ],
+      "trace_states": [
+        "validate",
+        "retrieve",
+        "recall",
+        "verify",
+        "challenge",
+        "conclude"
+      ],
+      "memory_recall": [
+        {
+          "count": 0,
+          "elapsed_ms": 2994,
+          "ok": true,
+          "state": "recall",
+          "step": 3,
+          "tool": "hmem_recall"
+        }
+      ],
+      "source_citations": [
+        {
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "evidence_id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "published_at": "2026-07-21",
+          "source_mode": "live_zetaris",
+          "source_sha256": null,
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+        },
+        {
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "evidence_id": "ISRG-eps-2026-04-01-2026-06-30",
+          "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "published_at": "2026-07-21",
+          "source_mode": "live_zetaris",
+          "source_sha256": null,
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+        },
+        {
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "evidence_id": "ISRG-netincome-2026-04-01-2026-06-30",
+          "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "published_at": "2026-07-21",
+          "source_mode": "live_zetaris",
+          "source_sha256": null,
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+        }
+      ],
+      "calculations": [
+        {
+          "actual_decimal": "2.29",
+          "difference_decimal": "0.00",
+          "evidence_ids": [
+            "ISRG-eps-2026-04-01-2026-06-30"
+          ],
+          "expected_decimal": "2.29",
+          "precision": "Decimal arithmetic on legacy float representations; original source precision is unavailable",
+          "tolerance_decimal": "0",
+          "tool": "compare_value",
+          "unit": "USD/shares"
+        }
+      ],
+      "execution_mode": "incomplete_no_live_model",
+      "model_inference_performed": false,
+      "saved_readback_equal": true,
+      "review": {
+        "status": "required",
+        "version": 0,
+        "history": []
+      }
+    },
+    {
+      "case": "isrg_contradicted_recheck",
+      "expected": "contradicted",
+      "observed": "contradicted",
+      "run_id": "350d4036-b9ec-4549-aad0-1a2903fe7b7e",
+      "report_digest": "c0047188bb286843f58776b6535abb129131f2b9886920077786db5f48eab7d8",
+      "elapsed_ms": 5211,
+      "status": "partial",
+      "scope": {
+        "as_of": "2026-10-25",
+        "company": {
+          "cik": "0001035267",
+          "name": "INTUITIVE SURGICAL INC",
+          "ticker": "ISRG"
+        },
+        "evidence_backend": "zetaris",
+        "fiscal_year": 2026,
+        "period": "Q2"
+      },
+      "evidence_count": 8,
+      "source_modes": [
+        "live_sec",
+        "live_zetaris"
+      ],
+      "trace_states": [
+        "validate",
+        "retrieve",
+        "recall",
+        "verify",
+        "challenge",
+        "recheck",
+        "reverify",
+        "conclude"
+      ],
+      "memory_recall": [
+        {
+          "count": 0,
+          "elapsed_ms": 3282,
+          "ok": true,
+          "state": "recall",
+          "step": 3,
+          "tool": "hmem_recall"
+        }
+      ],
+      "source_citations": [
+        {
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "evidence_id": "ISRG-revenue-2026-04-01-2026-06-30",
+          "locator": "Companyconcept RevenueFromContractWithCustomerExcludingAssessedTax; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "published_at": "2026-07-21",
+          "source_mode": "live_zetaris",
+          "source_sha256": null,
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+        },
+        {
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "evidence_id": "ISRG-eps-2026-04-01-2026-06-30",
+          "locator": "Companyconcept EarningsPerShareDiluted; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "published_at": "2026-07-21",
+          "source_mode": "live_zetaris",
+          "source_sha256": null,
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+        },
+        {
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "evidence_id": "ISRG-netincome-2026-04-01-2026-06-30",
+          "locator": "Companyconcept NetIncomeLoss; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "published_at": "2026-07-21",
+          "source_mode": "live_zetaris",
+          "source_sha256": null,
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm"
+        },
+        {
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "evidence_id": "RevenueFromContractWithCustomerExcludingAssessedTax-2026-04-01-2026-06-30",
+          "locator": "Companyfacts us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax/USD; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "published_at": "2026-07-21",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html"
+        },
+        {
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "evidence_id": "NetIncomeLoss-2026-04-01-2026-06-30",
+          "locator": "Companyfacts us-gaap/NetIncomeLoss/USD; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "published_at": "2026-07-21",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html"
+        },
+        {
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "evidence_id": "EarningsPerShareDiluted-2026-04-01-2026-06-30",
+          "locator": "Companyfacts us-gaap/EarningsPerShareDiluted/USD/shares; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "published_at": "2026-07-21",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html"
+        },
+        {
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "evidence_id": "OperatingIncomeLoss-2026-04-01-2026-06-30",
+          "locator": "Companyfacts us-gaap/OperatingIncomeLoss/USD; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "published_at": "2026-07-21",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html"
+        },
+        {
+          "document": "SEC 10-Q 0001035267-26-000058",
+          "evidence_id": "GrossProfit-2026-04-01-2026-06-30",
+          "locator": "Companyfacts us-gaap/GrossProfit/USD; accession=0001035267-26-000058; start=2026-04-01; end=2026-06-30",
+          "published_at": "2026-07-21",
+          "source_mode": "live_sec",
+          "source_sha256": "3419d6820891488e2d57eb100dd14e3a3cd21f7eae1564b8307540b2c91f5953",
+          "url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/0001035267-26-000058-index.html"
+        }
+      ],
+      "calculations": [
+        {
+          "actual_decimal": "2.29",
+          "difference_decimal": "-7.70",
+          "evidence_ids": [
+            "ISRG-eps-2026-04-01-2026-06-30",
+            "EarningsPerShareDiluted-2026-04-01-2026-06-30"
+          ],
+          "expected_decimal": "9.99",
+          "precision": "Decimal arithmetic on legacy float representations; original source precision is unavailable",
+          "tolerance_decimal": "0",
+          "tool": "compare_value",
+          "unit": "USD/shares"
+        }
+      ],
+      "execution_mode": "incomplete_no_live_model",
+      "model_inference_performed": false,
+      "saved_readback_equal": true,
+      "review": {
+        "status": "required",
+        "version": 0,
+        "history": []
+      }
+    },
+    {
+      "case": "isrg_before_publication",
+      "expected": "incomplete",
+      "observed": "incomplete",
+      "run_id": "743ccfed-8612-4493-ae45-755cff564a55",
+      "report_digest": "381f2c67f6ad4ff92c2db8b3bf5b0e6c016fcb7d046c4de95c080294d08ed0a7",
+      "elapsed_ms": 4596,
+      "status": "blocked",
+      "scope": {
+        "as_of": "2026-07-20",
+        "company": {
+          "cik": "0001035267",
+          "name": "INTUITIVE SURGICAL INC",
+          "ticker": "ISRG"
+        },
+        "evidence_backend": "zetaris",
+        "fiscal_year": 2026,
+        "period": "Q2"
+      },
+      "evidence_count": 0,
+      "source_modes": [],
+      "trace_states": [
+        "validate",
+        "retrieve",
+        "verify",
+        "challenge",
+        "recheck",
+        "reverify",
+        "conclude"
+      ],
+      "memory_recall": [],
+      "source_citations": [],
+      "calculations": [],
+      "execution_mode": "incomplete_no_live_model",
+      "model_inference_performed": false,
+      "saved_readback_equal": true,
+      "review": {
+        "status": "required",
+        "version": 0,
+        "history": []
+      }
+    },
+    {
+      "case": "msft_reusable_sec",
+      "expected": "supported",
+      "observed": "supported",
+      "run_id": "5b63cdd0-6ffa-42ff-b568-c2ba01af6c55",
+      "report_digest": "08e0da54a1eeaffee72a3737435e4de4faa2c1f657dca416e03c8921d33678f7",
+      "elapsed_ms": 1945,
+      "status": "partial",
+      "scope": {
+        "as_of": "2026-10-25",
+        "company": {
+          "cik": "0000789019",
+          "name": "MICROSOFT CORP",
+          "ticker": "MSFT"
+        },
+        "evidence_backend": "sec",
+        "fiscal_year": 2026,
+        "period": "Q3"
+      },
+      "evidence_count": 5,
+      "source_modes": [
+        "live_sec"
+      ],
+      "trace_states": [
+        "validate",
+        "retrieve",
+        "recall",
+        "verify",
+        "challenge",
+        "conclude"
+      ],
+      "memory_recall": [
+        {
+          "count": 0,
+          "elapsed_ms": 1912,
+          "ok": true,
+          "state": "recall",
+          "step": 3,
+          "tool": "hmem_recall"
+        }
+      ],
+      "source_citations": [
+        {
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "evidence_id": "RevenueFromContractWithCustomerExcludingAssessedTax-2026-01-01-2026-03-31",
+          "locator": "Companyfacts us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax/USD; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "published_at": "2026-04-29",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html"
+        },
+        {
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "evidence_id": "NetIncomeLoss-2026-01-01-2026-03-31",
+          "locator": "Companyfacts us-gaap/NetIncomeLoss/USD; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "published_at": "2026-04-29",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html"
+        },
+        {
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "evidence_id": "EarningsPerShareDiluted-2026-01-01-2026-03-31",
+          "locator": "Companyfacts us-gaap/EarningsPerShareDiluted/USD/shares; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "published_at": "2026-04-29",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html"
+        },
+        {
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "evidence_id": "OperatingIncomeLoss-2026-01-01-2026-03-31",
+          "locator": "Companyfacts us-gaap/OperatingIncomeLoss/USD; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "published_at": "2026-04-29",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html"
+        },
+        {
+          "document": "SEC 10-Q 0001193125-26-191507",
+          "evidence_id": "GrossProfit-2026-01-01-2026-03-31",
+          "locator": "Companyfacts us-gaap/GrossProfit/USD; accession=0001193125-26-191507; start=2026-01-01; end=2026-03-31",
+          "published_at": "2026-04-29",
+          "source_mode": "live_sec",
+          "source_sha256": "dd0308149a8e96497989ed7c690b5a49a00bef9ceafbb24638bda41e8ae938dd",
+          "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/0001193125-26-191507-index.html"
+        }
+      ],
+      "calculations": [
+        {
+          "actual_decimal": "4.27",
+          "difference_decimal": "0.00",
+          "evidence_ids": [
+            "EarningsPerShareDiluted-2026-01-01-2026-03-31"
+          ],
+          "expected_decimal": "4.27",
+          "precision": "Decimal arithmetic on legacy float representations; original source precision is unavailable",
+          "tolerance_decimal": "0",
+          "tool": "compare_value",
+          "unit": "USD/shares"
+        }
+      ],
+      "execution_mode": "incomplete_no_live_model",
+      "model_inference_performed": false,
+      "saved_readback_equal": true,
+      "review": {
+        "status": "required",
+        "version": 0,
+        "history": []
+      }
+    }
+  ],
+  "live_review_restart_readback": {
+    "run_id": "e0095184-ba46-430a-be8a-caa1f630dd2b",
+    "report_digest": "6aea38608d92a37fc57c83fbe271deb1bbd0c559467bce3898dbfa0aa50a0054",
+    "status": "rejected",
+    "version": 1,
+    "history": [
+      {
+        "version": 1,
+        "decision": "rejected",
+        "comment": "QA persistence test by Codex; not a human financial sign-off.",
+        "reviewer": "local-human",
+        "reviewed_at": "2026-10-25T16:00:16.407623+00:00"
+      }
+    ],
+    "report_human_review_status": "required",
+    "attribution": "Director performed browser rejection with an explicit automated-QA note, stopped the owned API process and started a new process, then reloaded the saved run in the browser. Independent reviewer subsequently GET-read the same ID from that fresh API process. This proves durable review storage, not human financial approval.",
+    "live_conflict_checks": [
+      {
+        "case": "stale_version",
+        "http_status": 409
+      },
+      {
+        "case": "cross_report_digest",
+        "http_status": 409
+      }
+    ],
+    "decision_unchanged_after_conflicts": true
+  },
+  "compatibility_findings": [
+    {
+      "case": "valid_decimal_representation",
+      "input_expected_value_decimal": "+2.29",
+      "actual_server_value": "2.29",
+      "actual_server_classification": "supported",
+      "saved_run_id": "15a20a87-0a30-42a3-a85c-9afd77fcbc33",
+      "client_error": "The saved investigation does not match the submitted analyst assertion.",
+      "status": "repaired_and_independently_retested",
+      "scope": "Actual frontend helper through Vite/API; no fabricated data or model call.",
+      "repair": "Exact bounded decimal coefficient/exponent identity comparison without Number rounding; server canonical spelling no longer causes false substitution failure.",
+      "actual_live_retest": {
+        "run_id": "70c5266f-18e0-4184-8ce3-c7344e06c8d5",
+        "submitted_value": "+2.29",
+        "saved_value": "2.29",
+        "classification": "supported",
+        "report_digest": "ba3b0111b778233c025b24a2c2dc7c21f36553a9bd9c93858c066a9ca20a2c0f",
+        "saved_get_digest_matched": true,
+        "source_modes": [
+          "live_zetaris"
+        ],
+        "model_inference_performed": false
+      }
+    }
+  ]
+}

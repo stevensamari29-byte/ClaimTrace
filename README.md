@@ -1,11 +1,11 @@
 # ClaimTrace
 Help financial analysts check the accuracy, context, and supporting evidence behind corporate earnings claims before using them in research.
 
-Foundation: React/Vite → FastAPI → attributed financial evidence. The separate standalone investigation controller adds deterministic claim checks, challenge/recheck and genuine H-MEM reviewed memory. It is an **incomplete agent implementation**: live model extraction, reasoning and generation remain unavailable. Every result requires human review. See [standalone controller usage](docs/investigation-controller.md); the existing one-page frontend is preserved.
+Application on the run/review integration branch: React/Vite → FastAPI → existing investigation controller → attributed financial evidence, challenge/recheck, H-MEM recall and durable local report review. The standalone controller remains reusable without the frontend. It is an **incomplete agent implementation**: live model extraction, reasoning and generation remain unavailable. Every result requires human review. See [standalone controller usage](docs/investigation-controller.md); the existing one-page frontend is preserved.
 
 Use the existing private repository: `https://github.com/stevensamari29-byte/ClaimTrace.git`. Python 3.11+ and Node 22.12+ are sufficient; the verified workstation uses Python 3.14 and Node 24. No Docker, new cloud services or model credentials are required to run this slice.
 
-The verified foundation is merged into `main` through [PR #5](https://github.com/stevensamari29-byte/ClaimTrace/pull/5). Teammates with access to this private repository can clone and run it using the commands below. Live sponsor access requires separate authorized private configuration; credentials are not bundled in the clone.
+The browser run/review integration is a separate reviewed branch/PR until explicitly merged; `main` does not automatically contain it. The verified foundation is merged into `main` through [PR #5](https://github.com/stevensamari29-byte/ClaimTrace/pull/5). Teammates with access to this private repository can clone and run it using the commands below. Live sponsor access requires separate authorized private configuration; credentials are not bundled in the clone.
 
 ```powershell
 git clone --branch main https://github.com/stevensamari29-byte/ClaimTrace.git
@@ -23,7 +23,7 @@ npm ci
 npm run dev
 ```
 
-Open `http://127.0.0.1:5173/` and select **Trace financial evidence**. On macOS/Linux use `.venv/bin/python` in place of `.venv\Scripts\python.exe`. Vite forwards `/api` to the local backend; secrets stay server-side. These are local development servers, not a deployment.
+Open `http://127.0.0.1:5173/` and select **Start investigation** with an explicit analyst assertion. On this integration branch the browser invokes the real controller; this does not imply model inference. Saved investigation links restore the original report and review after refresh or backend restart. On macOS/Linux use `.venv/bin/python` in place of `.venv\Scripts\python.exe`. Vite forwards `/api` to the local backend; secrets stay server-side. These are local development servers, not a deployment.
 
 ```powershell
 # Repository root
@@ -36,7 +36,7 @@ The default ISRG Q2 2026 response uses an **authentic cached SEC snapshot**, ret
 
 Primary sources: [SEC 10-Q filed July 21, 2026](https://www.sec.gov/Archives/edgar/data/1035267/000103526726000058/isrg-20260630.htm), [original earnings release published July 16, 2026](https://isrg.gcs-web.com/news-releases/news-release-details/intuitive-announces-second-quarter-earnings-6). Quarterly and six-month values remain distinct. The initial API uses the 10-Q's publication date, conservatively excluding its facts before July 21 even though the issuer released some figures earlier. The issuer release was independently retrieved and checked, not represented as a completed issuer ingestion pipeline.
 
-`shared/request.schema.json` and `shared/response.schema.json` define the machine-validatable contract; `shared/example.*.json` provide sanitized development examples. `POST /api/investigations` accepts company identifiers, fiscal year, period, cutoff and evidence backend. `GET /api/health` explicitly reports inference disabled. See [backend details](backend/README.md) for retrieval limits and current coverage.
+`shared/request.schema.json` and `shared/response.schema.json` define the machine-validatable contract; `shared/example.*.json` provide sanitized development examples. `POST /api/investigations` accepts company identifiers, fiscal year, period, cutoff and evidence backend. `GET /api/health` explicitly reports inference disabled. The integration branch adds create/read/review routes documented in [the run/review interface](docs/frontend-integration.md); the legacy evidence endpoint remains compatible. See [backend details](backend/README.md) for retrieval limits and current coverage.
 
 Configuration names are documented in [.env.example](.env.example). Set environment variables in the backend process or an approved local launcher. `SEC_CONTACT_EMAIL` is also read from Git-ignored `.env.local`, with the process environment taking precedence. The backend constructs `ClaimTrace Hackathon Team <approved email>`; missing, placeholder and GitHub noreply contacts fail before network access. The existing Zetaris configuration can be referenced using `ZETARIS_CONFIG_PATH` outside this repository; do not copy it or commit private endpoints, keys or personal configuration. No cloud writes run on startup or investigation requests.
 
@@ -69,3 +69,13 @@ Sponsor integration status:
 | Cursor | Existing installation preserved | No ClaimTrace human development contribution claimed | Eligible teammate makes a meaningful product edit; retain attribution, actual diff, test and explanation |
 
 Four assigned team issues: [Data & Backend](https://github.com/stevensamari29-byte/ClaimTrace/issues/1), [AI Agent & Reasoning](https://github.com/stevensamari29-byte/ClaimTrace/issues/2), [Frontend & UX](https://github.com/stevensamari29-byte/ClaimTrace/issues/3), [QA, Research & Submission](https://github.com/stevensamari29-byte/ClaimTrace/issues/4). Their confirmed owners and remaining responsibilities are recorded in the issues and AGENTS.md. Preserve separate branches and reviewed PRs; coordinate shared backend routes before editing. Current evidence, limitations and approvals are in [work/foundation.md](work/foundation.md).
+
+## Current integration branch and local review
+
+To reproduce the new workflow before its approved merge, check out `codex/run-review-integration` in the existing clone, then use the same environment and startup commands above. No additional package, cloud dataset or service is required. Do not switch a shared checkout while another contributor is editing; use a separate checkout if needed.
+
+An editable ISRG Q2 EPS assertion is a starting input, not an extracted issuer quotation or predefined result. The backend validates explicit dates, metric, unit, basis and Decimal strings, calls the accepted controller, and persists its actual report. Canonical issuer identity comes from the reader. Scope changes clear the earlier assertion. Findings verify structured financial inputs; automatic text interpretation remains unavailable.
+
+Reports and append-only review history are stored in Git-ignored `.local/investigations.sqlite3`. Approve/reject sends the exact report digest and current review revision; a fresh GET confirms saved state. Stale or cross-report decisions fail with 409 and are not automatically retried. Review does not certify financial accuracy or approve an H-MEM correction. The reviewer label is server-derived local development metadata, not shared-user authentication. Keep these servers bound to `127.0.0.1`; public deployment is not provided.
+
+Use [the truthful demo sequence](docs/demo-readiness.md), [independent integration QA](work/run-review-qa.md), [finite financial evaluation](work/financial-evaluation.json) and [current sponsor-access status](docs/sponsor-path-status.md). No live model reasoning or completed Nemotron/Nightshift integration is claimed.

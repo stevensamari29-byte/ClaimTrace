@@ -2,8 +2,10 @@ from fastapi import FastAPI, HTTPException
 from .models import InvestigationRequest, InvestigationResponse, Calculation
 from .sources import SourceError, sec_evidence
 from .zetaris import zetaris_evidence
+from .run_api import router as run_router
 
 app = FastAPI(title='ClaimTrace', version='0.1.0')
+app.include_router(run_router)
 
 
 @app.get('/api/health')
