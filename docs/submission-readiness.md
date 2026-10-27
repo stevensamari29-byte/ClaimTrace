@@ -1,6 +1,24 @@
 # Final submission readiness — October 26, 2026
 
-## Current Phase A checkpoint — October 27
+## Final acceptance update — October 27
+
+This update supersedes earlier startup/auth/private/roster preparation blockers retained below. Nightshift1.2.7 authenticated hosted NVIDIA Lightning READY and native proposal are verified, uncached, with requested/served/routed identity matching. The ONE financial attempt stopped at host `proposal_rejected` before registering claims or retrieving financial evidence: zero calculations/conclusion, human review required, no retry. No successful model-directed financial briefing is claimed. See work/nightshift-live.json and work/nightshift-investigation.json. The narrow exact-cloud-pin/receipt adapter passed176tests+66subtests; independent136tests+66subtests plus37adversarial checks; defaultAPI24tests and frontend47/build passed. Previous full563+81 regression remains the unchanged baseline.
+
+The repository is public by independently verified unauthenticated access. HackOS existingBlackellenceTrack02 roster is verifiedsoloAmari after explicit owner authorization; approved media uploads and prepared project/sponsor disclosures are saved as draft, zero submitted. Final receipt-based approximately3:20video and six-slide deck correct the material new Nightshift outcome. Public release PR/merge and final Submit require exact owner approval; no deployment or second competition work is performed. Cursor optional/no observed use claimed. No credential value is included in source, receipts or media; originals preserved privately.
+
+
+## Earlier final execution checkpoint — before Runtime authentication
+
+All PRs #7–#13 are merged on **main0a6f6fb**. Application/code/media baseline is preserved; previously passing563backend+81subtests, focused60backend/HMEM/security,47frontend and productionbuild are not rerun for documentation-only changes. Prior live3Zetaris/SEC5fact/trace/review acceptance remains unchanged. Nightshift1.2.7 now runs; independent official status/discovery exit0/oktrue. Startup blocker is resolved. Authenticated ClaimTrace model discovery/inference and accepted financial workflow are still pending the separate private Runtime-token configuration; routepreview is not inference. See latest activation checkpoint.
+
+**Secure the submission with honest disclosures even if provider acceptance remains partial.** The existing authenticated HackOS submission hub is `https://hackathon.genai.works/submissions`; one Track02 draft under registeredteamBlackellence exists, with zero submitted entries. Director saved a1932-character factual description and existing repository URL as draft only; video/deck fields remain unfilled. Registered roster is AmariStevens+DanielHerrera, despite effectively one active human being reported; owner must confirm/reconcile it before final submission. No membership, final submission, permission or publication action is inferred.
+
+Actual form: Description150–2000characters; requiredVideoYouTube/Vimeo/DriveURL ORfileupload; requiredGithubSolutionURL; optionalPitchDeckURL ORfileupload. File inputs declare `video/*` and `.pdf,.pptx,.ppt`; this is frontend acceptance metadata, not proof a backend upload succeeded. No forcedMP4 conversion is justified; test actual approved WebMupload. Existing repo is private; official rule6.3 requires source/README but does not establish a public-visibility mandate. Owner must approve appropriate judge access or visibility. Current publicrules5.1 makesCursoroptional; claim no unobserved use and do not block submission on it. Current registeredroster/draft facts override earlier speculative empty/no-draft notes.
+
+The main release video/deck contain stale runtime-unreachable/unmerged statements, so corrected versions are being prepared from actual captures with originals preserved under ignored revision folders. Do not upload the old assets unchanged. The corrected deck still clearly distinguishes runningRuntime from unverified application inference. No new architecture or optional feature is added. Owner full media/nativeviewer review, approved uploads/access, final roster and final Submit approval remain required. The portal announcement confirms23:45UTC/7:45PMEastern; retain that earlier cutoff despite publicpage23:59UTC text.
+
+
+## Earlier Phase A checkpoint — before live inference
 
 **Integrated application verified; mandatory Nightshift provider requirement still unmet.** This current checkpoint supersedes historical open-PR, main-behind and post-merge-test statements retained below. PRs #7–#12 are merged. Current main is `303fd76ec5942454045c41b9655f8398581fe942`, and a fresh clone with repository access now includes the demonstrated controller/run/review workflow. Production/tests/data/media match the independently tested release; only README/readiness changed in the merge aftermath. Main is private, not automatically judge-accessible.
 
@@ -105,3 +123,13 @@ The saved WebM opens and decodes in Chromium at 1280×720 without a media error;
 2. Approve the ordered PR integrations, then verify the resulting main and reproducible startup. Private credentials remain separately provisioned; a clone never grants sponsor access.
 3. Approve judge repository access and actual media uploads; finish content/playback/format and final roster/disclosure review. Replace the draft AI-provider segment only with genuine successful execution.
 4. Fill the real HackOS repository/video/slides fields, inspect their accessibility from a judge-appropriate session, and submit only after explicit approval. No new product feature or architecture change is required for this handoff.
+
+
+## Final saved HackOS assets and verification
+
+- Video: [Final approximately3:20 demonstration](https://iframe.mediadelivery.net/embed/778121/9d5b6998-aaa6-4f9a-8b2a-47e598f3e4dd). HackOS explicitly accepts WebM; final upload succeeded, public player shows03:19 and playback was started. Anonymous HTTP retrieval returns200 without owner cookies/Authorization. Local final media blocks end at199.469seconds; narration199.549seconds.
+- Presentation: [Final six-slide PPTX](https://hackathon-server.genai.works/api/v1/cdn/proxy/hackathon/9776f327b1b14b6ea8d8a45a24ad2578.pptx). Anonymous download returns200 and exactly matches the local38,980-byte SHA256-verified deck.
+- Repository: [ClaimTrace public source](https://github.com/stevensamari29-byte/ClaimTrace). Unauthenticated GitHub API confirmedprivatefalse; activation release branch/PR must be reviewed/merged before main represents the final adapter.
+- Existing draft: [HackOS Submission Hub](https://hackathon.genai.works/submissions), Blackellence Track02, soloAmari. Description1931/2000 and sponsor explanation2965/4000 are saved. Video/deck link values persisted; final readback still showsDraft/0submitted. No separate entry created.
+
+Nightshift genuine inference is verified; complete AI financial investigation remainsunmet becausehost rejected its firstproposal before evidence retrieval. This limitation is in the description, sponsor explanation, video, slides and retained raw outcome. Final owner audiovisual review and exact release-merge/Submit approvals remain required. No live application deployment is claimed.

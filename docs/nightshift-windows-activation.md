@@ -1,8 +1,24 @@
 # Nightshift Windows activation evidence — October 25, 2026
 
+## Final acceptance update — October 27
+
+This update supersedes earlier startup/auth/private/roster preparation blockers retained below. Nightshift1.2.7 authenticated hosted NVIDIA Lightning READY and native proposal are verified, uncached, with requested/served/routed identity matching. The ONE financial attempt stopped at host `proposal_rejected` before registering claims or retrieving financial evidence: zero calculations/conclusion, human review required, no retry. No successful model-directed financial briefing is claimed. See work/nightshift-live.json and work/nightshift-investigation.json. The narrow exact-cloud-pin/receipt adapter passed176tests+66subtests; independent136tests+66subtests plus37adversarial checks; defaultAPI24tests and frontend47/build passed. Previous full563+81 regression remains the unchanged baseline.
+
+The repository is public by independently verified unauthenticated access. HackOS existingBlackellenceTrack02 roster is verifiedsoloAmari after explicit owner authorization; approved media uploads and prepared project/sponsor disclosures are saved as draft, zero submitted. Final receipt-based approximately3:20video and six-slide deck correct the material new Nightshift outcome. Public release PR/merge and final Submit require exact owner approval; no deployment or second competition work is performed. Cursor optional/no observed use claimed. No credential value is included in source, receipts or media; originals preserved privately.
+
+
+## Earlier runtime-only checkpoint — October 27 (superseded)
+
+The owner manually started the installed official Runtime. Director then executed documented `status --json --timeout 2000` and `discover --json --timeout 2000` once each: both exit0/oktrue; status reports engine_reachabletrue/version1.2.7. Previous E_UNREACHABLE/startup-procedure blocker is resolved and lower dated notes are historical. Preserve these running processes. No model download, restart or settings bypass was initiated by Codex.
+
+Owner reports a cloud-only route preview with zero allocatable local memory and NVIDIA candidates. That remains routing metadata, not authenticated inference. Authenticated ClaimTrace `/v1/models` has not yet been reached: the local `NIGHTSHIFT_RUNTIME_TOKEN` field was empty at the first safe configuration check, so the request stopped before networking. `NVIDIA_API_KEY` and Nightshift's Runtime API key are distinct. Owner is privately configuring Setup > Runtime (Quick Connect) into ignored .env.local and confirming NVIDIA under Setup > Providers. No key is requested in chat or included in receipts.
+
+Shipped1.2.7 source supports discovered concrete NVIDIA cloud pins, native OpenAI tool calls, and requested/routed/winning-route response metadata. Existing ClaimTrace model validation currently accepts only meterless routing modes; never invent a meterless-prefixed NVIDIA ID. After successful short cloud inference, use only the smallest reviewed adapter change if required. Do not use auto/local/race fallback or override privacy/app-mode policy. Preserve cache labels and exact requested/served identities; no successful model-directed briefing is established yet.
+
+
 Independent native inspection by `nightshift_activation`, continuing PR #11 on `codex/live-nemotron`. No Nightshift installation, model download, inference, key-store modification, service startup or Git mutation was performed by this inspection. Direct NVIDIA hosted inference is a separate integration and does not establish Nightshift usage.
 
-## Actual local observations
+## Historical local observations — October 25
 
 | Check | Observed result |
 | --- | --- |
@@ -89,3 +105,9 @@ No existing Nightshift/daemon/local-model process or loopback 8088 listener was 
 Native independent reviewer `/root/nightshift_final_supported` made one bounded pass over the official Windows page, CLI, product README, editions and hotspot contract. The current [Windows page](https://meterless.ai/windows.html) still names version 1.2.7, requires a dedicated GPU and describes missing fleet models downloading automatically. General local/cloud selection is documented, but no supported no-local-model first-launch procedure for this integrated-GPU machine was established. Some repository edition documentation still labels 1.2.1; it does not establish a new 1.2.7 safe-start control. The [CLI](https://meterless.ai/cli.html) excludes provider keys/settings; humans enter cloud keys in the official app.
 
 No CLI readiness retry, GUI launch, configuration/key access, download, inference, support message or hardware bypass occurred. Last actual status remains the prior E_UNREACHABLE. This is an unresolved supported-startup procedure, not proof cloud routing can never work. Exact dependency remains Meterless-confirmed Windows 1.2.7 cloud-only boot instructions with downloads/prefetch/autoload disabled on Iris Xe/8 GB, or an already-authorized compatible Runtime host. Only then should the owner privately configure NVIDIA and the application test real discovery/native tools/one complete investigation. Stop troubleshooting here to protect the submission deadline.
+
+## Reproduce through the preserved application interface
+
+Keep the existing authorized Runtime running. Configure the real Runtime token privately in the calling process; never put it in command arguments or Git. The CLI intentionally does not import arbitrary `.env.local` fields. Set process `NIGHTSHIFT_INFERENCE_ENABLED=true`, `NIGHTSHIFT_BASE_URL=http://127.0.0.1:8088`, `NIGHTSHIFT_MODEL_ID=nvidia/nemotron-3.5-lightning-30b-a3b`, and privately set `NIGHTSHIFT_RUNTIME_TOKEN` through the approved local launcher/environment. Retain existing external `ZETARIS_CONFIG_PATH` and `CLAIMTRACE_ZETARIS_TABLE`; no cloud CREATE statements are needed.
+
+The existing opt-in command is `.venv/Scripts/python.exe -m backend.investigation.model_run shared/example.nvidia.request.json --disclosures backend/data/isrg-q2-2026-disclosure.json --live`. It uses the same restricted dispatcher, canonical claim/evidence gate and shared budget. Model behavior can differ across calls; this release does not promise a successful briefing. Do not repeat calls merely to replace the recorded failed attempt. The trusted provider exposes separately validated copied `provider_receipts` for operator provenance; these do not change host financial classifications, conservative general-purpose report flags, or required human review. The browser/default API remains deterministic and does not enable inference.

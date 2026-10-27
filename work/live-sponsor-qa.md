@@ -148,3 +148,44 @@ The final copied/inlined NVIDIA schemas project primitive `const` to identical s
 Independent targeted tests verify primitive literal acceptance/rejection (required fields, types, extra authority and approval unchanged), no mutation of canonical schemas/context, actual known-ID/length constraints, duplicate/missing/unknown citation host rejection, and valid reordered citations calculating a 20.0% synthetic margin under the original verifier. The actual model call was not made by QA.
 
 `.venv/Scripts/python.exe -m pytest backend/tests/test_nvidia_acceptance.py backend/tests/test_nvidia_provider.py backend/tests/test_nvidia_spans.py -q`: exit 0, **212 tests**, 10.29 seconds: **102 independent cases** plus 110 implementation cases. This is the latest affected-code regression after the narrow projection. The full stable baseline remains **551 tests + 81 subtests** before this projection, with **47 frontend tests** and **24-module production build** passed; these counts must not be summed as distinct tests or described as a newer full run. No new blocking implementation finding remains before Root's one bounded actual compatibility case. Final actual outcome inspection remains pending below.
+
+
+# Independent Nightshift cloud-pin code acceptance
+
+Reviewer: /root/final_main_qa, October27,2026. Reviewed actual three-provider-file diff and new backend/tests/test_nightshift_cloud_pin.py on the existing shared final release branch. No production/test/Git/configuration/credential/service edits. Only this ignored QA record written. No real Runtime/NVIDIA requests or inference performed. Local loopback protocol fixtures and synthetic in-process mocks are labelled tests, not sponsor proof.
+
+## Scope and result
+
+No blocking finding for the lead's ONE separately authorized bounded actual financial attempt. This is narrow code/protocol acceptance, not certification that a real investigation succeeded or sponsor requirements are complete. Actual server/provider receipts, canonical dispatcher outcome and remaining semantic/human review limits still govern live claims.
+
+Changed production paths: backend/providers/meterless_client.py, structured.py, structured_worker.py. Existing controller/model-contract gate/source readers/H-MEM/browser remain unchanged. The exact new concrete cloud pin is only nvidia/nemotron-3.5-lightning-30b-a3b; unknown NVIDIA pins are rejected. Existing meterless/* routing remains accepted without pretending route names identify underlying models.
+
+## Actual independent tests
+
+`.venv/Scripts/python.exe -m pytest backend/tests/test_nightshift_cloud_pin.py backend/tests/test_meterless_client.py backend/tests/test_structured_provider.py backend/tests/test_provider_acceptance.py backend/tests/test_nvidia_provider.py -q`
+
+**Exit0,136tests +66subtests passed in19.99seconds.** This independently covers new exact cloud metadata/native envelope, existing Meterless behavior, fixed worker deadlines/drippingbody termination, disabledgate/noautonetwork, directNVIDIA identity/protocol compatibility and safe provenance copies. No broad563testrepeat.
+
+A separate Python stdin assertion script ran37 additional independent adversarial checks, exit0:
+
+-24nonstring/unknown/mismatched values across response/requested/provider/routedmodel fields reject with no knownfixturetoken leakage.
+-6cached/noncanonical from_cache values reject (true,zero,one,null,string,falsearray); only exactFalse accepted.
+-5unknown/nonstring winningroute model values reject.
+-1forged childworker receipt with knownRuntimefixturetoken embedded in syntactically plausible responseID rejects independently at parent; provider_receipts remains empty.
+-1synthetic mockedPopen check ensures worker secrets arrive only on stdin, NVIDIA_API_KEY and NIGHTSHIFT_RUNTIME_TOKEN removed from childenv, unrelated syntheticenv value preserved, absolutepositive remainingtimeout retained and secret absent commandarguments. This test uses a fully synthetic cleared temporary processenv, reads no real.env/config/key and spawns no child/network.
+
+## Review of trust boundaries
+
+Receipt projection independently requires actualpayload responsemodel,requestedmodel,providermodel,routedmodel AND winning_route.model all exactlymatch the allowlistedLightning pin; winning_route.provider must benvidia and from_cache must exactFalse. Schema marker fixed. ReceiptID/decisionID/responseID formats bounded; usage restricted nonnegative integer fields, booleans/floats/text/negative/oversize reject. Only fixed public projection retained; rawdiagnostics/reasoning/requires_review dropped. KnownRuntime token cannot survive projectedID or copiedparent receipt. Defensive provider_receipts copy prevents caller mutation.
+
+For this cloud pin only, existing tested helpers inline trusted schema definitions/project wireconstants; canonicalhost schemas/gates remain unchanged. Native decoder still requires exactlyone assistantfunctiontoolcall, finishreason tool_calls, empty/nullcontent, no refusal and strict finite duplicate-free JSON. Rejectednative response may retain validated transportreceipt only, with proposalNone/error; parent sanitizeserror/halts. This never becomes a financialsuccess. Runtime compute requires_review:false cannot override host human_review_status:required.
+
+Original Meterless path keeps raw proposal-string behavior; worker uses JSON envelope only for trusted parent's explicitlyselected exact cloud pin. DirectNVIDIA branch is unchanged and its independenttests pass. Optionalnew with_receipt type is strictbool. No unrestricted SQL/commands/URLs/toolnames/scope or approval effect added.
+
+Fixed subprocess bounds/absoluteparentdeadline/stdinsecrets/stderr suppression remain intact; child is killed on timeout. HTTP response size cap and parentoutput cap remain. New receipt list caps8successful observedreceipts and defensivecopy. Canonical dispatcher stillowns global8toolattempts/120seconds/10transitions/onerecheck and terminates provider/invalidproposal failures, with noautomaticretry. Do not calltrustedprovider repeatedly after a failed liveattempt to bypass that boundeddispatcher.
+
+Provider executionkind remains unverified_provider and no hostfinancialverdict/semantic/modelverification flag is promoted merely because a transportreceipt exists. The actual liveattempt must separately retain sanitized actualrequested/served identities, receipts, source/cutoff/canonicalchecks and honestterminalstatus. A cloudcompletion/provenance receipt is not an accepted complete model-directed financialbriefing.
+
+## Remaining limits
+
+No real cloud toolcall/financialinvestigation, externalprovider uptime, quota, authorizedaccountstatus, actualunderlyingweights or Runtime routing implementation was verified by these fixtures. No new localmodels/downloads/cloudwrites/apparchitecture changes. Root owns one actual authorized attempt and finalstage secret/index checks. No blockingcodefinding required repair; no repaircycle consumed.

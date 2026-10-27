@@ -1,15 +1,13 @@
-# Internal review assets — not a compliant completed entry
+# ClaimTrace submission assets
 
-Nightshift is required by the final organizer checklist and remains unconnected. These assets accurately disclose the gap; do not submit them as proof of a functioning Nightshift AI provider.
+These assets show the working deterministic application and genuine Nightshift/NVIDIA transport evidence. They do not claim a completed model-directed financial investigation: the one native financial proposal failed host validation before evidence retrieval.
 
-- `claimtrace-slides.pptx`: six editable slides with native text/tables.
-- `claimtrace-slides.pdf`: six-page rendered preview, assembled from actual slide images.
-- `claimtrace-review-demo.webm`: **3:01.18**, 1280×720, VP8/Opus. Eight edited actual UI-capture scenes with locally generated Windows computer narration. This is not real-time screen recording or live AI reasoning. It shows genuine deterministic reports, citations, traces and a labelled QA review-persistence test.
-- `video-receipt.json`: measured recording/PCM duration, codec, size and honest capture/provider disclosures.
-- `artifact-manifest.json`: delivered-file byte counts and SHA-256 values.
+- `claimtrace-review-demo.webm`: approximately **3:20**, 1280×720 VP8/Opus; nominal narration 199.549 seconds. Eight edited actual-capture scenes with local computer narration. The final scene is an explicitly labelled saved actual Nightshift receipt, not a replayed live run.
+- `claimtrace-slides.pptx`: six editable slides; `claimtrace-slides.pdf`: six-page image preview.
+- `video-receipt.json` and `artifact-manifest.json`: actual duration/codec/disclosure and byte/hash evidence.
 
-Independent checks found WebM audio/video tracks, 3,925 media blocks with the last timestamp at 181.109 seconds, matching 181.183-second narration timing. This container has no Duration metadata field; timing was verified from actual blocks and PCM. It has not received a complete human audiovisual playthrough, and the organizer's accepted upload format/link requirements must still be checked.
+Original assets are preserved in ignored local backups. The final deck was rendered/reimported/all-slide inspected; independent QA checks source accuracy and selected slides. Native PowerPoint/Google Slides compatibility is not universally asserted. The original streaming WebM lacks Duration metadata; actual timing is checked from media blocks/WAV and the HackOS player. HackOS explicitly accepts WebM, and the preceding approved revision uploaded and played successfully; final revision upload/readback must be verified before submission.
 
-The actual sample inputs/outputs are in README and `work/submission-samples.json`. A supported EPS assertion, contradicted assertion and publication-cutoff exclusion were produced by the real local HTTP application using the existing approved Zetaris view. They are not AI-generated financial conclusions. NVIDIA hosted partial-run evidence is in `work/nvidia-live.json`; no completed model briefing is claimed.
+Source-backed deterministic examples and traces remain in README and `work/submission-samples.json`. Actual Nightshift READY/native receipts and the failed financial attempt are in `work/nightshift-live.json` and `work/nightshift-investigation.json`. H-MEM uses the genuine engine with labelled hash embeddings/synthetic correction-test inputs. No accepted AI briefing or financial sign-off is claimed.
 
-Before final submission, resolve the mandatory Nightshift gate, perform genuine provider acceptance, update/re-record the AI segment, review all media, approve merges and judge access, and complete the organizer's final form. No visibility, deployment, upload or submission has been performed. The existing repository remains private.
+PRs #7–#13 are merged; the activation release needs exact reviewed merge approval. Repository public access and solo Amari roster are verified. Approved media uploads are in the existing HackOS Blackellence Track02 draft, which has zero submitted entries. Final disclosure/readback and explicit Submit approval remain required. No public application deployment is claimed.

@@ -1,18 +1,18 @@
 {
   "claimtrace-slides.pptx": {
-    "bytes": 38579,
-    "sha256": "6a72cbbaf5ddafb33330ddec32b5f42300baa78830d37b682e105a3bc58a3537"
+    "bytes": 38980,
+    "sha256": "4c79a0f1f823916e36111684e186516d191dcc2ec9fc01da9e3beb310fedda83"
   },
   "claimtrace-slides.pdf": {
-    "bytes": 852639,
-    "sha256": "908e88dd891e1ecf824e75824962b2135e7b15075be4d2c728176706dd47184e"
+    "bytes": 455375,
+    "sha256": "0b9e67a42453d154dd772102eadb4072407827b1494912cb87e2810d5f086126"
   },
   "claimtrace-review-demo.webm": {
-    "bytes": 4222765,
-    "sha256": "0f1e518af2e0682948895b14792016f152e9791d18f50a295fcc8cb9af70e66d"
+    "bytes": 4814257,
+    "sha256": "d7f29dad93bba2c6eea655d2b04c8985cc7d52c24c6dd69eb973b5c0b63c9967"
   },
   "video-receipt.json": {
-    "bytes": 586,
-    "sha256": "aa97c083ed4bd9c7a6ef207bacb264ef10ca4a4dfdb4116503aefb6d5107ca9c"
+    "bytes": 669,
+    "sha256": "4bb10612962187e144ee9605ddb67f1f35a01ea69839e5ac7a5cab2fb863c987"
   }
 }
