@@ -1,5 +1,11 @@
 # ClaimTrace foundation — 2026-10-23
 
+## Published recovery handoff — October 27
+
+Implementation/assets preserved and pushed as 165f3077bc41c76f686abb163223438ff68d8b55 on codex/live-nemotron. Separate PR #12 is open against codex/structured-inference; GitHub reports no conflicts. PRs #7–#12 remain unmerged, main84cc576 unchanged. Fresh fetched refs and read-only merge-tree simulations pass for every current dependency pair; PR7 main divergence is only the existing merge commit, not a conflicting feature. GitHub checks count is zero, so local independent test evidence must not be described as hosted CI. Safe sequence7→8→9→10→11→12 needs explicit owner approval, retarget/recheck after each integration.
+
+Recovery verified all three saved report classifications and trace fields, media manifest hashes and real WebM browser decoding at1280x720/noerror. Browser initially reports indefinite duration because the independently timed181.18second WebM lacks Duration metadata; organizer format/seek compatibility and full human playback remain unverified. The in-app PDF viewer is blank; existing deck rendering/reimport/all-slide inspection remains evidence, not a claimed native PowerPoint playthrough. docs/submission-readiness.md now includes exact artifact paths, PR order and missing judge-accessible video/slides/HackOS links. No new feature, inference, runtime experiment, merge, upload, permission change or submission performed. Temporary loopback artifact server is review-only and will be stopped. Secrets/configuration remain untouched.
+
 ## Recovery checkpoint — October 27
 
 Resumed the saved staged snapshot without changing production behavior or repeating the completed full regression. The complete staged-index secret test (`.venv/Scripts/python.exe -m pytest backend/tests/test_repository_secrets.py -q`) passed: 1 test, exit 0, 9.46 seconds. `git diff --cached --check` passed. All four delivered artifact hashes/byte counts match submission/artifact-manifest.json; expanded PPTX XML passed credential/private-path checks. Local .env.local/.local and external HQ credentials remain excluded. Final independent regression remains 563 backend tests + 81 subtests, 47 frontend tests and successful production build, as recorded below.
